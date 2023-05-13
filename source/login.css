@@ -21,3 +21,14 @@
     text-align: left;
     width: 20px;
 }
+
+.containerForm {
+    flex-direction: row;
+    width: 50vw;
+}
+
+.carousel-img{
+    width: 10vw;
+    height: 60vh;
+    margin-left: 20px;
+}

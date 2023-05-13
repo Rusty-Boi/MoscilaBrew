@@ -17,27 +17,53 @@
               </svg>
             Back</a>
         </div>
-        <div class="mx-auto bg warning">
-        <h1>Welcome to MoscilaBrew,<br>
-        Sign in Continue</h1>
-
-        <h4 id="test">Don't have an account? <a>create an account</a></h4>
-
-            <form class="d-flex loginForm">
-                <label id="label" for="email">Email</label><br>
-                <input type="email" id="email" name="Email"><br>
-                <label id="label" for="password">Password</label><br>
-                <input type="password" id="password" name="Password"><br>
-                
-            </form>
-            <br>
-
-            <a class="nav-link" href="#"><ins>Forgot Password?</ins></a><br>
-            <br>
+        <div class="containerForm d-flex">
+            <div class="slider">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="coffee-18.jpg" class="carousel-img d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="Coffee-wallpaper-hd-wallpapers-download.jpg" class="carousel-img d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="R.jpg" class="carousel-img d-block w-100" alt="...">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+            </div>
             
-            <button class="button" type="button">Login</button>
-            
+            <div class="mx-auto bg warning">
+                <h1>Welcome to MoscilaBrew,<br>
+                Sign in Continue</h1>
+        
+                <h4>Don't have an account? <a class="nav-link" href="register.html">create an account</a></h4>
+                    
+                    <form class="d-flex loginForm">
+                        <label id="label" for="email">Email</label><br>
+                        <input type="email" id="email" name="Email"><br>
+                        <label id="label" for="password">Password</label><br>
+                        <input type="password" id="password" name="Password"><br>
+                        
+                    </form>
+                    <br>
+        
+                    <a class="nav-link" href="register.html"><ins>Forgot Password?</ins></a>
+                    <br>
+                    <button onclick="login()" class="button" type="button">Login</button>
+                    
+            </div>
         </div>
+       
     </div>
     
 

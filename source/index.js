@@ -11,9 +11,13 @@ function search(){
 }
 
 function addToCart(){
-
+    
 }
 
 function checkout(){
-    
+
+}
+
+function login(){
+
 }
