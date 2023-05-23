@@ -22,11 +22,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-<<<<<<< Updated upstream
-Route::get('/profile', function () {
-    return view('profile');
-})->name('profile');
-=======
 Route::get('/catalog', function () {
     return view('catalog');
 });
@@ -42,4 +37,3 @@ Route::get('/aboutUs', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
->>>>>>> Stashed changes
