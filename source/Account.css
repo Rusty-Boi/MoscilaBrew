@@ -1,0 +1,13 @@
+.accountMenu{
+    width:80vw;
+    height: 100px;
+    margin-top: 30px;
+    background-color: bisque;
+    margin: auto;
+    align-items: center;
+}
+
+.button-title{
+    margin-top: auto;
+    align-items: center;
+}
