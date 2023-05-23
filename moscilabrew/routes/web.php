@@ -13,10 +13,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test', function () {
+    return view('test', ['name' => 'Hengki',
+                        'hobby' => ['mancing', 'bermusik']]);
+});
+
 Route::get('/', function () {
     return view('index');
 });
 
+<<<<<<< Updated upstream
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
+=======
+Route::get('/catalog', function () {
+    return view('catalog');
+});
+
+Route::get('/featured', function () {
+    return view('featured');
+});
+
+Route::get('/aboutUs', function () {
+    return view('aboutUs');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+>>>>>>> Stashed changes
