@@ -1,0 +1,8 @@
+.login_carousel img {
+    max-height: inherit; 
+    max-width: inherit; 
+    width: inherit; 
+    height: inherit; 
+    border-top-left-radius: 10%; 
+    border-bottom-right-radius: 10%
+}
