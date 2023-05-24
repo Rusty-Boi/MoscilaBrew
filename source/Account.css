@@ -5,12 +5,16 @@
     background-color: bisque;
     margin: auto;
     align-items: center;
+    justify-items: center;
 }
 
 .button-title{
-    align-items: center;
-    justify-content: center;
     width: 50vw;
+}
+
+.piTitle{
+    text-align: center;
+
 }
 
 .profileImage{
@@ -24,8 +28,8 @@
     padding-left: auto;
     flex-direction: row;
     justify-content: left;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 10vw;
+    margin-right: 10vw;
     margin-top: 80px;
 }
 
