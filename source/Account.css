@@ -1,0 +1,44 @@
+.accountMenu{
+    width:15vw;
+    height: 15vh;
+    margin-top: 30px;
+    background-color: bisque;
+    margin: auto;
+    align-items: center;
+}
+
+.button-title{
+    margin-top: auto;
+    align-items: center;
+}
+
+.profileheader{
+    
+}
+
+.profileImage{
+    align-self: center;
+    width: 200px;
+    height: 200px;
+}
+
+.profileContainer {
+    flex-direction: row;
+    justify-content: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 80px;
+}
+
+.profileInfo {
+    width: 300px;
+    flex-direction: column;
+}
+
+.h4 {
+    align-self: center;
+}
+
+.label {
+    align-self: center;
+}
