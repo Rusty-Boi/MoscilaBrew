@@ -8,12 +8,9 @@
 }
 
 .button-title{
-    margin-top: auto;
     align-items: center;
-}
-
-.profileheader{
-    
+    justify-content: center;
+    width: 50vw;
 }
 
 .profileImage{
@@ -23,6 +20,8 @@
 }
 
 .profileContainer {
+    /* padding-right: 40vw; */
+    padding-left: auto;
     flex-direction: row;
     justify-content: left;
     margin-left: 40px;
@@ -35,10 +34,6 @@
     flex-direction: column;
 }
 
-.h4 {
-    align-self: center;
-}
-
-.label {
+.headinfo{
     align-self: center;
 }
