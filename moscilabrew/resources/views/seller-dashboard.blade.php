@@ -52,40 +52,42 @@
     </nav>
     {{-- end of navbar --}}
 
-    <div class="d-flex flex-column flex-shrink-0 bg-light vh-80" style="width: 4.5rem;">
+    {{-- start of sidebar --}}
+    <div class="d-flex flex-column flex-shrink-0 bg-body-tertiary vh-80" style="width: 4.5rem;">
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
           <li class="nav-item">
-            <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
-                <img src={{asset('/img/home.png')}} >
-                {{-- <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#home"></use></svg> --}}
+            <a href="#" class="nav-link active py-3 border-bottom rounded-0" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+              <img src={{asset('/img/home.png')}} >          
             </a>
-        </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
-                <img src={{asset('/img/chat-conversation.png')}} >
-                {{-- <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#home"></use></svg> --}}
+          </li>
+          <li>
+            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Dashboard" data-bs-original-title="Dashboard">
+              <img src={{asset('/img/chat-conversation.png')}} >
             </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
-                <img src={{asset('/img/show-chart.png')}} >
-              {{-- <svg class="bi" width="24" height="24" role="img" aria-label="Dashboard"><use xlink:href="#speedometer2"></use></svg> --}}
+          </li>
+          <li>
+            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
+              <img src={{asset('/img/show-chart.png')}} >
             </a>
           </li>
         </ul>
-        <div class="dropend border-top">
-            <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none " id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src={{asset('/img/settings.png')}} alt="mdo" width="40" height="40" class="rounded-circle">
-            </a>
-            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-          </div>
+        <div class="dropdown border-top">
+          <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src={{asset('/img/settings.png')}} alt="mdo" width="40" height="40" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small shadow">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
       </div>
+    {{-- end of sidebar --}}
+
+
+
 @endsection
 
 @section('css')
