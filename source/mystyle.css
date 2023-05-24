@@ -3,7 +3,7 @@
 
 /* var */
 :root{
-    --krim:#EFC3A4;
+    --krim:rgb(239, 195, 164);
     --grey:#E2E2E2;
     --active : #4B1F0E;
     --Montserrat : 'Montserrat', sans-serif;
@@ -48,6 +48,16 @@
     font-weight: bold;
 }
 
+
+/* start of moscila dashboard */
+#moscila_dashboard .row .card {
+    background-color: rgba(239, 195, 164, .3);
+    border-radius: 2rem;
+}
+#seller_sidebar .active{
+    background-color: var(--active);
+}
+/* end of moscila dashboard */
 
 
 .bg-grey {
