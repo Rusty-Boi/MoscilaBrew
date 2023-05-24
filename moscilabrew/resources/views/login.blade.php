@@ -41,7 +41,7 @@
                     <div class="text-center">
                         <a href="#" class="text-black fw-bold"><small>Forgot Password?</small></a>
                         <br>
-                        <button type="submit" class="btn btn-primary mt-3 w-100">Sign In</button>
+                        <button id="submit-button" type="submit" class="btn bg-krim mt-3 w-100">Sign In</button>
                     </div>
                 </form>
             </div>
