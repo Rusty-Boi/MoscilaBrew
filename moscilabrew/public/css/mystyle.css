@@ -1,3 +1,9 @@
+/* var */
+:root{
+    --krim:#EFC3A4;
+}
+
+
 .login_carousel img {
     max-height: inherit; 
     max-width: inherit; 
@@ -5,4 +11,12 @@
     height: inherit; 
     border-top-left-radius: 10%; 
     border-bottom-right-radius: 10%
+}
+
+.bg-krim{
+    background-color: var(--krim);
+}
+
+#submit-button {
+    /* border-radius: 10%; */
 }
