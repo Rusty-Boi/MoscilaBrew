@@ -5,20 +5,20 @@
     <div class="container-fluid vh-100">
         <div class="row align-items-center">
             <div class="col" >
-                <div id="carouselExampleIndicators" class="carousel slide">
-                    <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <div id="login_carousel" class="carousel slide">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#login_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#login_carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#login_carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
-                      <div class="carousel-item active vh-100 login_carousel">
+                      <div class="carousel-item active vh-100 login_carousel_item">
                         <img src={{asset('/img/login-image.png')}} class="object-fit-cover py-2">
                       </div>
-                      <div class="carousel-item vh-100 login_carousel">
+                      <div class="carousel-item vh-100 login_carousel_item">
                         <img src={{asset('/img/login-image.png')}} class="object-fit-cover py-2">
                       </div>
-                      <div class="carousel-item vh-100 login_carousel">
+                      <div class="carousel-item vh-100 login_carousel_item">
                         <img src={{asset('/img/login-image.png')}} class="object-fit-cover py-2">
                       </div>
                     </div>
@@ -30,7 +30,7 @@
                     <p>Don't have an account? <span class="fw-bold">Create</span> an account.</p>
                 </div>
                 
-                <form class="mx-5">
+                <form id="login_form" class="mx-5">
                     <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label text-left">Email</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -41,7 +41,7 @@
                     <div class="text-center">
                         <a href="#" class="text-black fw-bold"><small>Forgot Password?</small></a>
                         <br>
-                        <button id="submit-button" type="submit" class="btn bg-krim mt-3 w-100">Sign In</button>
+                        <button id="submit-button" type="submit" class="btn bg-krim mt-3 w-100 rounded-3">Sign In</button>
                     </div>
                 </form>
             </div>
