@@ -1,0 +1,53 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* var */
+:root{
+    --krim:#EFC3A4;
+    --grey:#E2E2E2;
+    --active : #4B1F0E;
+    --Montserrat : 'Montserrat', sans-serif;
+    /* font-family:var(--Montserrat); */
+}
+
+
+.login_carousel_item img {
+    max-height: inherit; 
+    max-width: inherit; 
+    width: inherit; 
+    height: inherit; 
+    border-top-left-radius: 10%; 
+    border-bottom-right-radius: 10%
+}
+
+#login_carousel .carousel-indicators button {
+    height: 20px; 
+    width: 20px; 
+    border-radius: 50%;
+    background-color: var(--krim);
+}
+
+#login_carousel .carousel-indicators button.active {
+    background-color: var(--active);
+}
+
+#login_form #submit-button:hover {
+    background-color: var(--active);
+    color: var(--grey);
+}
+
+.bg-grey {
+    background-color: var(--grey);
+}
+
+.bg-krim{
+    background-color: var(--krim);
+}
+
+.vh-20 {
+    height: 20vh;
+}
+
+.vh-80 {
+    height: 80vh;
+}
