@@ -6,6 +6,7 @@
     margin: auto;
     align-items: center;
     justify-items: center;
+    border-radius: 5%;
 }
 
 .button-title{
@@ -14,7 +15,6 @@
 
 .piTitle{
     text-align: center;
-
 }
 
 .profileImage{
@@ -40,4 +40,16 @@
 
 .headinfo{
     align-self: center;
+}
+
+.prInformation {
+    flex-direction: column;
+    border: 1px solid black;
+    margin-top: 40px;
+}
+
+.infoItems {
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
