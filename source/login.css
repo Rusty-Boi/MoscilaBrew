@@ -25,10 +25,11 @@
 .containerForm {
     flex-direction: row;
     width: 50vw;
+    margin: auto;
+    gap: 30px;
 }
 
 .carousel-img{
     width: 10vw;
     height: 60vh;
-    margin-left: 20px;
 }
