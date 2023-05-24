@@ -41,3 +41,7 @@ Route::get('/profile', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/seller/dashboard', function () {
+    return view('seller-dashboard');
+});
