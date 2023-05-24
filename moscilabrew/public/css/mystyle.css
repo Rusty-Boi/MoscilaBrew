@@ -1,6 +1,7 @@
 /* var */
 :root{
     --krim:#EFC3A4;
+    --grey:#E2E2E2;
 }
 
 
@@ -13,10 +14,18 @@
     border-bottom-right-radius: 10%
 }
 
+.bg-grey {
+    background-color: var(--grey);
+}
+
 .bg-krim{
     background-color: var(--krim);
 }
 
-#submit-button {
-    /* border-radius: 10%; */
+.vh-20 {
+    height: 20vh;
+}
+
+.vh-80 {
+    height: 80vh;
 }
