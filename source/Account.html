@@ -52,7 +52,7 @@
       <!-- End of Nav Bar -->
 
       <!--image-->
-      <div class="profileContainer d-flex">
+      <div class="profileContainer d-flex justify-content-between">
         <div class="profileInfo d-flex">
           <div class="profileheader mx-auto bg warning">
             <h2>Your Account</h2>
@@ -60,10 +60,10 @@
           <!--css rounded image
         img{border-radius: 50%};-->
           <img class="profileImage" src="Profile pict.png" alt="Avatar">
-          
-          <h4>Your Name</h4>
-          <label id="label" for="email">email@gmail,com</label>
-
+          <div class="headinfo">
+            <h4>Your Name</h4>
+            <label id="label" for="email">email@gmail.com</label>
+          </div>
           <!--Account menu//block menurun-->
           <div class="accountMenu">
             
@@ -96,7 +96,10 @@
         </div>
         </div>
     <div class="button-title">
-        <h2>Personal Information</h2>
+        <h2 id="piTitle">Personal Information</h2>
+        <h4>Name</h4>
+        <br>
+        <h4>Test</h4>
     </div>
     </div>
 </body>

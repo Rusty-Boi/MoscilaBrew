@@ -5,15 +5,16 @@
     background-color: bisque;
     margin: auto;
     align-items: center;
+    justify-items: center;
 }
 
 .button-title{
-    margin-top: auto;
-    align-items: center;
+    width: 58vw;
 }
 
-.profileheader{
-    
+.piTitle{
+    text-align: center;
+
 }
 
 .profileImage{
@@ -23,10 +24,12 @@
 }
 
 .profileContainer {
+    /* padding-right: 40vw; */
+    padding-left: auto;
     flex-direction: row;
     justify-content: left;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 10vw;
+    margin-right: 10vw;
     margin-top: 80px;
 }
 
@@ -35,10 +38,6 @@
     flex-direction: column;
 }
 
-.h4 {
-    align-self: center;
-}
-
-.label {
+.headinfo{
     align-self: center;
 }
