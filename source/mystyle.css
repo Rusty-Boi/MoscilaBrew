@@ -10,6 +10,29 @@
     /* font-family:var(--Montserrat); */
 }
 
+a.btn_home_hover:hover {
+    color: var(--krim);
+}
+
+/* start of navbar */
+.navbar-nav .nav-link.active {
+    color: var(--active);
+    /* text-decoration: none !important; */
+}
+/* end of navbar */
+
+/* start of  login*/
+
+#background_img {
+    background-image: url('login-image.png'); 
+    background-size: cover; 
+    background-position: center; 
+    opacity: 0.5;
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+}
+
 #login_form input {
     background-color: #DDCFCF;
 }
@@ -47,7 +70,7 @@
 #login_form #submit-button {
     font-weight: bold;
 }
-
+/* end of login */
 
 /* start of moscila dashboard */
 #moscila_dashboard .row .card {

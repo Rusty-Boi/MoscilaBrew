@@ -12,8 +12,8 @@
   <body>
     <!-- content -->
     <div class="container-fluid vh-100">
-      <div class="row align-items-center">
-          <div class="col" >
+      <div class="row align-items-center h-100">
+          <div class="col d-none d-md-block" >
               <div id="login_carousel" class="carousel slide">
                   <div class="carousel-indicators ">
                     <button type="button" data-bs-target="#login_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -33,7 +33,9 @@
                   </div>
                 </div>
           </div>
-          <div class="col">
+          <div class="col h-100 d-flex flex-column justify-content-center position-relative p-0">
+              <div id="background_img"  class="d-md-none z-n1"></div>
+              <a class="h2 btn_home_hover text-decoration-none text-center position-absolute fw-bold" href="index.html" style="top: 1rem; left: 50%; transform: translateX(-50%);">MoscilaBrew</a>
               <div class="text-justify mx-5">
                   <h4 class="fw-bold">Welcome to MoscilaBrew,<br>Sign in to Continue.</h4>
                   <p>Don't have an account? <a class="fw-bold text-black" href="register.html">Create an account.</a></p>                    
