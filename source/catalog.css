@@ -16,8 +16,7 @@ body {
   }
   
   .container {
-    margin-top: 50px;
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .product {
@@ -57,23 +56,37 @@ body {
     margin-top: 10px;
   }
 
+  .productRow{
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+
   .catalogContainer {
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 20vw;
+    margin-right: 20vw;
     /* background-color: gray; */
     flex-direction: row;
-    
   }
   .Ctitle {
     text-align: left;
-    margin-left: 70px;
-    margin-top: 50px;
+    margin-left: 22vw;
+    margin-top: 70px;
     width: 30vw;
   }
 
   .categoryBox {
     flex-direction: column;
+    align-items: center;
     width: 25vw;
     margin-left: 50px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
   }
+
+.btn-dropdown {
+  width: 200px;
+}
+
+.dropdown {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
