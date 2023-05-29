@@ -5,7 +5,7 @@
 :root{
     --krim:rgb(239, 195, 164);
     --grey:#E2E2E2;
-    --brown : #4B1F0E;
+    --active : #4B1F0E;
     --Montserrat : 'Montserrat', sans-serif;
     /* font-family:var(--Montserrat); */
 }
@@ -16,7 +16,7 @@ a.btn_home_hover:hover {
 
 /* start of navbar */
 .navbar-nav .nav-link.active {
-    color: var(--brown);
+    color: var(--active);
     /* text-decoration: none !important; */
 }
 /* end of navbar */
@@ -59,11 +59,11 @@ a.btn_home_hover:hover {
 }
 
 #login_carousel .carousel-indicators button.active {
-    background-color: var(--brown);
+    background-color: var(--active);
 }
 
 #login_form #submit-button:hover {
-    background-color: var(--brown);
+    background-color: var(--active);
     color: var(--grey);
 }
 
@@ -78,66 +78,17 @@ a.btn_home_hover:hover {
     border-radius: 2rem;
 }
 #seller_sidebar .active{
-    background-color: var(--brown);
+    background-color: var(--active);
 }
 /* end of moscila dashboard */
 
-
-/* start of seller add-product */
-#seller_add_product input, select, button, textarea {
-    background-color: var(--grey) !important;
-}
-
-#seller_add_product input, select, button, textarea {
-    border: none !important;
-    color: black;
-}
-
-#seller_add_product p, label {
-    color: black;
-    font-weight: 500;
-}
-
-.add_product_process a.eclipse {
-    border-radius: 50%; 
-    height: 3.5rem; 
-    width: 3.5rem; 
-    background-color: #FFF5EC;
-    color: black !important;
-}
-
-.add_product_process a.eclipse:hover{
-    background-color: var(--krim) !important;
-}
-
-.add_product_process a.eclipse.active {
-    background-color: #BE7656 !important;
-    color: white !important;
-}
-
-.add_product_process p {
-    font-weight: 450;
-}
-
-
-    /* delivery process */
-    .delivery_option input {
-        background-color: whitesmoke ; 
-        padding: 0.6rem;
-    }
-
-/* end of seller add-product */
 
 .bg-grey {
     background-color: var(--grey);
 }
 
 .bg-krim{
-    background-color: var(--krim) !important;
-}
-
-.bg-brown{
-    background-color: var(--brown) !important;
+    background-color: var(--krim);
 }
 
 .vh-20 {
@@ -146,12 +97,4 @@ a.btn_home_hover:hover {
 
 .vh-80 {
     height: 80vh;
-}
-
-.min-vh-80 {
-    min-height: 80vh;
-}
-
-.w-10 {
-    width: 10%;
 }

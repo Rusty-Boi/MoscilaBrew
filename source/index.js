@@ -1,5 +1,5 @@
 function profileNav() {
-    location.replace("login.html")
+    location.replace("moscila Login Page.html")
 }
 
 function cartNav(){

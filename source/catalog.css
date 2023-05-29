@@ -11,6 +11,10 @@ body {
     text-align: center;
   }
   
+  h1 {
+    margin: 0;
+  }
+  
   .container {
     flex-direction: column;
   }
@@ -60,16 +64,12 @@ body {
   .catalogContainer {
     margin-left: 20vw;
     margin-right: 20vw;
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
     /* background-color: gray; */
     flex-direction: row;
   }
   .Ctitle {
     text-align: left;
-    margin-left: 20vw;
+    margin-left: 22vw;
     margin-top: 70px;
     width: 30vw;
   }
@@ -89,19 +89,4 @@ body {
 .dropdown {
   margin-top: 5px;
   margin-bottom: 5px;
-}
-.filterBar{
-  width: 200px;
-
-}
-
-.btn-toggle {
-  padding: .25rem .5rem;
-  font-weight: 600;
-  color: var(--bs-emphasis-color);
-  background-color: transparent;
-}
-
-.li{
-  list-style-type: none;
 }
