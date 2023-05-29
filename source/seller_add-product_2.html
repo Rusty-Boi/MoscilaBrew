@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Product | Seller</title>
+    <!-- default css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href='mystyle.css' type="text/css">
+  </head>
+  <body>
+    <!-- start of navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg bg-grey vh-20">
+      <div class="container-fluid">
+          <a class="navbar-brand fw-semibold" href="#">MoscilaBrew Partners</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+              aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo02">
+              <form class="d-flex flex-grow-1 justify-content-between" role="search">
+                  <div></div>
+                  <input class="form-control me-2 justify-content-evenly w-75 rounded-3" type="search"
+                      placeholder="Search" aria-label="Search">
+                  <button onclick="search()" class="btn" type="submit">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                          class="bi bi-search" viewBox="0 0 16 16">
+                          <path
+                              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                      </svg>
+                  </button>
+              </form>
+              <div>
+                  <button onclick="profileNav()" class="btn profile" type="button" id="userProfile">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black"
+                          class="bi bi-person" viewBox="0 0 16 16">
+                          <path
+                              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                      </svg>
+                  </button>
+                  <button onclick="cartNav()" class="btn" type="button" id="cart">
+                      <div class="dropdown border-top ">
+                          <a href="#" class="d-flex align-items-center justify-content-center px-0 p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+                          </a>
+                          <ul class="dropdown-menu text-small shadow dropdown-menu-end" aria-labelledby="dropdownUser3">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                          </ul>
+                        </div>
+                  </button>
+              </div>
+          </div>
+      </div>
+      </div>
+  </nav>
+  <!-- end of navbar -->
+
+  <div class="d-flex" style="margin-top: 20vh;">
+    <!-- start of sidebar -->
+    <div id="seller_sidebar" class="d-flex flex-column flex-shrink-0 bg-body-tertiary vh-80 position-fixed" style="width: 4.5rem;">
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+          <li class="nav-item">
+            <a href="#" class="nav-link py-3 border-bottom rounded-0" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+              <img src='home.png' width="40" height="40">          
+            </a>
+          </li>
+          <li>
+            <a href="seller-discuss.html" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Dashboard" data-bs-original-title="Dashboard">
+              <img src='chat-conversation.png' width="40" height="40">
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
+              <img src='show-chart.png' width="40" height="40">
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
+              <img src='add-beans.png' width="40" height="40">
+            </a>
+          </li>
+        </ul>
+        <div class="dropend border-top">
+          <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src='settings.png' alt="mdo" width="40" height="40" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small shadow">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    <!-- end of sidebar -->
+    <div class="d-flex flex-column container p-4" style="margin-left: 4.5rem;">
+      <div class="add_product_process d-flex justify-content-center align-items-center">
+        <div class="process_link d-flex flex-column justify-content-center align-items-center mx-5">
+          <a class="eclipse d-flex justify-content-center align-items-center position-relative" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="green_check bi bi-check-circle-fill position-absolute d-none" viewBox="0 0 16 16" style="right: 0; bottom: 0; background-color: white; border-radius: 50%; fill: green;">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+            <img class="process_line" src="line.png" style="position: absolute; z-index: -1; left: 0; opacity: 0.3;">
+          </a>
+          <p class="m-0">Add Product</p>
+        </div>
+        <div class="process_link d-flex flex-column justify-content-center align-items-center mx-5">
+          <a class="eclipse d-flex justify-content-center align-items-center position-relative" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
+              <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+              <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="green_check bi bi-check-circle-fill position-absolute d-none" viewBox="0 0 16 16" style="right: 0; bottom: 0; background-color: white; border-radius: 50%; fill: green;">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+            <img class="process_line" src="line.png" style="position: absolute; z-index: -1; left: 0; opacity: 0.3;">
+          </a>
+          <p class="m-0">Photos</p>
+        </div>
+        <div class="process_link d-flex flex-column justify-content-center align-items-center mx-5">
+          <a class="eclipse d-flex justify-content-center align-items-center position-relative" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+              <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="green_check bi bi-check-circle-fill position-absolute d-none" viewBox="0 0 16 16" style="right: 0; bottom: 0; background-color: white; border-radius: 50%; fill: green;">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+            <img class="process_line" src="line.png" style="position: absolute; z-index: -1; left: 0; opacity: 0.3;">
+          </a>
+          <p class="m-0">Delivery</p>
+        </div>
+        <div class="process_link d-flex flex-column justify-content-center align-items-center mx-5">
+          <a class="eclipse d-flex justify-content-center align-items-center position-relative" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16">
+              <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="green_check bi bi-check-circle-fill position-absolute d-none" viewBox="0 0 16 16" style="right: 0; bottom: 0; background-color: white; border-radius: 50%; fill: green;">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+          </a>
+          <p class="m-0">Complaints</p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Choose file</label>
+        <input type="file" class="form-control" name="" id="" placeholder="" aria-describedby="fileHelpId">
+        <div id="fileHelpId" class="form-text">Help text</div>
+      </div>
+
+      <!-- <form id="seller_add_product" class="row gx-3 mt-2">
+        <div class="col-md-7">
+          <p>Fill in the basic information about your item</p>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text"
+              class="form-control form-control-sm" name="title" id="title" aria-describedby="helpTitle" placeholder="Graphic card GIGABYTE GeForce RTX 3050">
+            <small id="helpTitle" class="form-text text-muted">0/60</small>
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select form-select-sm" name="category" id="category">
+              <option selected>Arabica</option>
+              <option value="">New Delhi</option>
+              <option value="">Istanbul</option>
+              <option value="">Jakarta</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control form-control-sm" name="description" id="description" rows="5" aria-describedby="helpDescription"></textarea>
+            <small id="helpDescription" class="form-text text-muted">0/1200</small>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="availability" class="form-label">Number of units available</label>
+            <input type="text" class="form-control form-control-sm" name="availability" id="availability" aria-describedby="helpAvailability" placeholder="availability">
+          </div>
+          <p>Dimensions (optional)</p>
+          <div class="mb-3 d-flex align-items-center ">
+            <label for="length" class="form-label m-0 flex-grow-1">Length [mm]</label>
+            <input type="text" class="form-control form-control-sm w-25" name="length" id="length" aria-describedby="helpLength" placeholder="">
+          </div>
+          <div class="mb-3 d-flex align-items-center ">
+            <label for="width" class="form-label m-0 flex-grow-1">Width [mm]</label>
+            <input type="text" class="form-control form-control-sm w-25" name="width" id="width" aria-describedby="helpWidth" placeholder="">
+          </div>
+          <div class="mb-3 d-flex align-items-center ">
+            <label for="height" class="form-label m-0 flex-grow-1">Height [mm]</label>
+            <input type="text" class="form-control form-control-sm w-25" name="height" id="height" aria-describedby="helpHeight" placeholder="">
+          </div>          
+          <div class="mb-3 d-flex align-items-center ">
+            <label for="price" class="form-label m-0 flex-grow-1">Price</label>
+            <input type="text" class="form-control form-control-sm w-50" name="price" id="price" aria-describedby="helpPrice" placeholder="">
+          </div>          
+        </div>
+        <div class="d-flex justify-content-center">
+          <button name="next" id="next" type="submit" class="btn" value="2">
+            Next
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+            </svg>
+          </button>
+        </div>
+      </form> -->
+    </div>
+  </div>
+
+  
+  <!-- default javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min"></script>
+
+  <!-- custom javascript -->
+  <script src="myscript.js"></script>
+  </body>
+</html>
