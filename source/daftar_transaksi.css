@@ -1,0 +1,18 @@
+.Ttitle {
+    text-align: left;
+    margin-left: 20vw;
+    margin-top: 70px;
+    width: 30vw;
+  }
+
+.container-search{
+    text-align: left;
+    margin-left: 20vw;
+    margin-top: 70px;
+    width: 30px;
+
+}
+
+.input-group-append {
+    cursor: pointer;
+  }
