@@ -1,0 +1,55 @@
+/* start of moscila dashboard */
+#moscila_dashboard .row .card {
+    background-color: rgba(239, 195, 164, .3);
+    border-radius: 2rem;
+}
+#seller_sidebar .active{
+    background-color: var(--brown);
+}
+/* end of moscila dashboard */
+
+
+/* start of seller add-product */
+#seller_add_product input, select, button, textarea {
+    background-color: var(--grey) !important;
+}
+
+#seller_add_product input, select, button, textarea {
+    border: none !important;
+    color: black;
+}
+
+#seller_add_product p, label {
+    color: black;
+    font-weight: 500;
+}
+
+.add_product_process a.eclipse {
+    border-radius: 50%; 
+    height: 3.5rem; 
+    width: 3.5rem; 
+    background-color: #FFF5EC;
+    color: black !important;
+}
+
+.add_product_process a.eclipse:hover{
+    background-color: var(--krim) !important;
+}
+
+.add_product_process a.eclipse.active {
+    background-color: #BE7656 !important;
+    color: white !important;
+}
+
+.add_product_process p {
+    font-weight: 450;
+}
+
+
+    /* delivery process */
+    .delivery_option input {
+        background-color: whitesmoke ; 
+        padding: 0.6rem;
+    }
+
+/* end of seller add-product */
