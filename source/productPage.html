@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--custom css-->
+    <link rel="stylesheet" href="productPage.css">
+</head>
+<body>
+  <!--start of navbar-->
+  <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand mr-20 fw-bold" href="index.html">MoscilaBrew</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-underline me-auto mb-2 mb-lg-0 m-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="catalog.html">Catalog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="featured.html">Featured</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutUs.html">About Us</a>
+            </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button onclick="search()" class="btn" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+          </button>
+        </form>
+        <ul class="navbar-nav me-right">
+          <li class="nav-item ms-2">
+            <a name="" id="" class="btn border-2" href="login.html" role="button" style="border-color: rgb(239, 195, 164);">Login</a>
+          </li>
+          <li class="nav-item ms-2">
+            <a name="" id="" class="btn bg-krim" href="register.html" role="button">Register</a>
+          </li>
+          <!-- <li class="nav-item">
+            <button onclick="profileNav()" class="btn profile" type="button" id="userProfile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-person" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+            </svg>
+          </button>
+          </li>
+          <li class="nav-item">
+            <button onclick="cartNav()" class="btn" type="button" id="cart">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+          </button>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!--title /w logo-->
+  <div class="titleVendor">
+    <img src="" alt="">
+    <h1>VendorName</h1>
+  </div>
+
+
+
+  <div class="=card">
+    <div class="row">
+      <div class="columnleft">
+        <div class="itemCard">
+          <img src="" alt="">
+          <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, consectetur.</p>
+          </div>
+        </div>
+        
+        <hr style="border:2px solid grey">
+
+        <div class="reviewcard">
+
+          <span class="heading">Review</span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <p>4.1 average based</p>
+          <hr style="border:2px solid grey">
+    
+          <div class="row">
+            <div class="side">
+              <div>5 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-5"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>150</div>
+            </div>
+            <div class="side">
+              <div>4 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-4"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>63</div>
+            </div>
+            <div class="side">
+              <div>3 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-3"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>15</div>
+            </div>
+            <div class="side">
+              <div>2 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-2"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>6</div>
+            </div>
+            <div class="side">
+              <div>1 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-1"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>20</div>
+            </div>
+          </div>
+    
+          <hr style="border:2px solid grey">
+    
+          <!--comment section-->
+          <div class="reviewcomment">
+    
+            <div class=""
+    
+          </div>
+    
+        </div>
+        
+      </div>
+
+      <div class="column right">
+        <div class="itemCard">
+          <div class="keranjangcard" style="color: black;">
+            <h9>Stock  :  55</h9><br>
+            <h9>Harga</h9>
+            <h4>Rp90.000</h4><br>
+            <!--increment bar-->
+            <button>+keranjang</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  
+
+</body>
+</html>
