@@ -35,7 +35,7 @@
 .cartList{
     padding: 20px 20px 20px 20px;
     width: 430px;
-    height: 350px;
+    max-height: 400px;
 }
 
 .cardDetail h6{
@@ -97,5 +97,33 @@
 }
 
 .container-total button:hover{
+    background-color: #bb9a81;
+}
+
+.product img{
+    width: 30px;
+    height: 60px;
+}
+
+.product h6{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cartList .beanImage{
+    width: 40px;
+    height: 40px;
+}
+
+.cartList .buyButton{
+    background-color: #EFC3A4;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 500;
+    margin-top: 20%;
+}
+
+.cartList .buyButton:hover{
     background-color: #bb9a81;
 }
