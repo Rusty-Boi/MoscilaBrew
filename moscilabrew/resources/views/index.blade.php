@@ -1,19 +1,23 @@
 @extends('layouts.master')
 @section('title', "MoscilaBrew")
 
+@section('navbar')
+  @include('layouts.header')
+@endsection
+
 @section('content')
     <!-- Carousel -->
-    <div class="slider">
+    <div class="slider nav-on pt-0">
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src={{asset('/img/coffee-18.jpg')}} class="d-block w-100" alt="...">
+          <div class="carousel-item active vh-90">
+            <img src={{asset('/img/coffee-18.jpg')}} class="d-block w-100" alt="..." style="background-position: center">
           </div>
-          <div class="carousel-item">
-            <img src={{asset('/img/Coffee-wallpaper-hd-wallpapers-download.jpg')}} class="d-block w-100" alt="...">
+          <div class="carousel-item vh-90">
+            <img src={{asset('/img/Coffee-wallpaper-hd-wallpapers-download.jpg')}} class="d-block w-100" alt="..." style="background-position: center">
           </div>
-          <div class="carousel-item">
-            <img src={{asset('/img/R.jpg')}} class="d-block w-100" alt="...">
+          <div class="carousel-item vh-90">
+            <img src={{asset('/img/R.jpg')}} class="d-block w-100" alt="..." style="background-position: center">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -79,6 +83,7 @@
 
 @section('css')
   <link rel="stylesheet" href={{asset('css/style.css')}} type="text/css">
+  <link rel="stylesheet" href={{asset('css/main.css')}} type="text/css">
 @endsection
 
 @section('js')

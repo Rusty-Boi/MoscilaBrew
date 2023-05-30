@@ -42,6 +42,29 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/register', function () {
+    return view('register');
+});
+
+// main fitur
+Route::get('/blend-coffee', function () {
+    return view('blend-coffee');
+});
+
+Route::get('/confirmation-buy', function () {
+    return view('confirmation-buy');
+});
+
+Route::get('/confirmation-buy-custom-blend', function () {
+    return view('confirmation-buy-custom-blend');
+});
+
+
+// seller
 Route::get('/seller/dashboard', function () {
-    return view('seller-dashboard');
+    return view('seller/dashboard');
+});
+
+Route::get('/seller/discuss', function () {
+    return view('seller/discuss');
 });

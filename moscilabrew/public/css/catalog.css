@@ -1,57 +1,107 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    margin: 0;
-  }
-  
-  .container {
-    margin-top: 100px;
-    flex-direction: row;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-  .product {
-    margin: auto;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border: 1px solid #ddd;
-  }
-  
-  .product img {
-    width: 150px;
-    height: 150px;
-    margin-right: 20px;
-  }
-  
-  .product-info {
-    flex: 1;
-  }
-  
-  .product-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .product-description {
-    margin-top: 10px;
-    color: #888;
-  }
-  
-  .product-price {
-    font-size: 18px;
-    color: #555;
-    margin-top: 10px;
-  }
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  flex-direction: column;
+}
+
+.product {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.product img {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-description {
+  margin-top: 10px;
+  color: #888;
+}
+
+.product-price {
+  font-size: 18px;
+  color: #555;
+  margin-top: 10px;
+}
+
+.productRow{
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.catalogContainer {
+  margin-left: 20vw;
+  margin-right: 20vw;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* background-color: gray; */
+  flex-direction: row;
+}
+.Ctitle {
+  text-align: left;
+  margin-left: 20vw;
+  margin-top: 70px;
+  width: 30vw;
+}
+
+.categoryBox {
+  flex-direction: column;
+  align-items: center;
+  width: 25vw;
+  margin-left: 50px;
+  /* border: 1px solid #000; */
+}
+
+.btn-dropdown {
+width: 200px;
+}
+
+.dropdown {
+margin-top: 5px;
+margin-bottom: 5px;
+}
+.filterBar{
+width: 200px;
+
+}
+
+.btn-toggle {
+padding: .25rem .5rem;
+font-weight: 600;
+color: var(--bs-emphasis-color);
+background-color: transparent;
+}
+
+.li{
+list-style-type: none;
+}

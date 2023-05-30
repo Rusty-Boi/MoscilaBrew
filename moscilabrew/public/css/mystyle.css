@@ -1,15 +1,22 @@
-/* google font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-/* var */
-:root{
-    --krim:#EFC3A4;
-    --grey:#E2E2E2;
-    --active : #4B1F0E;
-    --Montserrat : 'Montserrat', sans-serif;
-    /* font-family:var(--Montserrat); */
+#background_img {
+    background-image: url("../img/login-image.png");
+    background-size: cover; 
+    background-position: center; 
+    opacity: 0.5;
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
 }
 
+#login_form input {
+    background-color: #DDCFCF;
+}
+
+#login_form label {
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+}
 
 .login_carousel_item img {
     max-height: inherit; 
@@ -28,26 +35,14 @@
 }
 
 #login_carousel .carousel-indicators button.active {
-    background-color: var(--active);
+    background-color: var(--brown);
 }
 
 #login_form #submit-button:hover {
-    background-color: var(--active);
+    background-color: var(--brown);
     color: var(--grey);
 }
 
-.bg-grey {
-    background-color: var(--grey);
-}
-
-.bg-krim{
-    background-color: var(--krim);
-}
-
-.vh-20 {
-    height: 20vh;
-}
-
-.vh-80 {
-    height: 80vh;
+#login_form #submit-button {
+    font-weight: bold;
 }
