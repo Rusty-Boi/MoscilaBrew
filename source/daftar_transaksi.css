@@ -1,9 +1,9 @@
-.Ttitle {
+/* .Ttitle {
     text-align: left;
     margin-left: 20vw;
     margin-top: 70px;
     width: 30vw;
-  }
+  } */
 
 .container-search{
     text-align: left;
@@ -25,12 +25,12 @@
   'opsz' 40
 }
 
-.card {
+/* .card {
   text-align: left;
   margin-left: 20vw;
   margin-top: 20px;
   width: 30vw;
-}
+} */
 
 .date {
   font-size: 15px;
