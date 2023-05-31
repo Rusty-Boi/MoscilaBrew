@@ -4,12 +4,12 @@
   
   body {
     font-family: Arial;
-    max-width: 800px; /* Max width */
-    padding: 10px;
+    /* max-width: 800px; Max width */
+    /* padding: 10px; */
   }
 
   /*column*/
-  .column{
+  .col{
     float: left;
     padding: 10px;
   }
@@ -59,6 +59,10 @@
   }
   
   /* Clear floats after the columns */
+  .row{
+    justify-content: center;
+  }
+
   .row:after {
     content: "";
     display: table;
@@ -67,18 +71,20 @@
   
   /* The bar container */
   .bar-container {
-    width: 100%;
+    width: 60%;
     background-color: #f1f1f1;
     text-align: center;
     color: white;
+    margin-top: 5px;
+    max-height: 10px;
   }
   
   /* Individual bars */
   .bar-5 {width: 60%; height: 9px; background-color: #04AA6D;}
   .bar-4 {width: 30%; height: 9px; background-color: #2196F3;}
   .bar-3 {width: 10%; height: 9px; background-color: #00bcd4;}
-  .bar-2 {width: 4%; height: 9px; background-color: #ff9800;}
-  .bar-1 {width: 15%; height: 9px; background-color: #f44336;}
+  .bar-2 {width: 6%; height: 9px; background-color: #ff9800;}
+  .bar-1 {width: 4%; height: 9px; background-color: #f44336;}
   
   /* Responsive layout - make the columns stack on top of each other instead of next to each other */
   @media (max-width: 400px) {
@@ -88,4 +94,38 @@
     .right {
       display: none;
     }
+  }
+
+  .product-container {
+    margin: 15vh 80px 50px 80px;
+  }
+
+  .container-flex {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .product-detail{
+    max-width: 60vw;
+    padding: 80px 80px 80px 80px;
+  }
+  
+  .rating {
+    flex-direction: column;
+    max-width: 40%;
+  }
+
+  .rating-row{
+    flex-direction: row;
+    gap: 10px;
+    justify-content: left;
+  }
+
+  .addTOcart{
+    width: 400px;
+    max-height: 50vh;
+  }
+
+  .itemCard{
+    padding: 40px;
   }
