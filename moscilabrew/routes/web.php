@@ -47,8 +47,8 @@ Route::get('/register', function () {
 });
 
 // main fitur
-Route::get('/blend-coffee', function () {
-    return view('blend-coffee');
+Route::get('/coffee-blend', function () {
+    return view('coffee-blend');
 });
 
 Route::get('/confirmation-buy', function () {

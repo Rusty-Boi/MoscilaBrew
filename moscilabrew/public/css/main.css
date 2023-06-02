@@ -277,3 +277,32 @@ body.catalogPage section.categories .product-card .product-desc .col {
 body.catalogPage section.categories .product-card .product-desc .col * {
     margin-bottom: 0.3rem;
 }
+
+
+/* 
+=== blend coffee page ===
+*/
+
+body.coffeeBlendPage .section-title {
+    padding-bottom: 1rem;
+}
+
+body.coffeeBlendPage section.coffee-blend,
+body.coffeeBlendPage section.coffee-blend .coffee-blend-form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body.coffeeBlendPage section.coffee-blend .coffee-blend-form {
+    background-color: var(--secondary);
+    padding: 1rem;
+    width: 80%;
+}
+
+body.coffeeBlendPage section.coffee-blend .coffee-blend-form h2{
+    /* margin: 1rem 0 0 0; */
+    font-weight: bold;
+}

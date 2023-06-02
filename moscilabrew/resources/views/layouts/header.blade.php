@@ -16,7 +16,7 @@
               <div class="border-bottom"></div>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ (request()->is('featured')) ? 'active' : '' }}" href="/featured">Blend</a>
+              <a class="nav-link {{ (request()->is('coffee-blend')) ? 'active' : '' }}" href="/coffee-blend">Blend</a>
               <div class="border-bottom"></div>
             </li>
             <li class="nav-item">
