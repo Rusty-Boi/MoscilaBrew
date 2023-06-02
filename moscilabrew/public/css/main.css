@@ -1,13 +1,55 @@
 /* google font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Overpass:wght@300&display=swap');
 
 :root {
+    --primary: var(--krim);
+    --secondary: var(--grey);
+    --font-primary: var(--Montserrat);
+    --font-secondary: var(--Overpass);
+
     --desertSand: rgba(239, 195, 164);
     --krim:rgb(239, 195, 164);
     --grey:#E2E2E2;
     --brown : #4B1F0E;
+    /* #BE7656
+    794028 */
     --Montserrat : 'Montserrat', sans-serif;
+    --Overpass : 'Overpass', sans-serif;
+    
 }
+
+/* body */
+body {
+    font-family: var(--font-primary)
+}
+
+/* GENERAL */
+/*   Navbar */
+
+nav a.navbar-brand {
+    font-family: var(--Overpass);
+}
+
+nav a.nav-link {
+    border-bottom: none !important;
+}
+
+li.nav-item a.nav-link + div.border-bottom {
+    display: none;
+}
+
+li.nav-item:hover a.nav-link + div.border-bottom, li.nav-item a.nav-link.active + div.border-bottom{
+    display: block;
+    border-bottom: 2px solid var(--brown) !important;
+    width: 50%;
+    margin: auto;
+}
+
+.navbar-nav {
+    --bs-nav-link-hover-color: var(--brown);
+}
+
+
 
 /* ukuran medium */
 @media (min-width: 768px) {
@@ -32,6 +74,10 @@
 }
 
 /* color */
+.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
 .bg-desertSand {
     background-color: var(--desertSand);
 }
@@ -76,4 +122,8 @@
     margin-top: 10vh;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
 }
