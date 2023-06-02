@@ -11,7 +11,7 @@
     @yield('css')
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
   </head>
-  <body>
+  <body class=@yield('bodyClass')>
     @yield('navbar')
 
     {{-- content --}}

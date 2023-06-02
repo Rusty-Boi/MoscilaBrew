@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar fixed-top navbar-expand-lg bg-secondary vh-10">
+  <nav class="navbar fixed-top navbar-expand-lg bg-secondary vh-md-10">
     <div class="container-fluid">
       <a class="navbar-brand mr-20 fw-bold" href="/">MoscilaBrew</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
               <div class="border-bottom"></div>
             </li>
         </ul>
-        <ul class="navbar-nav me-right">
+        <ul class="navbar-nav me-right flex-row">
           <li class="nav-item">
             <form class="d-flex" role="search">
               {{-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> --}}

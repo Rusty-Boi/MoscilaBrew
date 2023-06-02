@@ -5,99 +5,95 @@
   @include('layouts.header')
 @endsection
 
-@section('content')
+@section('bodyClass', "homePage")
 
+@section('content')
     <!-- Carousel Section - Home Page -->
-    <section id="carousel" class="carousel">
-      <div class="slider nav-on pt-0">
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active vh-90">
-              <img src={{asset('/img/coffee-18.jpg')}} class="d-block w-100" alt="..." style="background-position: center">
-            </div>
-            <div class="carousel-item vh-90">
-              <img src={{asset('/img/Coffee-wallpaper-hd-wallpapers-download.jpg')}} class="d-block w-100" alt="..." style="background-position: center">
-            </div>
-            <div class="carousel-item vh-90">
-              <img src={{asset('/img/R.jpg')}} class="d-block w-100" alt="..." style="background-position: center">
-            </div>
+    <section class="carousel nav-on" id="carousel">
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{asset('/img/coffee-18.jpg')}}" class="d-block object-fit-cover w-100 vh-md-90" alt="...">
+            <h1 class="carousel-caption">
+              Arabica Coffee
+            </h1>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <div class="carousel-item">
+            <img src="{{asset('/img/coffee-18.jpg')}}" class="d-block object-fit-cover w-100 vh-md-90" alt="...">
+            <h1 class="carousel-caption">
+              Arabica Coffee
+            </h1>
+          </div>
+          <div class="carousel-item">
+            <img src="{{asset('/img/coffee-18.jpg')}}" class="d-block object-fit-cover w-100 vh-md-90" alt="...">
+            <h1 class="carousel-caption">
+              Arabica Coffee
+            </h1>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    <!-- End of Carousel -->
+
+    {{-- services section - Home Page --}}
+    <section class="services" id="services">
+      <div class="container-fluid">
+        <div class="row justify-content-center align-items-stretch g-2 g-md-0">
+          <div class="service col-11 col-md-3">
+            <img src="{{asset('img/freshly-roasted.png')}}" alt="">
+            <h4 class="title">Freshly Roasted</h4>
+            <p class="subtitle">Roasted 12 hours before shipment</p>
+          </div>
+          <div class="service col-11 col-md-3">
+            <img src="{{asset('img/freshly-roasted.png')}}" alt="">
+            <h4 class="title">Express Shipment</h4>
+            <p class="subtitle">Express shipment for JABODETABEK</p>
+          </div>
+          <div class="service col-11 col-md-3">
+            <img src="{{asset('img/freshly-roasted.png')}}" alt="">
+            <h4 class="title">Quality Storage</h4>
+            <p class="subtitle">High quality storage system</p>
+          </div>
         </div>
       </div>
     </section>
-      
-    <!-- End of Carousel -->
+    {{-- end services section - Home Page --}}
 
-    <div class="container-info">
-      <div class="info d-flex justify-content-between">
-        <div class="freshlyRoaster">
-          <h3>Freshly Roasted</h3>
-          <h5>Roasted 12 hours before shipment</h5>
+    <section id="featured" class="featured">
+      <div class="container-fluid">
+        <div class="section-title">
+          <h2>Featured Coffee Catalog</h2>
         </div>
-        <div class="expressShipment">
-          <h3>Express Shipment</h3>
-          <h5>Express shipment for JABODETABEK</h5>
-        </div>
-        <div class="qualityStorage">
-          <h3>Quality Storage</h3>
-          <h5>High quality storage system</h5>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="container text-center">
-        <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3 bg-krim">
-          <div class="col">
-            <div class="card">
-              <img class="w-20 align-self-center" src="{{asset('img/freshly-roasted.png')}}" class="card-img-top" alt="..." style="background-color:  !important">
-              <div class="card-body">
-                <h5 class="card-title">Freshly Roasted</h5>
-                <p class="card-text">Roasted 12 hours before shipment</p>
-              </div>
-            </div>
+        <div class="row justify-content-center align-items-center g-2 g-md-3">
+          <div class="col-11 col-md-3">
+            <a class="featured-content" href="#">
+              <img src="{{asset('img/aceh-gayo.png')}}" alt="">
+              <span class="caption">Robusta</span>
+            </a>
+          </div>
+          <div class="col-11 col-md-3">
+            <a class="featured-content" href="#">
+              <img src="{{asset('img/aceh-gayo.png')}}" alt="">
+              <span class="caption">Robusta</span>
+            </a>
+          </div>
+          <div class="col-11 col-md-3">
+            <a class="featured-content" href="#">
+              <img src="{{asset('img/aceh-gayo.png')}}" alt="">
+              <span class="caption">Robusta</span>
+            </a>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="featured">
-      <h1>Featured</h1>
-      <div class="featured-content d-flex justify-content-between">
-        <div class="card text-bg-dark">
-          <img src="..." class="card-img" alt="...">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small>Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card text-bg-dark">
-          <img src="..." class="card-img" alt="...">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small>Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card text-bg-dark">
-          <img src="..." class="card-img" alt="...">
-          <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small>Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
 @endsection
 
 @section('css')

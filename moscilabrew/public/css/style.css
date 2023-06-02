@@ -15,17 +15,3 @@
     text-align: center;
     flex-direction: row;
 }
-
-.featured {
-    margin: auto;
-    margin-top: 20px;
-    align-items: center;
-    text-align: center;
-}
-
-.featured-content{
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-top: 30px;
-    
-}
