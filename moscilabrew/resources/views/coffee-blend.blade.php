@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', "...")
+@section('title', "Coffee Blend | MoscilaBrew")
 
 @section('navbar')
     @include('layouts.header')
