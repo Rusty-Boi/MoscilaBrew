@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="cart.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand mr-20 fw-bold" href="index.html">MoscilaBrew</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-underline me-auto mb-2 mb-lg-0 m-auto">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="catalog.html">Catalog</a>
+                <a class="nav-link" href="featured.html">Featured</a>
+                <a class="nav-link" href="aboutUs.html">About Us</a>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button onclick="search()" class="btn" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </button>
+            </form>
+            <ul class="navbar-nav me-right">
+              
+              <button onclick="profileNav()" class="btn profile" type="button" id="userProfile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-person" viewBox="0 0 16 16">
+                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                </svg>
+              </button>
+              <button onclick="cartNav()" class="btn" type="button" id="cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+              </button>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <div class="cartBody">
+      <h1>Keranjang</h1><br>
+      <div class="contentFlex d-flex">
+        <div class="cartDetail d-flex">
+
+          <div class="card cartCard">
+            <div class="card-body">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  <h5><img src="/Assets/beanIcon.png">Vendor Name</h5>
+                </label>
+              </div>
+              <div class="card-content d-flex">
+                <div class="cardImage">
+                  <img src="/Assets/arabica.png" alt="" id="coffee">
+                </div>
+                <div class="cardDetail">
+                  <h6>Kopi Gayo</h6>
+                  <h7>2 x Rp 90.000 = Rp 180.000</h7>
+                  <div class="quantityFlex d-flex">
+                    <button class="button quantity" id="subtract">-</button>
+                    <h7>2</h7>
+                    <button class="button quantity" id="subtract">+</button>
+                    <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 21C3 21.5523 3.44772 22 4 22H16C16.5523 22 17 21.5523 17 21V9H3V21ZM15 3H17C18.6569 3 20 4.34315 20 6V8C20 8.55229 19.5523 9 19 9V21C19 22.6569 17.6569 24 16 24H4C2.34315 24 1 22.6569 1 21V9C0.447715 9 0 8.55229 0 8V6C0 4.34315 1.34315 3 3 3H5C5 1.34315 6.34315 0 8 0H12C13.6569 0 15 1.34315 15 3ZM5 13C5 12.4477 5.44772 12 6 12C6.55228 12 7 12.4477 7 13V18C7 18.5523 6.55228 19 6 19C5.44772 19 5 18.5523 5 18V13ZM9 13C9 12.4477 9.44771 12 10 12C10.5523 12 11 12.4477 11 13V18C11 18.5523 10.5523 19 10 19C9.44771 19 9 18.5523 9 18V13ZM13 13C13 12.4477 13.4477 12 14 12C14.5523 12 15 12.4477 15 13V18C15 18.5523 14.5523 19 14 19C13.4477 19 13 18.5523 13 18V13ZM8 2C7.44772 2 7 2.44772 7 3H13C13 2.44772 12.5523 2 12 2H8ZM2 7H18V6C18 5.44772 17.5523 5 17 5H3C2.44772 5 2 5.44772 2 6V7Z" fill="#612C04"/>
+                      </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="container-total">
+                <h6>Total</h6>
+                <h6>Rp 180.000</h6>
+                <button class="btn button" id="itemDetails">Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="card cartCard">
+            <div class="card-body">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  <h5><img src="/Assets/beanIcon.png">Vendor Name</h5>
+                </label>
+              </div>
+              <div class="card-content d-flex">
+                <div class="cardImage">
+                  <img src="/Assets/arabica.png" alt="" id="coffee">
+                </div>
+                <div class="cardDetail">
+                  <h6>Kopi Gayo</h6>
+                  <h7>2 x Rp 90.000 = Rp 180.000</h7>
+                  <div class="quantityFlex d-flex">
+                    <button class="button quantity" id="subtract">-</button>
+                    <h7>2</h7>
+                    <button class="button quantity" id="subtract">+</button>
+                    <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 21C3 21.5523 3.44772 22 4 22H16C16.5523 22 17 21.5523 17 21V9H3V21ZM15 3H17C18.6569 3 20 4.34315 20 6V8C20 8.55229 19.5523 9 19 9V21C19 22.6569 17.6569 24 16 24H4C2.34315 24 1 22.6569 1 21V9C0.447715 9 0 8.55229 0 8V6C0 4.34315 1.34315 3 3 3H5C5 1.34315 6.34315 0 8 0H12C13.6569 0 15 1.34315 15 3ZM5 13C5 12.4477 5.44772 12 6 12C6.55228 12 7 12.4477 7 13V18C7 18.5523 6.55228 19 6 19C5.44772 19 5 18.5523 5 18V13ZM9 13C9 12.4477 9.44771 12 10 12C10.5523 12 11 12.4477 11 13V18C11 18.5523 10.5523 19 10 19C9.44771 19 9 18.5523 9 18V13ZM13 13C13 12.4477 13.4477 12 14 12C14.5523 12 15 12.4477 15 13V18C15 18.5523 14.5523 19 14 19C13.4477 19 13 18.5523 13 18V13ZM8 2C7.44772 2 7 2.44772 7 3H13C13 2.44772 12.5523 2 12 2H8ZM2 7H18V6C18 5.44772 17.5523 5 17 5H3C2.44772 5 2 5.44772 2 6V7Z" fill="#612C04"/>
+                      </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="container-total">
+                <h6>Total</h6>
+                <h6>Rp 180.000</h6>
+                <button class="btn button" id="itemDetails">Details</button>
+              </div>
+            </div>
+          </div>
+          <div class="card cartCard">
+            <div class="card-body">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  <h5><img src="/Assets/beanIcon.png">Vendor Name</h5>
+                </label>
+              </div>
+              <div class="card-content d-flex">
+                <div class="cardImage">
+                  <img src="/Assets/arabica.png" alt="" id="coffee">
+                </div>
+                <div class="cardDetail">
+                  <h6>Kopi Gayo</h6>
+                  <h7>2 x Rp 90.000 = Rp 180.000</h7>
+                  <div class="quantityFlex d-flex">
+                    <button class="button quantity" id="subtract">-</button>
+                    <h7>2</h7>
+                    <button class="button quantity" id="subtract">+</button>
+                    <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 21C3 21.5523 3.44772 22 4 22H16C16.5523 22 17 21.5523 17 21V9H3V21ZM15 3H17C18.6569 3 20 4.34315 20 6V8C20 8.55229 19.5523 9 19 9V21C19 22.6569 17.6569 24 16 24H4C2.34315 24 1 22.6569 1 21V9C0.447715 9 0 8.55229 0 8V6C0 4.34315 1.34315 3 3 3H5C5 1.34315 6.34315 0 8 0H12C13.6569 0 15 1.34315 15 3ZM5 13C5 12.4477 5.44772 12 6 12C6.55228 12 7 12.4477 7 13V18C7 18.5523 6.55228 19 6 19C5.44772 19 5 18.5523 5 18V13ZM9 13C9 12.4477 9.44771 12 10 12C10.5523 12 11 12.4477 11 13V18C11 18.5523 10.5523 19 10 19C9.44771 19 9 18.5523 9 18V13ZM13 13C13 12.4477 13.4477 12 14 12C14.5523 12 15 12.4477 15 13V18C15 18.5523 14.5523 19 14 19C13.4477 19 13 18.5523 13 18V13ZM8 2C7.44772 2 7 2.44772 7 3H13C13 2.44772 12.5523 2 12 2H8ZM2 7H18V6C18 5.44772 17.5523 5 17 5H3C2.44772 5 2 5.44772 2 6V7Z" fill="#612C04"/>
+                      </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="container-total">
+                <h6>Total</h6>
+                <h6>Rp 180.000</h6>
+                <button class="btn button" id="itemDetails">Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card cartList">
+          <h5>List Produk</h5>
+          <div class="product d-flex">
+            <div class="card product">
+              <div class="card-body">
+                <h6><img src="/Assets/beanIcon.png">Vendor Name</h6>
+                <div class="card-content d-flex">
+                  <div class="cardImage">
+                    <img class="beanImage" src="/Assets/arabica.png" alt="" id="coffee">
+                  </div>
+                  <div class="cardDetail">
+                    <h6>Kopi Gayo</h6>
+                    <div class="quantityFlex d-flex">
+                      <button class="button quantity" id="subtract">-</button>
+                      <h7>2</h7>
+                      <button class="button quantity" id="subtract">+</button>
+                      <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3 21C3 21.5523 3.44772 22 4 22H16C16.5523 22 17 21.5523 17 21V9H3V21ZM15 3H17C18.6569 3 20 4.34315 20 6V8C20 8.55229 19.5523 9 19 9V21C19 22.6569 17.6569 24 16 24H4C2.34315 24 1 22.6569 1 21V9C0.447715 9 0 8.55229 0 8V6C0 4.34315 1.34315 3 3 3H5C5 1.34315 6.34315 0 8 0H12C13.6569 0 15 1.34315 15 3ZM5 13C5 12.4477 5.44772 12 6 12C6.55228 12 7 12.4477 7 13V18C7 18.5523 6.55228 19 6 19C5.44772 19 5 18.5523 5 18V13ZM9 13C9 12.4477 9.44771 12 10 12C10.5523 12 11 12.4477 11 13V18C11 18.5523 10.5523 19 10 19C9.44771 19 9 18.5523 9 18V13ZM13 13C13 12.4477 13.4477 12 14 12C14.5523 12 15 12.4477 15 13V18C15 18.5523 14.5523 19 14 19C13.4477 19 13 18.5523 13 18V13ZM8 2C7.44772 2 7 2.44772 7 3H13C13 2.44772 12.5523 2 12 2H8ZM2 7H18V6C18 5.44772 17.5523 5 17 5H3C2.44772 5 2 5.44772 2 6V7Z" fill="#612C04"/>
+                        </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn button buyButton" id="btnBuy">
+            Beli
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.83248 5.83341V5.8335H4.33618C3.90353 5.8335 3.54284 6.16459 3.5059 6.59566L2.57732 17.429C2.53562 17.9155 2.9193 18.3335 3.40761 18.3335H16.592C17.0803 18.3335 17.464 17.9155 17.4223 17.429L16.4937 6.59566C16.4567 6.16459 16.0961 5.8335 15.6634 5.8335H14.1658V5.83341C14.1658 3.53223 12.3003 1.66675 9.99914 1.66675C7.69796 1.66675 5.83248 3.53223 5.83248 5.83341ZM7.49914 5.83341V5.8335H12.4991V5.83341C12.4991 4.4527 11.3799 3.33341 9.99914 3.33341C8.61843 3.33341 7.49914 4.4527 7.49914 5.83341ZM9.99786 12.5001C12.2816 12.5001 14.1361 10.6628 14.1642 8.38579C14.1653 8.36847 14.1658 8.35101 14.1658 8.33341C14.1658 7.87318 13.7927 7.50008 13.3325 7.50008C12.8722 7.50008 12.4992 7.87318 12.4992 8.33341V8.3335H12.4979C12.4978 9.71417 11.3785 10.8334 9.99786 10.8334C8.63071 10.8334 7.51988 9.73601 7.49818 8.37404C7.49883 8.36058 7.49915 8.34703 7.49915 8.33341C7.49915 7.87318 7.12606 7.50008 6.66582 7.50008C6.20558 7.50008 5.83248 7.87318 5.83248 8.33341V8.3335H5.83184V8.25918C5.83141 8.28387 5.83119 8.30862 5.83119 8.33342C5.83119 10.6346 7.69667 12.5001 9.99786 12.5001Z" fill="#0E0504"/>
+              </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+</body>
+</html>
