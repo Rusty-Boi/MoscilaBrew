@@ -98,7 +98,6 @@
 
 @section('css')
   <link rel="stylesheet" href={{asset('css/style.css')}} type="text/css">
-  <link rel="stylesheet" href={{asset('css/main.css')}} type="text/css">
 @endsection
 
 @section('js')

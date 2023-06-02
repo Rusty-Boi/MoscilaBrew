@@ -219,3 +219,61 @@ body.homePage section.featured .featured-content .caption {
     font-size: large;
     color: var(--grey);
 }
+
+
+/* 
+=== Catalog Page === 
+*/
+
+body.catalogPage section.categories .product-card
+{
+    padding: 1rem 1rem 1rem 1rem;
+    text-decoration: none;
+    border-width: 2px;
+    border-radius: 1rem;
+}
+
+body.catalogPage section.categories .product-card .vendor
+{
+    align-items: center;
+    justify-content: center;
+}
+
+body.catalogPage section.categories .product-card .vendor .vendor-name{
+    margin: 0;
+    font-weight: bold;
+    font-size: large;
+}
+
+body.catalogPage section.categories .product-card .vendor img.vendor-logo,
+body.catalogPage section.categories .product-card .product-desc .product-img{
+    max-width: 100%;
+}
+
+body.catalogPage section.categories .product-card .product-desc .product-title {
+    font-weight: 900;
+    font-size: large;
+}
+
+body.catalogPage section.categories .product-card .product-desc .price {
+    font-weight: bold;
+}
+
+body.catalogPage section.categories .product-card .product-desc .rate-average {
+    border-radius: 5rem;
+    background-color: var(--primary);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-weight: bold;
+}
+
+
+body.catalogPage section.categories .product-card .product-desc .col {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+body.catalogPage section.categories .product-card .product-desc .col * {
+    margin-bottom: 0.3rem;
+}
