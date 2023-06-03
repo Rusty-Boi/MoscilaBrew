@@ -51,6 +51,10 @@ Route::get('/catalog', [CoffeeController::class, 'showCatalog']);
 
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 
+Route::get('/cart', function () {
+    return view('cart');
+});
+
 Route::get('/confirmation-buy', function () {
     return view('confirmation-buy');
 });
