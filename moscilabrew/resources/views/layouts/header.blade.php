@@ -50,7 +50,7 @@
           </button>
           </li>
           <li class="nav-item ms-2">
-            <a name="" id="" class="btn-partners btn border-2 bg-primary fw-bold rounded-pill px-4" href="/login" role="button">Partners</a>
+            <a name="" id="" class="btn-partners btn border-2 bg-primary fw-bold rounded-pill px-4" href="/seller/dashboard" role="button">Partners</a>
           </li>
           {{-- <li class="nav-item ms-2">
             <a name="" id="" class="btn border-2" href="/login" role="button" style="border-color: rgb(239, 195, 164);">Login</a>

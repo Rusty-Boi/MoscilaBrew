@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', function () {
-    return view('test', ['name' => 'Hengki',
-                        'hobby' => ['mancing', 'bermusik']]);
+Route::get('/tes', function () {
+    // return view('test', ['name' => 'Hengki',
+    //                     'hobby' => ['mancing', 'bermusik']]);
+    return view('test');
 });
 
 Route::get('/', function () {
@@ -68,3 +72,5 @@ Route::get('/seller/dashboard', function () {
 Route::get('/seller/discuss', function () {
     return view('seller/discuss');
 });
+
+Route::get('/seller/add-product', [ProductController::class, 'add']);

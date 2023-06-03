@@ -4,6 +4,8 @@
 :root {
     --primary: var(--krim);
     --secondary: var(--grey);
+    --active: var(--brown);
+
     --font-primary: var(--Montserrat);
     --font-secondary: var(--Overpass);
 
@@ -32,6 +34,16 @@ h5,
 h6 {
     font-family: var(--font-secondary);
 }
+
+/*   form input */
+input.form-control:focus,
+select.form-select:focus,
+textarea.form-control:focus,
+input.form-check-input:focus
+{
+    box-shadow: 0 0 0 0.25rem var(--primary);
+}
+
 /*   Navbar */
 
 nav a.navbar-brand {
