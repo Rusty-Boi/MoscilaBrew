@@ -2,6 +2,7 @@
 
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ProductController;
 
 
@@ -64,13 +65,12 @@ Route::get('/confirmation-buy-custom-blend', function () {
 });
 
 
-// seller
-Route::get('/seller/dashboard', function () {
-    return view('seller/dashboard');
-});
+/* =============
+    SELLER
+================ */
+Route::get('/seller/dashboard', [SellerController::class, 'dashboard']);
 
-Route::get('/seller/discuss', function () {
-    return view('seller/discuss');
-});
+Route::get('/seller/discuss', [SellerController::class, 'discuss']);
 
+// add product
 Route::get('/seller/add-product', [ProductController::class, 'add']);
