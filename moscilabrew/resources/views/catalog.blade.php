@@ -5,7 +5,7 @@
     @include('layouts.header')
 @endsection
 
-@section("bodyClass", "catalogPage")
+@section('bodyClass', 'catalogPage')
 
 @section('content')
     <section class="categories nav-on" id="categories">
@@ -17,7 +17,7 @@
 
             <div class="container">
                 <div class="row justify-content-center g-3">
-                    <div class="col-3">
+                    <div class="col-3 d-none d-md-block">
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item filterBar">
                                 <h2 class="accordion-header">
@@ -26,16 +26,21 @@
                                         Arabica
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <ul class="list-unstyled">
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
                                         </ul>
                                     </div>
@@ -48,16 +53,21 @@
                                         Robusta
                                     </button>
                                 </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div id="collapseTwo" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <ul class="list-unstyled">
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
                                         </ul>
                                     </div>
@@ -70,16 +80,21 @@
                                         Espresso Blend
                                     </button>
                                 </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <ul class="list-unstyled">
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
                                         </ul>
                                     </div>
@@ -92,16 +107,21 @@
                                         House Blend
                                     </button>
                                 </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div id="collapseFour" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <ul class="list-unstyled">
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
-                                            <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
+                                            <li><a href="#"
+                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
                                                     origin</a></li>
                                         </ul>
                                     </div>
@@ -110,152 +130,42 @@
                         </div>
                     </div>
                     <div class="col">
-                        {{-- <div class="container">
-                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="row row-cols-1 row-cols-md-2 g-2">
+                            @foreach ($coffees as $coffee)
                                 <div class="col">
-                                <div class="product-card card container">
-                                    <div class="vendor row g-0">
-                                        <div class="col-1">
-                                            <img src="{{asset('img/coffee-pack.png')}}" class="vendor-logo">
-                                        </div>
-                                        <div class="col">
-                                            <span class="vendor-name">
-                                                Vendor Name
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="container">
-                                        <div class="product-desc row g-0">
-                                            <div class="col-4">
-                                                <img class="product-img" src="{{asset('img/aceh-gayo.png')}}" alt="">
+                                    <a class="product-card card container" href="#">
+                                        <div class="vendor row g-0">
+                                            <div class="col-1">
+                                                <img src={{ $coffee["vendor-logo"] }} class="vendor-logo">
                                             </div>
                                             <div class="col">
-                                                <span class="product-title">Kopi Gayo</span>
-                                                <span class="price">Rp.90.000</span>
+                                                <span class="vendor-name">
+                                                    {{$coffee['vendor-name']}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="product-desc row g-0">
+                                            <div class="col-4">
+                                                <img class="product-img" src="{{ $coffee['product-img'] }}"
+                                                    alt="">
+                                            </div>
+                                            <div class="col">
+                                                <span class="product-title">{{ $coffee['product-title'] }}</span>
+                                                <span class="price">{{ $coffee['price'] }}</span>
                                                 <div class="rate-average">
-                                                    <span class="rate">4.9</span>
-                                                    <span class="average">Terjual 200+</span>
+                                                    <span class="rate">{{ $coffee['rate'] }}</span>
+                                                    <span class="average">{{ $coffee['average'] }}</span>
                                                 </div>
                                             </div>
                                         </div>
+                                    </a>
                                 </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <a class="product-card card container" href="#">
-                                    <div class="vendor row g-0">
-                                        <div class="col-1">
-                                            <img src="{{asset('img/coffee-pack.png')}}" class="vendor-logo">
-                                        </div>
-                                        <div class="col">
-                                            <span class="vendor-name">
-                                                Vendor Name
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="product-desc row g-0">
-                                        <div class="col-4">
-                                            <img class="product-img" src="{{asset('img/aceh-gayo.png')}}" alt="">
-                                        </div>
-                                        <div class="col">
-                                            <span class="product-title">Kopi Gayo</span>
-                                            <span class="price">Rp.90.000</span>
-                                            <div class="rate-average">
-                                                <span class="rate">4.9</span>
-                                                <span class="average">Terjual 200+</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="product-card card container" href="#">
-                                    <div class="vendor row g-0">
-                                        <div class="col-1">
-                                            <img src="{{asset('img/coffee-pack.png')}}" class="vendor-logo">
-                                        </div>
-                                        <div class="col">
-                                            <span class="vendor-name">
-                                                Vendor Name
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="product-desc row g-0">
-                                        <div class="col-4">
-                                            <img class="product-img" src="{{asset('img/aceh-gayo.png')}}" alt="">
-                                        </div>
-                                        <div class="col">
-                                            <span class="product-title">Kopi Gayo</span>
-                                            <span class="price">Rp.90.000</span>
-                                            <div class="rate-average">
-                                                <span class="rate">4.9</span>
-                                                <span class="average">Terjual 200+</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="product-card card container" href="#">
-                                    <div class="vendor row g-0">
-                                        <div class="col-1">
-                                            <img src="{{asset('img/coffee-pack.png')}}" class="vendor-logo">
-                                        </div>
-                                        <div class="col">
-                                            <span class="vendor-name">
-                                                Vendor Name
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="product-desc row g-0">
-                                        <div class="col-4">
-                                            <img class="product-img" src="{{asset('img/aceh-gayo.png')}}" alt="">
-                                        </div>
-                                        <div class="col">
-                                            <span class="product-title">Kopi Gayo</span>
-                                            <span class="price">Rp.90.000</span>
-                                            <div class="rate-average">
-                                                <span class="rate">4.9</span>
-                                                <span class="average">Terjual 200+</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="product-card card container" href="#">
-                                    <div class="vendor row g-0">
-                                        <div class="col-1">
-                                            <img src="{{asset('img/coffee-pack.png')}}" class="vendor-logo">
-                                        </div>
-                                        <div class="col">
-                                            <span class="vendor-name">
-                                                Vendor Name
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="product-desc row g-0">
-                                        <div class="col-4">
-                                            <img class="product-img" src="{{asset('img/aceh-gayo.png')}}" alt="">
-                                        </div>
-                                        <div class="col">
-                                            <span class="product-title">Kopi Gayo</span>
-                                            <span class="price">Rp.90.000</span>
-                                            <div class="rate-average">
-                                                <span class="rate">4.9</span>
-                                                <span class="average">Terjual 200+</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-    
+
             {{-- <div class="row g-2 g-lg-3">
                 <div class="col-2 d-none d-lg-inline">
                     <div class="accordion" id="accordionExample">
@@ -404,7 +314,7 @@
                     </div>
                 </div>
             </div> --}}
-    
+
             {{-- <div class="popular-purchase text-center mt-2">
               <h2>Popular Purchases</h2>
               <div class="row">

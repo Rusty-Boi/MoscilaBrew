@@ -2,8 +2,10 @@
 
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CoffeeController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CoffeeBlendController;
 
 
 /*
@@ -27,16 +29,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/catalog', function () {
-    return view('catalog');
-});
-
 Route::get('/featured', function () {
     return view('featured');
-});
-
-Route::get('/aboutUs', function () {
-    return view('aboutUs');
 });
 
 Route::get('/profile', function () {
@@ -52,9 +46,10 @@ Route::get('/register', function () {
 });
 
 // main fitur
-Route::get('/coffee-blend', function () {
-    return view('coffee-blend');
-});
+
+Route::get('/catalog', [CoffeeController::class, 'showCatalog']);
+
+Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 
 Route::get('/confirmation-buy', function () {
     return view('confirmation-buy');
