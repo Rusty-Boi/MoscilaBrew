@@ -2,6 +2,7 @@
 
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CoffeeController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ProductController;
@@ -51,9 +52,9 @@ Route::get('/catalog', [CoffeeController::class, 'showCatalog']);
 
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/cart', [UserController::class, 'showCart']);
+
+Route::get('/daftar-transaksi', [UserController::class, 'showDaftarTransaksi']);
 
 Route::get('/confirmation-buy', function () {
     return view('confirmation-buy');
