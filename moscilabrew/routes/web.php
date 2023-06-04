@@ -30,10 +30,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/featured', function () {
-    return view('featured');
-});
-
 Route::get('/profile', function () {
     return view('profile');
 });
@@ -54,16 +50,14 @@ Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 
 Route::get('/coffee-blend/blend-vendors', [CoffeeBlendController::class, 'showBlendVendors']);
 
+Route::get('/confirmation-buy-custom-blend', [CoffeeBlendController::class, 'showConfirmationCustomBlend']);
+
 Route::get('/cart', [UserController::class, 'showCart']);
 
 Route::get('/daftar-transaksi', [UserController::class, 'showDaftarTransaksi']);
 
 Route::get('/confirmation-buy', function () {
     return view('confirmation-buy');
-});
-
-Route::get('/confirmation-buy-custom-blend', function () {
-    return view('confirmation-buy-custom-blend');
 });
 
 

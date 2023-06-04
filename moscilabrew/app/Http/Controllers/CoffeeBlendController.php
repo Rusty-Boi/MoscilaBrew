@@ -28,6 +28,14 @@ class CoffeeBlendController extends Controller
         ]);
     }
 
+    public function showConfirmationCustomBlend()
+    {
+        return view('coffee-blend.confirmation-buy', [
+            'blend_vendors' => CoffeeBlend::allBlendVendors(),
+            'partners_status_img' => CoffeeBlend::allStatusPartner()
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

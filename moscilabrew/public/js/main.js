@@ -1,3 +1,26 @@
+/* 
+    confirmain custom coffee blend
+*/
+
+$(document).ready(function() {
+    $('body.confirmationBuyCoffeeBlendPage .percentage-group').each(function() {
+        var percentageText = $(this).find('.percentage-text').text();
+        var percentageValue = parseFloat(percentageText);
+        var percentageBar = $(this).find('.percentage-bar');
+
+        percentageBar.css('width', percentageValue + '%');
+
+        if (percentageValue === 100) {
+            percentageBar.addClass('rounded-end-pill');
+        }
+    });
+});
+
+
+/* 
+ =================== 
+ */
+
 $('.product-card .bottom .plus-minus-sign .center .btn-number').click(function(e){
     e.preventDefault();
     

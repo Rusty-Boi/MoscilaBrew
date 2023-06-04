@@ -464,13 +464,44 @@ body.daftarTransaksiPage .search-group .search-input:focus + .search-btn {
 .vendor-card .card-body div:has(.black-hole) {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
 }
 
 .vendor-card .card-body .black-hole {
-    max-width: 80%
+    max-width: 80%;
+    margin-right: 0.5rem;
 }
 
 a.vendor-card:hover {
     box-shadow: 0 0 0 0.25rem var(--primary);
 }
+
+
+/* Confirmation custom blend coffee */
+.takaran-coffee-blend p {
+    margin-bottom: 0;
+}
+
+.takaran-coffee-blend {
+    margin-bottom: 1rem;
+}
+
+.takaran-coffee-blend .percentage-bar {
+    height: 100%;
+    /* background-color: var(--secondary); */
+    background-color: var(--primary);
+    position: absolute;
+    z-index: 0;
+    left: 0; 
+    top: 0; 
+}
+
+.takaran-coffee-blend .percentage-group {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    position: relative;
+    /* background-color: var(--primary); */
+    background-color: var(--secondary);
+}
+

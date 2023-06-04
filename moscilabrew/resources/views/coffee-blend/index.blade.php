@@ -92,7 +92,7 @@
                     </div>
                 </div>
             </div>
-            <button onclick="window.open('/', '_self')" type="submit" class="btn rounded-pill px-5 text-black" style="background-color: #F2EFEF;">Submit</button>
+            <button type="submit" class="btn rounded-pill px-5 text-black" style="background-color: #F2EFEF;">Submit</button>
         </form>
     </section>
 
