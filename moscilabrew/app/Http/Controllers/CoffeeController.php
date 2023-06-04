@@ -9,6 +9,11 @@ use App\Http\Requests\UpdateCoffeeRequest;
 class CoffeeController extends Controller
 {
 
+    public function showProductPage()
+    {
+        return view('product-page');
+    }
+
     /* 
         Catalog
     */

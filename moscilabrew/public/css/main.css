@@ -37,6 +37,15 @@ h6 {
     font-family: var(--font-secondary);
 }
 
+/*   border */
+.my-border {
+    padding: 1rem;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.176);
+    border-width: 2px;
+    border-radius: 1rem;
+}
+
 /*   form input */
 input.form-control:focus,
 select.form-select:focus,
@@ -94,7 +103,7 @@ section .section-title h2{
 /* ukuran medium */
 @media (min-width: 768px) {
     /* Navbar */
-    li.nav-item:hover a.nav-link + div.border-bottom, li.nav-item a.nav-link.active + div.border-bottom{
+    li.nav-item a.nav-link:hover + div.border-bottom, li.nav-item a.nav-link.active + div.border-bottom{
         display: block;
         border-bottom: 2px solid var(--brown) !important;
         width: 50%;
@@ -346,25 +355,25 @@ body.coffeeBlendPage section.coffee-blend .coffee-blend-form h2{
     Cart Page
 */
 
-.product-card .bottom .plus-minus-sign .center .input-group-text,
+.plus-minus-sign .center .input-group-text,
 .product-card .bottom .input-group-text.remove {
     border: none;
     background-color: transparent;
     padding: 0;
 }
 
-.product-card .bottom .plus-minus-sign .center .input-number {
+.plus-minus-sign .center .input-number {
     width: 5rem;
     text-align: center;
 }
 
-.product-card .bottom .plus-minus-sign .center .btn-number {
+.plus-minus-sign .center .btn-number {
     border: none;
     padding: 0;
     margin: 0 0.5rem;
 }
 
-.product-card .bottom .plus-minus-sign .center .btn-number i,
+.plus-minus-sign .center .btn-number i,
 .product-card .bottom .remove i
 {
     color: var(--active);
@@ -505,3 +514,60 @@ a.vendor-card:hover {
     background-color: var(--secondary);
 }
 
+
+/* 
+    rating 
+*/
+/* origin */
+.rating {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: #ffc400;
+  cursor: pointer;
+}
+.rating.disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+.rating input {
+  display: none;
+}
+
+.rating-item {
+  position: relative;
+  color: inherit;
+  transition: transform 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.rating-icon {
+  display: inline-block;
+  padding-left: 2px;
+  padding-right: 2px;
+  overflow: hidden;
+}
+.rating-icon ~ .rating-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+.rating-item.active .rating-icon ~ .rating-icon {
+  visibility: visible;
+}
+
+/* custom */
+body.productPage .rating .rating-item {
+    display: flex;
+    align-items: center
+}
+
+body.productPage .progress {
+    width: 10rem;
+    height: 0.7rem !important;
+}
+
+body.productPage .progress .progress-bar{
+    background-color: #319DFF;
+}

@@ -46,6 +46,8 @@ Route::get('/register', function () {
 
 Route::get('/catalog', [CoffeeController::class, 'showCatalog']);
 
+Route::get('/product-page', [CoffeeController::class, 'showProductPage']);
+
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 
 Route::get('/coffee-blend/blend-vendors', [CoffeeBlendController::class, 'showBlendVendors']);
