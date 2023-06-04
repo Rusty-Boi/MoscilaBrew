@@ -3,6 +3,7 @@
 
 :root {
     --primary: var(--krim);
+    --primary-rgb: var(--krim-rgb);
     --secondary: var(--grey);
     --active: var(--brown);
 
@@ -11,6 +12,7 @@
 
     --desertSand: rgba(239, 195, 164);
     --krim:rgb(239, 195, 164);
+    --krim-rgb: 239, 195, 164;
     --grey:#E2E2E2;
     --brown : #4B1F0E;
     /* #BE7656
@@ -433,4 +435,42 @@ body.daftarTransaksiPage .search-group .search-btn {
 body.daftarTransaksiPage .search-group .search-btn:focus,
 body.daftarTransaksiPage .search-group .search-input:focus + .search-btn {
     opacity: 0.5;
+}
+
+
+
+/* Vendor card */
+.vendor-card {
+    /* border-radius: 20px; */
+    background-color: rgba(var(--primary-rgb), 0.2);
+}
+
+.vendor-card .card-img-top {
+    min-height: 5rem;
+}
+
+.vendor-card .card-body .card-text {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.vendor-card .card-body .card-text img {
+    transform: translateX(-0.5rem); 
+    max-height: 3rem;
+}
+
+.vendor-card .card-body div:has(.black-hole) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vendor-card .card-body .black-hole {
+    max-width: 80%
+}
+
+a.vendor-card:hover {
+    box-shadow: 0 0 0 0.25rem var(--primary);
 }

@@ -54,7 +54,8 @@ class User extends Authenticatable
                                 'price' => 'Rp.90.000',
                                 'qty' => '2'
                                 ]],
-            'total-price' => "Rp. 180.000"
+            'total-price' => "Rp. 180.000",
+            'status' => 'Processing'
         ],
         [
             'tgl-transaksi' => '2 Maret 2023',
@@ -71,7 +72,8 @@ class User extends Authenticatable
                                 'price' => 'Rp. 50.000',
                                 'qty' => '1'
                                 ]],
-            'total-price' => "Rp. 180.000"
+            'total-price' => "Rp. 180.000",
+            'status' => 'Done'
         ]
     ];
 

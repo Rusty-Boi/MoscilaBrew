@@ -52,6 +52,8 @@ Route::get('/catalog', [CoffeeController::class, 'showCatalog']);
 
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 
+Route::get('/coffee-blend/blend-vendors', [CoffeeBlendController::class, 'showBlendVendors']);
+
 Route::get('/cart', [UserController::class, 'showCart']);
 
 Route::get('/daftar-transaksi', [UserController::class, 'showDaftarTransaksi']);

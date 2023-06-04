@@ -81,7 +81,7 @@
                                         <div class="d-flex">
                                             <p class="total-price">Total {{ $transaction['total-price'] }}</p>
                                             <a class="btn details" href="#" role="button">
-                                                Processing
+                                                {{ $transaction['status'] }}
                                             </a>
                                         </div>
                                     </div>

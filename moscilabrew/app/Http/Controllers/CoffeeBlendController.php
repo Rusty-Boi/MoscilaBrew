@@ -13,7 +13,19 @@ class CoffeeBlendController extends Controller
      */
     public function index()
     {
-        return view('coffee-blend');
+        return view('coffee-blend.index');
+    }
+
+    /* 
+        Blend Vendors
+    */
+
+    public function showBlendVendors()
+    {
+        return view('coffee-blend.blend-vendors', [
+            'blend_vendors' => CoffeeBlend::allBlendVendors(),
+            'partners_status_img' => CoffeeBlend::allStatusPartner()
+        ]);
     }
 
     /**
