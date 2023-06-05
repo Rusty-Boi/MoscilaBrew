@@ -133,7 +133,7 @@
                         <div class="row row-cols-1 row-cols-md-2 g-2">
                             @foreach ($coffees as $coffee)
                                 <div class="col">
-                                    <a class="product-card card container" href="#">
+                                    <a class="product-card card container" href="/{{$coffee['vendor-name_slug']}}/{{$coffee['product-title_slug']}}">
                                         <div class="vendor row g-0">
                                             <div class="col-1">
                                                 <img src={{ $coffee["vendor-logo"] }} class="vendor-logo">
@@ -150,7 +150,7 @@
                                                     alt="">
                                             </div>
                                             <div class="col">
-                                                <span class="product-title">{{ $coffee['product-title'] }}</span>
+                                                <span class="product-title">{{ $coffee["product-title"] }}</span>
                                                 <span class="price">{{ $coffee['price'] }}</span>
                                                 <div class="rate-average">
                                                     <span class="rate">{{ $coffee['rate'] }}</span>

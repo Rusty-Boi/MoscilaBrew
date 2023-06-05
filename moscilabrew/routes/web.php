@@ -3,6 +3,7 @@
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CoffeeController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ProductController;
@@ -26,9 +27,7 @@ Route::get('/tes', function () {
     return view('test');
 });
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [AdminController::class, 'index']);
 
 Route::get('/profile', function () {
     return view('profile');
@@ -46,7 +45,7 @@ Route::get('/register', function () {
 
 Route::get('/catalog', [CoffeeController::class, 'showCatalog']);
 
-Route::get('/product-page', [CoffeeController::class, 'showProductPage']);
+Route::get('{vendor_name}/{product_title}', [CoffeeController::class, 'showProductPage']);
 
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 

@@ -9,9 +9,11 @@ use App\Http\Requests\UpdateCoffeeRequest;
 class CoffeeController extends Controller
 {
 
-    public function showProductPage()
+    public function showProductPage($vendor_name, $product_title)
     {
-        return view('product-page');
+        return view('product-page', [
+            'coffee' => Coffee::find($vendor_name, $product_title)
+        ]);
     }
 
     /* 
