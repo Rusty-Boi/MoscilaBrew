@@ -45,7 +45,9 @@ Route::get('/register', function () {
 
 Route::get('/catalog', [CoffeeController::class, 'showCatalog']);
 
-Route::get('{vendor_name}/{product_title}', [CoffeeController::class, 'showProductPage']);
+Route::get('/catalog/{bean_cat}', [CoffeeController::class, 'showProductsByBeanCat']);
+
+Route::get('/catalog/{vendor_id}/{product_id}', [CoffeeController::class, 'showProductPage']);
 
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 

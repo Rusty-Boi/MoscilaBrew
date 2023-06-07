@@ -9,6 +9,14 @@ class Admin extends Model
 {
     use HasFactory;
 
+    private static $rate_label = [
+        1 => '',
+        2 => '',
+        3 => '',
+        4 => '',
+        5 => 'Excelent'
+    ];
+
     private static $carousel_item = [
         [
             'img' => 'img/coffee-18.jpg',
@@ -71,4 +79,14 @@ class Admin extends Model
     {
         return collect(self::$services);
     }
+
+    public static function getRateLabel()
+    {
+        return collect(self::$rate_label);
+    }
+
+    public static function generatePrice($price)
+    {
+        return 'Rp ' . number_format($amount, 0, ',', '.');
+    }   
 }

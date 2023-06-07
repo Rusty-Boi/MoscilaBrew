@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('history', function (Blueprint $table) {
-            $table->id();
-            // $table->OrderID();
-            // $table->PaymentID();
-            
+        Schema::create('vendors', function (Blueprint $table) {
+            $table->uuid('vendor_id')->default(DB::raw('uuid()'));
+            $table->string('vendor_name');
+            $table->string('vendor_logo');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('history');
+        Schema::dropIfExists('vendors');
     }
 };

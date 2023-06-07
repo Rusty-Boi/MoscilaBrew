@@ -19,142 +19,59 @@
                 <div class="row justify-content-center g-3">
                     <div class="col-3 d-none d-md-block">
                         <div class="accordion" id="accordionExample">
-                            <div class="accordion-item filterBar">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Arabica
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <ul class="list-unstyled">
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                        </ul>
+
+                            @foreach ($bean_categories as $bean_cat)
+                                <div class="accordion-item filterBar">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $bean_cat }}" aria-expanded="false"
+                                            aria-controls="collapse{{ $bean_cat }}">
+                                            {{ ucwords($bean_cat) }}
+                                        </button>
+                                    </h2>
+                                    <div id="collapse{{ $bean_cat }}" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a href="/catalog/{{$bean_cat}}"
+                                                        class="filterItem link-body-emphasis text-decoration-none">
+                                                        {{ ucwords($bean_cat) }}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion-item filterBar">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Robusta
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <ul class="list-unstyled">
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item filterBar">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Espresso Blend
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <ul class="list-unstyled">
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item filterBar">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        House Blend
-                                    </button>
-                                </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <ul class="list-unstyled">
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                            <li><a href="#"
-                                                    class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                    origin</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col">
                         <div class="row row-cols-1 row-cols-md-2 g-2">
                             @foreach ($coffees as $coffee)
                                 <div class="col">
-                                    <a class="product-card card container" href="/{{$coffee['vendor-name_slug']}}/{{$coffee['product-title_slug']}}">
+                                    <a class="product-card card container"
+                                        href="/catalog/{{ $coffee->vendor->vendor_id }}/{{ $coffee->product_id }}">
                                         <div class="vendor row g-0">
                                             <div class="col-1">
-                                                <img src={{ $coffee["vendor-logo"] }} class="vendor-logo">
+                                                <img src={{ asset($coffee->vendor->vendor_logo) }} class="vendor-logo">
                                             </div>
                                             <div class="col">
                                                 <span class="vendor-name">
-                                                    {{$coffee['vendor-name']}}
+                                                    {{ $coffee->vendor->vendor_name }}
                                                 </span>
                                             </div>
                                         </div>
                                         <div class="product-desc row g-0">
                                             <div class="col-4">
-                                                <img class="product-img" src="{{ $coffee['product-img'] }}"
-                                                    alt="">
+                                                <img class="product-img" src="{{ asset($coffee->product_img) }}" alt="">
                                             </div>
                                             <div class="col">
-                                                <span class="product-title">{{ $coffee["product-title"] }}</span>
-                                                <span class="price">{{ $coffee['price'] }}</span>
+                                                <span class="product-title">{{ $coffee->product_name }}</span>
+                                                <span class="price">Rp {{ number_format($coffee->harga_product, 0, ',', '.') }}</span>
                                                 <div class="rate-average">
-                                                    <span class="rate">{{ $coffee['rate'] }}</span>
-                                                    <span class="average">{{ $coffee['average'] }}</span>
+                                                    <span class="rate">{{ $coffee->rating_product }}</span>
+                                                    <span class="average">{{ $coffee->average }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -328,5 +245,5 @@
 @endsection
 
 @section('js')
-    {{-- <script src="index.js"></script> --}}
+    <script src="{{ asset('js/main.js') }}"></script>
 @endsection

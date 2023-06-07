@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    {{ $coffee['product-title']}} | MoscilaBrew
+    {{ $coffee['product_name']}} | MoscilaBrew
 @endsection
 
 @section('navbar')
@@ -9,21 +9,13 @@
 
 @section('bodyClass', 'productPage')
 
-{{-- {{ $coffee['vendor-logo'] }}
-{{ $coffee['vendor-name'] }}
-{{ $coffee['product-img'] }}
-{{ $coffee['product-title'] }}
-{{ $coffee['price'] }}
-{{ $coffee['rate'] }}
-{{ $coffee['average'] }} --}}
-
 @section('content')
     <div class="container-fluid">
         <section id="product-page" class="product-page nav-on">
             <div class="section-title text-start">
                 <h2>
-                    <img class="vendor-logo" src="{{ asset($coffee['vendor-logo']) }}" style="width: 3rem;">
-                    {{ $coffee['vendor-name'] }}
+                    <img class="vendor_logo" src="{{ asset($coffee->vendor->vendor_logo) }}" style="width: 3rem;">
+                    {{ $coffee->vendor->vendor_name }}
                 </h2>
             </div>
 
@@ -32,11 +24,11 @@
                     <div class="my-border">
                         <div class="row">
                             <div class="col-4">
-                                <img style="max-width: 100%; width: 20rem;" src="{{ asset($coffee['product-img']) }}"
+                                <img style="max-width: 100%; width: 20rem;" src="{{ asset($coffee->product_img) }}"
                                     alt="">
                             </div>
                             <div class="col">
-                                <h3 class="fw-bold">{{ $coffee['product-title'] }}</h3>
+                                <h3 class="fw-bold">{{ $coffee->product_name }}</h3>
 
                                 <div class="d-flex mb-3">
                                     <div class="rating" data-fbs-toggle="rating" data-bs-readonly="true">
@@ -61,7 +53,7 @@
                                             <span class="rating-icon w-50"><i class="fa-solid fa-star"></i></span>
                                         </label>
                                     </div>
-                                    <p class="mb-0 ms-2 fw-bold">{{ $coffee['rate'] }} <span class="text-muted">(200)</span></p>
+                                    <p class="mb-0 ms-2 fw-bold">{{ $coffee->rating_product }} <span class="text-muted">(200)</span></p>
                                 </div>
 
                                 <p class="mb-0" style="text-align: justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi officia,
@@ -83,7 +75,7 @@
                             <h3 class="mb-0">Review</h3>
 
                             <div class="mt-3 ms-1">
-                                <span class="fw-bold fs-5">{{ $coffee['rate'] }} </span>
+                                <span class="fw-bold fs-5">{{ $coffee->rating_product }} </span>
                                 <span class="text-muted">(200 reviews)</span>
                             </div>
 

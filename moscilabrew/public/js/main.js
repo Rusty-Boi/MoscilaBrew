@@ -1,3 +1,16 @@
+/* 
+    generate currency
+*/
+function generateIdr(amount) {
+    var formatter = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR'
+    });
+        
+    // console.log(formatter.format(amount));    
+    alert('hehe')
+}
+
 // Tooltip
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

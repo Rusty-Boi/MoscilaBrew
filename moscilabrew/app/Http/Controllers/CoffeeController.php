@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vendor;
 use App\Models\Coffee;
 use App\Http\Requests\StoreCoffeeRequest;
 use App\Http\Requests\UpdateCoffeeRequest;
@@ -9,10 +10,10 @@ use App\Http\Requests\UpdateCoffeeRequest;
 class CoffeeController extends Controller
 {
 
-    public function showProductPage($vendor_name, $product_title)
+    public function showProductPage($vendor_id, $product_id)
     {
         return view('product-page', [
-            'coffee' => Coffee::find($vendor_name, $product_title)
+            'coffee' => Coffee::findProductByVendorAndProductId($vendor_id, $product_id)
         ]);
     }
 
@@ -22,9 +23,27 @@ class CoffeeController extends Controller
     public function showCatalog()
     {
         return view('catalog', [
-            'coffees' => Coffee::all()
+            'coffees' => Coffee::all(),
+            'bean_categories' => Coffee::getBeanCategories(),
+            'vendors' => Vendor::all()
+            // 'test' => Coffee::all()->where('vendor-id', 'VD0001')->merge(Coffee::getVendors())
+
         ]);
     }
+
+    /* 
+        Vendor Product
+    */
+    public function showProductsByBeanCat($bean_cat)
+    {
+        return view('catalog', [
+            'coffees' => collect(Coffee::getProductsByBeanCat($bean_cat)),
+            'bean_categories' => Coffee::getBeanCategories(),
+            'vendors' => Vendor::all(),
+            // 'test' => Coffee::all()->where('vendor-id', 'VD0001')->merge(Coffee::getVendors())
+
+        ]);
+    }    
 
     /**
      * Display a listing of the resource.
