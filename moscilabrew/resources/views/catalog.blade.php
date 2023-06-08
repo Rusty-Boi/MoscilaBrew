@@ -51,7 +51,7 @@
                             @foreach ($coffees as $coffee)
                                 <div class="col">
                                     <a class="product-card card container"
-                                        href="/catalog/{{ $coffee->vendor->vendor_id }}/{{ $coffee->product_id }}">
+                                        href="/catalog/{{ $coffee->vendor->vendor_name }}/{{ $coffee->product_id }}">
                                         <div class="vendor row g-0">
                                             <div class="col-1">
                                                 <img src={{ asset($coffee->vendor->vendor_logo) }} class="vendor-logo">

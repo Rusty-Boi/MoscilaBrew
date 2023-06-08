@@ -35,11 +35,15 @@ Route::get('/profile', function () {
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
 Route::get('/register', function () {
-    return view('register');
-});
+    return view('register', [
+        'request' => request()
+    ]);
+})->name('register');
+
+Route::post('/register', [UserController::class, 'store']);
 
 // main fitur
 
@@ -47,7 +51,7 @@ Route::get('/catalog', [CoffeeController::class, 'showCatalog']);
 
 Route::get('/catalog/{bean_cat}', [CoffeeController::class, 'showProductsByBeanCat']);
 
-Route::get('/catalog/{vendor_id}/{product_id}', [CoffeeController::class, 'showProductPage']);
+Route::get('/catalog/{vendor_name}/{product:product_id}', [CoffeeController::class, 'showProductPage']);
 
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 
