@@ -72,7 +72,8 @@
 }
 
 .draft-receipt {
-    width: 60vw;
+    width: 50vw;
+    padding: 30px;
 }
 
 .draft-receipt h3{
@@ -81,15 +82,42 @@
 }
 
 .card {
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 .card img{
-    padding: 10px;
     width: 151px;
     height: 133px;
 }
 
 .row {
-    border-bottom: 1px;
+    margin: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #000000;
+}
+
+.col h5{
+    font-size: 28px;
+}
+
+.col h7{
+    font-size: 22px;
+}
+
+.btn-primary {
+    color: #000000;
+    background-color: #EFC3A4;
+    border: none;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #cfab90;
+    color: #000000;
+}
+
+.btn-primary:not(:disabled):active{
+    background-color: #cfab90;
+    color: #ffffff;
+    font-weight: 500;
 }
