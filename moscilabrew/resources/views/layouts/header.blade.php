@@ -42,6 +42,8 @@
                             </button>
                         </form>
                     </li>
+
+                    @auth
                     <li class="nav-item">
                         <button onclick="profileNav()" class="btn profile" type="button" id="userProfile">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black"
@@ -61,8 +63,6 @@
                         </a>
                         </button>
                     </li>
-
-                    @auth
 
                         <li class="nav-item ms-2">
                             <a name="" id=""

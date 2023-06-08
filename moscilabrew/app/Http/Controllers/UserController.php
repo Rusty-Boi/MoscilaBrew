@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use \Illuminate\Validation\Rules\PASSWORD;
+use \Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -41,6 +42,39 @@ class UserController extends Controller
     }
 
     /**
+     * Log the user out of the application.
+     */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect(route('dashboard'));
+    }
+
+    /**
+     * Handle an authentication attempt.
+     */
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+ 
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+ 
+            return redirect()->intended(route('dashboard'));
+        }
+ 
+        return back()->with('login_failed', 'Incorrect Email or Password!');
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -60,7 +94,7 @@ class UserController extends Controller
         
         User::create($validated);
 
-        return redirect(route('login'))->with($request->session()->flash('success', 'Registration Successfull! Please Login'));
+        return redirect(route('login'))->with('success', 'Registration Successfull! Please Login');
     }
 
     /**

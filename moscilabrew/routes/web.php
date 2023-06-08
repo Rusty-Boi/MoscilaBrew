@@ -27,23 +27,33 @@ Route::get('/tes', function () {
     return view('test');
 });
 
-Route::get('/', [AdminController::class, 'index']);
+Route::get('/logout', [UserController::class, 'logout',]);
+
+Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+
+Route::middleware(['guest'])->group(function () {
+    
+    Route::get('/login', function () {
+        return view('login');
+    })->name('login');
+    
+    Route::post('/login', [UserController::class, 'authenticate']);
+    
+    Route::get('/register', function () {
+        return view('register', [
+            'request' => request()
+        ]);
+    })->name('register');
+    
+    Route::post('/register', [UserController::class, 'store']);
+
+});
 
 Route::get('/profile', function () {
     return view('profile');
 });
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
 
-Route::get('/register', function () {
-    return view('register', [
-        'request' => request()
-    ]);
-})->name('register');
-
-Route::post('/register', [UserController::class, 'store']);
 
 // main fitur
 
