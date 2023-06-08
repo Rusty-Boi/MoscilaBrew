@@ -1,12 +1,29 @@
 .accountMenu{
-    width:15vw;
-    height: 15vh;
     margin-top: 30px;
     background-color: bisque;
     margin: auto;
+    margin-top: 30px;
     align-items: center;
     justify-items: center;
     border-radius: 5%;
+}
+
+.accountMenu button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    font-weight: bold;
+    color: #000000;
+    font-size: 24px;
+    background-color: bisque;
+}
+
+.accountMenu button:hover{
+    color: #794028;
+}
+
+.accountMenu btn:active{
+    color: #794028;
 }
 
 .button-title{
@@ -52,4 +69,27 @@
     flex-direction: row;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.draft-receipt {
+    width: 60vw;
+}
+
+.draft-receipt h3{
+    font-size: 36px;
+    text-align: center;
+}
+
+.card {
+    margin-top: 100px;
+}
+
+.card img{
+    padding: 10px;
+    width: 151px;
+    height: 133px;
+}
+
+.row {
+    border-bottom: 1px;
 }
