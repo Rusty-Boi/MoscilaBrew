@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use \Illuminate\Validation\Rules\PASSWORD;
+use \Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -40,11 +42,59 @@ class UserController extends Controller
     }
 
     /**
+     * Log the user out of the application.
+     */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect(route('dashboard'));
+    }
+
+    /**
+     * Handle an authentication attempt.
+     */
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+ 
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+ 
+            return redirect()->intended(route('dashboard'));
+        }
+ 
+        return back()->with('login_failed', 'Incorrect Email or Password!');
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {        
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|unique:users,email|email:rfc,dns',
+            'password' => [Password::min(8)
+                                    ->letters()
+                                    ->mixedCase()
+                                    ->numbers()
+                                    ->symbols()
+                                    ->uncompromised()],
+            'address' => 'required',
+            'phone_number' => 'required|unique:users,phone_number|numeric'
+        ]);
+        
+        User::create($validated);
+
+        return redirect(route('login'))->with('success', 'Registration Successfull! Please Login');
     }
 
     /**

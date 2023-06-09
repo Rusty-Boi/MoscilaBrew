@@ -3,6 +3,7 @@
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CoffeeController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ProductController;
@@ -26,25 +27,41 @@ Route::get('/tes', function () {
     return view('test');
 });
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/logout', [UserController::class, 'logout',]);
+
+Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+
+Route::middleware(['guest'])->group(function () {
+    
+    Route::get('/login', function () {
+        return view('login');
+    })->name('login');
+    
+    Route::post('/login', [UserController::class, 'authenticate']);
+    
+    Route::get('/register', function () {
+        return view('register', [
+            'request' => request()
+        ]);
+    })->name('register');
+    
+    Route::post('/register', [UserController::class, 'store']);
+
 });
 
 Route::get('/profile', function () {
     return view('profile');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
 
-Route::get('/register', function () {
-    return view('register');
-});
 
 // main fitur
 
 Route::get('/catalog', [CoffeeController::class, 'showCatalog']);
+
+Route::get('/catalog/{bean_cat}', [CoffeeController::class, 'showProductsByBeanCat']);
+
+Route::get('/catalog/{vendor_name}/{product:product_id}', [CoffeeController::class, 'showProductPage']);
 
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 

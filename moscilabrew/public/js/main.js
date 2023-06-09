@@ -1,4 +1,21 @@
 /* 
+    generate currency
+*/
+function generateIdr(amount) {
+    var formatter = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR'
+    });
+        
+    // console.log(formatter.format(amount));    
+    alert('hehe')
+}
+
+// Tooltip
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+/* 
     confirmain custom coffee blend
 */
 
@@ -21,12 +38,12 @@ $(document).ready(function() {
  =================== 
  */
 
-$('.product-card .bottom .plus-minus-sign .center .btn-number').click(function(e){
+$('.plus-minus-sign .center .btn-number').click(function(e){
     e.preventDefault();
     
     fieldName = $(this).attr('data-field');
     type      = $(this).attr('data-type');
-    var input = $(".product-card .bottom .plus-minus-sign .center input[name='"+fieldName+"']");
+    var input = $(".plus-minus-sign .center input[name='"+fieldName+"']");
     var currentVal = parseInt(input.val());
     if (!isNaN(currentVal)) {
         if(type == 'minus') {
@@ -52,10 +69,10 @@ $('.product-card .bottom .plus-minus-sign .center .btn-number').click(function(e
         input.val(0);
     }
 });
-$('.product-card .bottom .plus-minus-sign .center .input-number').focusin(function(){
+$('.plus-minus-sign .center .input-number').focusin(function(){
    $(this).data('oldValue', $(this).val());
 });
-$('.product-card .bottom .plus-minus-sign .center .input-number').change(function() {
+$('.plus-minus-sign .center .input-number').change(function() {
     
     minValue =  parseInt($(this).attr('min'));
     maxValue =  parseInt($(this).attr('max'));
@@ -63,13 +80,13 @@ $('.product-card .bottom .plus-minus-sign .center .input-number').change(functio
     
     name = $(this).attr('name');
     if(valueCurrent >= minValue) {
-        $(".product-card .bottom .plus-minus-sign .center .btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+        $(".plus-minus-sign .center .btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
     } else {
         alert('Sorry, the minimum value was reached');
         $(this).val($(this).data('oldValue'));
     }
     if(valueCurrent <= maxValue) {
-        $(".product-card .bottom .plus-minus-sign .center .btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+        $(".plus-minus-sign .center .btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
     } else {
         alert('Sorry, the maximum value was reached');
         $(this).val($(this).data('oldValue'));
@@ -77,7 +94,7 @@ $('.product-card .bottom .plus-minus-sign .center .input-number').change(functio
     
     
 });
-$(".product-card .bottom .plus-minus-sign .center .input-number").keydown(function (e) {
+$(".plus-minus-sign .center .input-number").keydown(function (e) {
         // Allow: backspace, delete, tab, escape, enter and .
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
              // Allow: Ctrl+A
@@ -92,3 +109,14 @@ $(".product-card .bottom .plus-minus-sign .center .input-number").keydown(functi
             e.preventDefault();
         }
     });
+
+
+/* 
+    reviews bar bar on PRODUCT PAGE
+*/
+let reviews_count = 200;
+let e = $(".rating-progress_bar");
+
+e.each(function () { 
+    $(this).find('.progress-bar').css("width", $(this).find('.progress-bar').attr("aria-valuenow") / reviews_count * 100 + '%');
+ })
