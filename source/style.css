@@ -38,3 +38,19 @@
     font-style: normal;
     font-size: medium;
 }
+
+.ftContainer{
+    width: 100vw;
+    margin-top: 30px;
+    background-color:darksalmon;
+    margin: auto;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.txtContainer{
+    font-style: normal;
+    font-size: medium;
+    margin: 0 auto;
+    padding: 0 10px 5px ;
+}
