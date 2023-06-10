@@ -9,8 +9,8 @@
 
 @section('content')
     <section id="..." class="...">
-    <div class="section-title">
-        <h2>...</h2>
+    <div class="section-title nav-on">
+        <h2>halo {{ Auth::user()['name'] }}</h2>
     </div>
     </section>
 @endsection

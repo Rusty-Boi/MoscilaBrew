@@ -16,4 +16,5 @@ class AdminController extends Controller
             'featured_coffee_catalog' => Admin::getFeaturedCoffeeCatalog()
         ]);
     }
+    
 }

@@ -2,22 +2,23 @@
 
 namespace App\Models;
 
+use App\Models\Cart;
 use App\Models\Vendor;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Coffee extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['product_id', "created_at", "updated_at"];
+    protected $guarded = ['id', "created_at", "updated_at"];
 
-    public static function findProductByVendorAndProductId($vendor_id, $product_id)
+    public static function findProductByVendorAndProductId($vendor_id, $coffee_id)
     {
         // return 'test';
         // return collect(static::all()->where('vendor_id', $vendor_id)->);
-        return collect(static::all()->where('vendor_id', $vendor_id))->firstWhere('product_id', $product_id);
+        return collect(static::all()->where('vendor_id', $vendor_id))->find($coffee_id);
     }
 
     /**
@@ -25,8 +26,13 @@ class Coffee extends Model
      */
     public function vendor(): BelongsTo
     {
-        return $this->belongsTo(Vendor::class, 'vendor_id', 'vendor_id');
+        return $this->belongsTo(Vendor::class);
     }    
+
+    public function carts()
+    {
+        return $this->belongsToMany(Cart::class)->withPivot('quantity');
+    }
 
     public static function getProductsByBeanCat($bean_cat)
     {

@@ -10,13 +10,6 @@ use \Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /* 
-        Cart
-    */
-    public function showCart(){
-        return view('cart');
-    }
-
-    /* 
         Daftar Transaksi
     */
     public function showDaftarTransaksi(){
@@ -70,6 +63,13 @@ class UserController extends Controller
  
             return redirect()->intended(route('dashboard'));
         }
+
+        // buat keranjang saat login
+        $cart = session()->get('cart', []);
+        $order_list = session()->get('order_list', []);
+        
+        session()->put('cart', $cart);        
+        session()->put('order_list', $order_list);
  
         return back()->with('login_failed', 'Incorrect Email or Password!');
     }

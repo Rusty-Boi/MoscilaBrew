@@ -1,4 +1,40 @@
 /* 
+    redirect to link
+*/
+function redirectToLink(url, value) {
+    var urlWithParam = url + '?value=' + encodeURIComponent(value);
+    window.location.href = urlWithParam;
+
+    location.href = "{{ route('order.add', $item['coffee_id']) }}"
+}
+
+/* 
+    Order input
+*/
+function orderInput(e, val){
+    coffee_id = e.value;
+    if (val == 'item'){
+        // jika checkbutton di check
+        if ($(e).is(':checked')) {
+            location.href = "/"+e.value+"/addToOrderList";
+        }
+        // jika checkbutton di check
+        else {
+            location.href = "/"+e.value+"/removeItemOrderList";
+        }
+    }else{
+        // jika checkbutton di check
+        if ($(e).is(':checked')) {
+            location.href = "/"+e.value+"/addItemsToOrderList";
+        }
+        // jika checkbutton di check
+        else {
+            location.href = "/"+e.value+"/removeItemsOrderList";
+        }
+    }
+}
+
+/* 
     generate currency
 */
 function generateIdr(amount) {
