@@ -1,0 +1,25 @@
+.content h3{
+    font-size: 36px;
+    text-align: center;
+}
+
+.history-content h5{
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.history-content h6{
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.blendImage img{
+    width: 270px;
+    height: 240px;
+}
+
+.history-row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}

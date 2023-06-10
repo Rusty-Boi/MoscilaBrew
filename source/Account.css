@@ -1,12 +1,29 @@
 .accountMenu{
-    width:15vw;
-    height: 15vh;
     margin-top: 30px;
     background-color: bisque;
     margin: auto;
+    margin-top: 30px;
     align-items: center;
     justify-items: center;
     border-radius: 5%;
+}
+
+.accountMenu button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    font-weight: bold;
+    color: #000000;
+    font-size: 24px;
+    background-color: bisque;
+}
+
+.accountMenu button:hover{
+    color: #794028;
+}
+
+.accountMenu btn:active{
+    color: #794028;
 }
 
 .button-title{
@@ -52,4 +69,56 @@
     flex-direction: row;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.draft-receipt {
+    width: 50vw;
+    padding: 30px;
+}
+
+.draft-receipt h3{
+    font-size: 36px;
+    text-align: center;
+}
+
+.card {
+    margin-top: 60px;
+}
+
+.card img{
+    width: 151px;
+    height: 133px;
+}
+
+.row {
+    margin: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #000000;
+}
+
+.col h5{
+    font-size: 28px;
+}
+
+.col h7{
+    font-size: 22px;
+}
+
+.btn-primary {
+    color: #000000;
+    background-color: #EFC3A4;
+    border: none;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #cfab90;
+    color: #000000;
+}
+
+.btn-primary:not(:disabled):active{
+    background-color: #cfab90;
+    color: #ffffff;
+    font-weight: 500;
+    fill: #ffffff;
 }
