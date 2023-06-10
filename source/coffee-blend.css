@@ -1,0 +1,15 @@
+
+.beanicon {
+  position: absolute;
+  width: 93.49px;
+  height: 77.53px;
+}
+.receiptname{
+
+  background: #FFFFFF;
+  border-radius: .8rem;
+  --bs-border-opacity:.5;
+  border-color: rgba(var(--bs-success-rgb), var(--bs-border-opacity)) !important;
+}
+
+

@@ -106,128 +106,109 @@
       </div>
     </nav>
 
-    <div
-      class="container d-flex flex-column justify-content-center align-items-center"
-      style="padding-top: 150px"
-    >
-      <h1>Let's Customize your Coffee!</h1>
-      <div class="row border" style="width: 100vmin">
-        <div class="container d-flex">
-          <div class="col-3" style="padding-right: 250px">
+    <div class="container-fluid">
+      <div
+        class="header"
+        style="
+          text-align: center;
+          padding-top: 4rem;
+          font-size: 2.5rem;
+          font-weight: 700;
+        "
+      >
+        Let's Customize your Coffee!
+      </div>
+      <div class="container border" style="border-radius: 8; width: 50rem">
+        <div
+          class="header2"
+          style="
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: Montserrat;
+            justify-content: center;
+          "
+        >
+          Coffee Blend
+        </div>
+        <div class="row d-flex">
+          <div class="col-4">
             <img src="coffee-pack.png" alt="" style="width: 40vmin" />
           </div>
-          <div class="col-9">
-            <div class="row" style="padding-bottom: 30px; padding-top: 20px">
-              <h6 style="font-size: 18px">Receipt Name</h6>
-              <div class="col-5">
-                <input type="text" class="receiptname" style="width: 100%" />
-              </div>
-              <div class="col-4 d-flex">
-                <button
+          <div class="col-8" style="padding-top: 1.5rem">
+            <div class="row">
+              <h6 style="font-size: 1.2rem">Receipt Name</h6>
+              <div class="col-sm-6">
+                <input
+                  type="text"
                   class="receiptname"
-                  style="width: 100%; font-size: 16px"
+                  style="width: 100%; height: 2rem"
+                />
+              </div>
+              <div class="col-sm-6">
+                <button
                   type="button"
+                  class="btn border"
+                  style="
+                    --bs-btn-padding-y: 0.25rem;
+                    --bs-btn-padding-x: 0.5rem;
+                    --bs-btn-font-size: 0.75rem;
+                    border-radius: 0.8rem;
+                    height: 2rem;
+                  "
                 >
-                  Your receipt
+                  Your Receipt
                   <img src="book.png" />
                 </button>
               </div>
-              <div class="row d-flex" style="padding-top: 20px; width: 402px">
-                <div class="col-3">
-                  <img class="beanicon" src="double-beans.png" alt="" />
-                </div>
-                <div class="col">
-                  <label for="category" class="form-label fw-semibold"
-                    >Category</label
-                  >
-                  <select
-                    class="form-select form-select-sm"
-                    name="category"
-                    id="category"
-                  >
-                    <option selected>Arabica</option>
-                    <option value="">New Delhi</option>
-                    <option value="">Istanbul</option>
-                    <option value="">Jakarta</option>
-                  </select>
-                </div>
+            </div>
+            <div class="row d-flex" style="padding-top: 1rem">
+              <div class="col-2">
+                <img
+                  class="beanicon img-fluid border-0"
+                  src="double-beans.png"
+                  alt="..."
+                />
               </div>
-              <div class="row d-flex" style="padding-top: 20px; width: 402px">
-                <div class="col-3">
-                  <img class="beanicon" src="double-beans.png" alt="" />
-                </div>
-                <div class="col">
-                  <label for="category" class="form-label fw-semibold"
-                    >Category</label
-                  >
-                  <select
-                    class="form-select form-select-sm"
-                    name="category"
-                    id="category"
-                  >
-                    <option selected>Arabica</option>
-                    <option value="">New Delhi</option>
-                    <option value="">Istanbul</option>
-                    <option value="">Jakarta</option>
-                  </select>
-                </div>
-                <!-- <div class="col-5">
-                            <label for="percentage" class="form-label fw-semibold">Percentage</label>
-                            <select class="form-select form-select-sm" name="percentage" id="percentage">
-                                <option selected>90%</option>
-                                <option value="">New Delhi</option>
-                                <option value="">Istanbul</option>
-                                <option value="">Jakarta</option>
-                            </select>
-                        </div> -->
+              <div class="col-7">
+                <label for="category" class="form-label fw-semibold"
+                  >Category</label
+                >
+                <select
+                  class="form-select form-select-sm"
+                  name="category"
+                  id="category"
+                >
+                  <option selected>Arabica</option>
+                  <option value="">New Delhi</option>
+                  <option value="">Istanbul</option>
+                  <option value="">Jakarta</option>
+                </select>
               </div>
-              <div class="row d-flex" style="padding-top: 20px; width: 402px;">
-                <div class="col-3">
-                    <img class="beanicon" src="double-beans.png" alt="" />
-                </div>
-                <div class="col">
-                    <label for="category" class="form-label fw-semibold"
-                    >Category</label
-                    >
-                    <select
-                    class="form-select form-select-sm"
-                    name="category"
-                    id="category"
-                    >
-                    <option selected>Arabica</option>
-                    <option value="">New Delhi</option>
-                    <option value="">Istanbul</option>
-                    <option value="">Jakarta</option>
-                    </select>
-                </div>
-                </div>
-                <div class="row d-flex" style="padding-top: 20px; width: 402px;">
-                    <div class="col" style="padding-left: 80px;">
-                        <label for="category" class="form-label fw-semibold"
-                        >Weight</label
-                        >
-                        <select
-                        class="form-select form-select-sm"
-                        name="category"
-                        id="category"
-                        >
-                        <option selected>Arabica</option>
-                        <option value="">New Delhi</option>
-                        <option value="">Istanbul</option>
-                        <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                </div>
+            </div>
+            <div class="row">
+              <div class="col d-flex">
+                <input type="range" class="form-range" min="0" max="5" data-slider-value="3" id="ex6"/>
+                <span id="ex6CurrentSliderValLabel"
+                  >Current Slider Value: <span id="ex6SliderVal">10</span></span
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
+
     <footer>
       <!-- place footer here -->
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
+    <script>
+      var slider = new Slider("#ex6");
+      slider.on("slide", function (sliderValue) {
+        document.getElementById("ex6SliderVal").textContent = sliderValue;
+      });
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
