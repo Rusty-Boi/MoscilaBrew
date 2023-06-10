@@ -189,11 +189,13 @@
                                 </div>
                             </div>
                         @endforeach
+                        <button type="button" class="btn bg-primary rounded-pill fw-bold">
+                            Beli
+                            <i class="fa-solid fa-bag-shopping fa-lg ms-1"></i>
+                        </button>
+                    @else
+                        <p>Empty</p>
                     @endif
-                    <button type="button" class="btn bg-primary rounded-pill fw-bold">
-                        Beli
-                        <i class="fa-solid fa-bag-shopping fa-lg ms-1"></i>
-                    </button>
                 </div>
 
             </div>
