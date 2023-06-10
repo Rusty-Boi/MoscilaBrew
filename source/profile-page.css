@@ -1,25 +1,25 @@
 .content h3{
-    font-size: 36px;
+    font-size: 27pt;
     font-weight: bold;
     text-align: center;
 }
 
 .personalInfo {
-    margin-top: 40px;
+    margin-top: 2rem;
     margin-bottom: auto;
 }
 
 .personalInfo .row {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .personalInfo h5{
-    font-size: 28px;
+    font-size: 21pt;
     font-weight: bold;
 }
 
 .personalInfo h6{
-    font-size: 22px;
+    font-size: 16.5pt;
     font-weight: normal;
 }
