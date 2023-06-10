@@ -87,31 +87,36 @@
         <div class="col content">
             <h3>Reward</h3>
             <div class="card reward-content">
-              <div class="range">
-                <div class="sliderValue">
-                  <span>100</span>
+              <div class="card justify-content-center align-items-center border-0" style="padding-top: 1rem;">
+                <div class="row">
+                  <img src="Starbucks.png" class="rounded-5" style="width: 7rem; height: auto;"></div>
+                  <h4 style="font-weight: 700; padding-top: 1.3rem;">
+                    Coffee Lover!
+                  </h4>
+                  <div class="col" style="width: 20rem;">
+                    <small style="font-weight: 700;">
+                      13 transaction more......
+                    </small>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 25%">25%</div>
+                    </div>
+                  </div>
+                  <div class="col" style="width: 20rem;">
+                    <small>
+                      Your Reward as 
+                    </small><small  style="font-weight: 700;">
+                      Coffee Lovers
+                    </small>
+                    <div class="row">
+                      <div class="col">
+                        ts
+                      </div>
+                    </div>
+                  </div>
                 </div>
-        <div class="field">
-                  <div class="value left">
-        0</div>
-        <input type="range" min="10" max="100" value="50" steps="1">
-                  <div class="value right">
-        100</div>
-        </div>
-        </div>
-        <script>
-              const slideValue = document.querySelector("span");
-              const inputSlider = document.querySelector("input");
-              inputSlider.oninput = (()=>{
-                let value = inputSlider.value;
-                slideValue.textContent = value;
-                slideValue.style.left = (value) + "%";
-                slideValue.classList.add("show");
-              });
-              inputSlider.onblur = (()=>{
-                slideValue.classList.remove("show");
-              });
-        </script>
+                  
+                </div>
+            </div>
             </div>
         </div>
       </div>
