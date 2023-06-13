@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="bean-chooser.css" type="text/css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Account</title>
+</head>
+<body>
+          <!-- Nav Bar -->
+          <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand mr-20" href="index.html">MoscilaBrew</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-underline me-auto mb-2 mb-lg-0 m-auto">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="catalog.html">Catalog</a>
+                    <a class="nav-link" href="featured.html">Featured</a>
+                    <a class="nav-link" href="aboutUs.html">About Us</a>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button onclick="search()" class="btn" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                  </button>
+                </form>
+                <ul class="navbar-nav me-right">
+                  
+                  <button onclick="profileNav()" class="btn profile" type="button" id="userProfile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-person" viewBox="0 0 16 16">
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                    </svg>
+                  </button>
+                  <button onclick="cartNav()" class="btn" type="button" id="cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                  </button>
+                </ul>
+              </div>
+            </div>
+        </nav>
+          
+      <!-- End of Nav Bar -->
+      
+      <div class="container">
+        <div class="existingRecipe d-flex justify-content-end">
+            <button class="btn btn-primary" id="getRecipe">Use Existing Recipe</button>
+        </div>
+        <div class="row m-5 justify-content-center align-items-center">
+            <div class="col-4">
+                <div class="d-flex m-3 flex-row justify-content-center align-items-center">
+                    <button type="button" class="btn btn-secondary" id=""><svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.75 15.75V19.25H26.25V15.75H8.75ZM17.5 0C7.83125 0 0 7.83125 0 17.5C0 27.1688 7.83125 35 17.5 35C27.1688 35 35 27.1688 35 17.5C35 7.83125 27.1688 0 17.5 0ZM17.5 31.5C9.7825 31.5 3.5 25.2175 3.5 17.5C3.5 9.7825 9.7825 3.5 17.5 3.5C25.2175 3.5 31.5 9.7825 31.5 17.5C31.5 25.2175 25.2175 31.5 17.5 31.5Z" fill="black"/>
+                        </svg>
+                        Remove Bean</button>
+                </div>
+                <div class="card p-3 baseBean">
+                    <div class="row p-3 justify-content-center align-items-center">
+                        <img id="beanImage" class="rounded" alt="./Assets/noimage.jpg" src="aceh-gayo.png">
+                    </div>
+                    <div class="row p-3 justify-content-center align-items-center">
+                        <!-- <button data-bs-toggle="modal" data-bs-target="#addBBean" type="button" class="btn btn-primary addButton">Add Bean</button> -->
+                        <h4>Aceh Gayo Arabica</h4>
+                    </div>
+                    <div class="row justify-content-center align-items-center"><h3>Base Bean</h3></div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="d-flex m-3 flex-row justify-content-center align-items-center">
+                    <button type="button" class="btn btn-secondary" id=""><svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.75 15.75V19.25H26.25V15.75H8.75ZM17.5 0C7.83125 0 0 7.83125 0 17.5C0 27.1688 7.83125 35 17.5 35C27.1688 35 35 27.1688 35 17.5C35 7.83125 27.1688 0 17.5 0ZM17.5 31.5C9.7825 31.5 3.5 25.2175 3.5 17.5C3.5 9.7825 9.7825 3.5 17.5 3.5C25.2175 3.5 31.5 9.7825 31.5 17.5C31.5 25.2175 25.2175 31.5 17.5 31.5Z" fill="black"/>
+                        </svg>
+                        Remove Bean</button>
+                </div>
+                <!-- example card -->
+                <div class="card p-3 primaryBean">
+                    <div class="row p-3 justify-content-center align-items-center">
+                        <img class="rounded" id="beanImage" alt="./Assets/noimage.jpg" src="/Assets/noimage.jpg">
+                    </div>
+                    <div class="row p-3 justify-content-center align-items-center">
+                        <button data-bs-toggle="modal" data-bs-target="#addPBean" type="button" class="btn btn-primary addButton">Add Bean</button> <!-- ds-bs-target="#[id]" -->
+                    </div>
+                    <div class="row justify-content-center align-items-center"><h3>Primary Bean</h3></div>
+                </div>
+                
+
+            </div>
+        </div>
+
+        <!-- Secondary Bean (hidden with d-none) -->
+        <div class="d-none row justify-content-center align-items-center">
+            <div class="d-flex m-3 flex-row justify-content-center align-items-center">
+                <button type="button" class="btn btn-secondary" id=""><svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.75 15.75V19.25H26.25V15.75H8.75ZM17.5 0C7.83125 0 0 7.83125 0 17.5C0 27.1688 7.83125 35 17.5 35C27.1688 35 35 27.1688 35 17.5C35 7.83125 27.1688 0 17.5 0ZM17.5 31.5C9.7825 31.5 3.5 25.2175 3.5 17.5C3.5 9.7825 9.7825 3.5 17.5 3.5C25.2175 3.5 31.5 9.7825 31.5 17.5C31.5 25.2175 25.2175 31.5 17.5 31.5Z" fill="black"/>
+                    </svg>
+                    Remove Bean</button>
+            </div>
+            <div class="card col-4 p-3 d-none secondaryBean">
+                
+                <div class="row justify-content-center align-items-center">
+                    <img id="beanImage" class="rounded" alt="./Assets/noimage.jpg" src="/Assets/noimage.jpg">
+                </div>
+                <div class="row p-3 justify-content-center align-items-center">
+                    <button data-bs-toggle="modal" data-bs-target="#addSBean" type="button" class="btn btn-primary addButton">Add Bean</button>
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <h3>Secondary Bean</h3>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button id="addMore" type="button" class="btn shadow btn-primary addMore">
+                Add More
+            </button>
+        </div>
+        
+        <div class="nextButton d-flex justify-content-end">
+            <button id="nextButton" type="button" class="btn btn-primary" >Next ></button>
+        </div>
+      </div>
+  
+  <!-- Modal Base Bean -->
+  <div class="modal fade" id="addBBean" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addBeanBase">Choose Base Bean</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex flex-column">
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><svg width="22" height="24" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.3399 22.9956C25.2351 20.5639 26.432 17.4449 26.432 14.0088C26.432 6.29075 20.4972 0 13.216 0C5.93473 0 0 6.29075 0 14.0088C0 21.7269 5.93473 28.0176 13.216 28.0176C16.4078 28.0176 19.4001 26.8018 21.6942 24.7401L31.9677 35.63C32.2171 35.8943 32.5163 36 32.8155 36C33.1148 36 33.414 35.8943 33.6634 35.63C34.1122 35.1542 34.1122 34.3084 33.6634 33.8326L23.3399 22.9956ZM13.1661 25.4802C7.18152 25.4802 2.34397 20.3524 2.34397 14.0088C2.34397 7.6652 7.18152 2.53745 13.1661 2.53745C19.1507 2.53745 23.9883 7.6652 23.9883 14.0088C23.9883 20.3524 19.1507 25.4802 13.1661 25.4802Z" fill="black"/>
+                    </svg>
+                    </span>
+                <input type="text" class="form-control" placeholder="Bean Name" aria-label="baseBean" aria-describedby="addon-wrapping">
+            </div>
+            <div class="card d-flex flex-row p-3 searchResult align-items-center">
+                <img src="/Assets/noimage.jpg" alt="">
+                <h5 class="p-3">Bean Title</h5>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Primary Bean -->
+  <div class="modal fade" id="addPBean" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addBeanBase">Choose Primary Bean</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><svg width="22" height="24" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.3399 22.9956C25.2351 20.5639 26.432 17.4449 26.432 14.0088C26.432 6.29075 20.4972 0 13.216 0C5.93473 0 0 6.29075 0 14.0088C0 21.7269 5.93473 28.0176 13.216 28.0176C16.4078 28.0176 19.4001 26.8018 21.6942 24.7401L31.9677 35.63C32.2171 35.8943 32.5163 36 32.8155 36C33.1148 36 33.414 35.8943 33.6634 35.63C34.1122 35.1542 34.1122 34.3084 33.6634 33.8326L23.3399 22.9956ZM13.1661 25.4802C7.18152 25.4802 2.34397 20.3524 2.34397 14.0088C2.34397 7.6652 7.18152 2.53745 13.1661 2.53745C19.1507 2.53745 23.9883 7.6652 23.9883 14.0088C23.9883 20.3524 19.1507 25.4802 13.1661 25.4802Z" fill="black"/>
+                    </svg>
+                    </span>
+                <input type="text" class="form-control" placeholder="Bean Name" aria-label="primaryBean" aria-describedby="addon-wrapping">
+            </div>
+            <div class="card d-flex flex-row p-3 searchResult align-items-center">
+                <img src="/Assets/noimage.jpg" alt="">
+                <h5 class="p-3">Bean Title</h5>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Secondary Bean -->
+  <div class="modal fade" id="addSBean" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addBeanBase">Choose Secondary Bean</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><svg width="22" height="24" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.3399 22.9956C25.2351 20.5639 26.432 17.4449 26.432 14.0088C26.432 6.29075 20.4972 0 13.216 0C5.93473 0 0 6.29075 0 14.0088C0 21.7269 5.93473 28.0176 13.216 28.0176C16.4078 28.0176 19.4001 26.8018 21.6942 24.7401L31.9677 35.63C32.2171 35.8943 32.5163 36 32.8155 36C33.1148 36 33.414 35.8943 33.6634 35.63C34.1122 35.1542 34.1122 34.3084 33.6634 33.8326L23.3399 22.9956ZM13.1661 25.4802C7.18152 25.4802 2.34397 20.3524 2.34397 14.0088C2.34397 7.6652 7.18152 2.53745 13.1661 2.53745C19.1507 2.53745 23.9883 7.6652 23.9883 14.0088C23.9883 20.3524 19.1507 25.4802 13.1661 25.4802Z" fill="black"/>
+                    </svg>
+                    </span>
+                <input type="text" class="form-control" placeholder="Bean Name" aria-label="secondaryBean" aria-describedby="addon-wrapping">
+            </div>
+            <div class="card d-flex flex-row p-3 searchResult align-items-center">
+                <img src="/Assets/noimage.jpg" alt="">
+                <h5 class="p-3">Bean Title</h5>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a72340eb77.js" crossorigin="anonymous"></script>
+</body>
+</html>
