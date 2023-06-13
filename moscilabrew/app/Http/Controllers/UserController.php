@@ -108,9 +108,42 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+
+    public function editName()
     {
-        //
+        $validated = request()->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $user = Auth::user();
+        $user->name = $validated['name'];
+        $user->save();
+
+        return redirect()->back()->with('success', 'Name changed successfull!');
+    }
+
+    public function editEmail()
+    {
+        $validated = request()->validate([
+            'email' => 'required|unique:users,email|email:rfc,dns'
+        ]);
+        
+        $user = Auth::user();
+        $user->email = $validated['email'];
+        $user->save();
+        return redirect()->back()->with('success', 'Email changed successfull!');
+    }
+
+    public function editAddress()
+    {
+        $validated = request()->validate([
+            'address' => 'required|max:255',
+        ]);
+        
+        $user = Auth::user();
+        $user->address = $validated['address'];
+        $user->save();
+        return redirect()->back()->with('success', 'Address changed successfull!');
     }
 
     /**

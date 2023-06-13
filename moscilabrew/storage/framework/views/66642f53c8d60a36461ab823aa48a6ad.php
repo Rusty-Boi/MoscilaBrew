@@ -45,7 +45,7 @@
 
                     <?php if(auth()->guard()->check()): ?>
                         <li class="nav-item">
-                            <a href="/profile" class="btn profile" type="button" id="userProfile">
+                            <a href="<?php echo e(route('profile.index')); ?>" class="btn profile" type="button" id="userProfile">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black"
                                     class="bi bi-person" viewBox="0 0 16 16">
                                     <path

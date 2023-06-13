@@ -71,7 +71,13 @@ Route::middleware(['auth'])->group(function () {
     
     // profile
     
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    
+    Route::post('/profile/editName', [UserController::class, 'editName'])->name('profile.editName');
+    
+    Route::post('/profile/editEmail', [UserController::class, 'editEmail'])->name('profile.editEmail');
+    
+    Route::post('/profile/editAddress', [UserController::class, 'editAddress'])->name('profile.editAddress');
 });
 
 // main fitur

@@ -5,7 +5,7 @@
     @include('layouts.header')
 @endsection
 
-@section('bodyClass', '...')
+@section('bodyClass', 'profilePage')
 
 @section('content')
 
@@ -56,27 +56,11 @@
                                 </button>
                             </a>
                             <hr class="my-1">
-                            <a class="menu_link justify-content-center" href="#history" style="padding: 0">
-                                <button onclick="gotoProfile()" type="button" class="btn btn-primary button"
-                                    id="profileDetail">
-                                    <div class="button-flex d-flex flex-row">
-                                      <svg width="36" height="35"
-                                      viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path
-                                          d="M17.676 35C10.8167 35 4.57296 30.9548 1.75888 24.799L4.04532 23.7437C6.50763 29.0201 11.872 32.4498 17.676 32.4498C25.9423 32.4498 32.6257 25.7663 32.6257 17.5C32.6257 9.23367 25.9423 2.55025 17.676 2.55025C11.4323 2.55025 6.15587 6.41959 3.95738 12.5754L1.58301 11.696C4.13326 4.57285 10.377 0 17.676 0C27.3493 0 35.176 7.82663 35.176 17.5C35.176 27.1734 27.2614 35 17.676 35Z"
-                                          fill="black" />
-                                      <path d="M10.9045 13.4548H0V2.63818H2.72613V10.7286H10.9045V13.4548Z"
-                                          fill="black" />
-                                  </svg>
-                                  History
-                                </button>
-                            </a>
-                            <hr class="my-1">
                             <a class="menu_link justify-content-center" href="#reward" style="padding: 0">
                                 <button type="button" class="btn btn-primary button">
                                     <div class="button-flex d-flex flex-row">
-                                      <svg width="26" height="35"
-                                            viewBox="0 0 26 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg width="26" height="35" viewBox="0 0 26 35" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
                                             <mask id="path-1-inside-1_859_2309" fill="white">
                                                 <path
                                                     d="M25.2036 2.76582C25.012 2.54152 24.7737 2.36139 24.5052 2.23792C24.2367 2.11445 23.9445 2.05059 23.6488 2.05078H21.8882C21.869 1.87838 21.8479 1.71117 21.8252 1.55094C21.7619 1.12084 21.5456 0.727683 21.2157 0.443034C20.8858 0.158384 20.4642 0.00116724 20.0276 0L5.66369 0C5.22716 0.00118603 4.80557 0.15842 4.47566 0.443082C4.14575 0.727744 3.92945 1.12091 3.86614 1.55101C3.84349 1.71124 3.82248 1.87845 3.80319 2.05078H2.04251C1.74676 2.05084 1.45455 2.11484 1.18608 2.23835C0.917603 2.36187 0.67926 2.54196 0.48752 2.76618C0.295779 2.99041 0.155214 3.25341 0.0755364 3.53702C-0.00414081 3.82063 -0.02103 4.11809 0.0260364 4.40884L0.411839 6.78897C0.740434 8.825 1.65305 10.723 3.03981 12.2546C4.42657 13.7861 6.22834 14.8857 8.22818 15.4212C8.92192 16.1611 9.67909 16.8395 10.4911 17.4485C10.2026 17.6107 9.96744 17.8527 9.81405 18.1451C9.66067 18.4376 9.59562 18.768 9.62677 19.0964C9.65791 19.4249 9.78393 19.7373 9.98957 19.996C10.1952 20.2547 10.4717 20.4485 10.7856 20.5541C10.7079 21.3027 10.5118 22.0344 10.2044 22.722C9.37769 24.5644 7.93766 25.6191 7.08038 26.1133H6.87327C6.55477 26.1136 6.24941 26.2398 6.0242 26.4641C5.79898 26.6883 5.67229 26.9924 5.67193 27.3096V31.582H4.81383C4.49533 31.5824 4.18997 31.7085 3.96475 31.9328C3.73954 32.1571 3.61285 32.4612 3.61249 32.7783V33.8037C3.61285 34.1209 3.73954 34.4249 3.96475 34.6492C4.18997 34.8735 4.49533 34.9996 4.81383 35H20.8775C21.196 34.9996 21.5013 34.8735 21.7266 34.6492C21.9518 34.4249 22.0785 34.1209 22.0788 33.8037V32.7783C22.0785 32.4612 21.9518 32.1571 21.7266 31.9328C21.5013 31.7085 21.196 31.5824 20.8775 31.582H20.0194V27.3096C20.019 26.9924 19.8923 26.6883 19.6671 26.4641C19.4419 26.2398 19.1365 26.1136 18.818 26.1133H18.6109C17.7536 25.619 16.3136 24.5644 15.4869 22.722C15.1795 22.0344 14.9834 21.3027 14.9057 20.5541C15.2196 20.4485 15.4961 20.2547 15.7017 19.996C15.9074 19.7373 16.0334 19.4249 16.0646 19.0964C16.0957 18.768 16.0307 18.4376 15.8773 18.1451C15.7239 17.8527 15.4887 17.6107 15.2002 17.4485C16.0122 16.8395 16.7694 16.1611 17.4631 15.4212C19.463 14.8858 21.2647 13.7861 22.6515 12.2546C24.0382 10.7231 24.9509 8.82511 25.2795 6.78911L25.6653 4.4087C25.7125 4.1179 25.6957 3.82034 25.616 3.53665C25.5363 3.25297 25.3955 2.98994 25.2036 2.76582ZM1.42845 6.62573L1.04265 4.2456C1.01933 4.10142 1.02771 3.95393 1.06723 3.8133C1.10674 3.67267 1.17644 3.54225 1.2715 3.43106C1.36657 3.31987 1.48474 3.23056 1.61786 3.16928C1.75097 3.10801 1.89586 3.07624 2.04251 3.07617H3.71985C3.57756 5.71562 4.0616 8.35134 5.13277 10.7698C5.6197 11.8649 6.22451 12.9042 6.93657 13.8694C5.49304 13.2034 4.23584 12.1946 3.27543 10.9315C2.31503 9.6685 1.68079 8.18994 1.42845 6.62573ZM20.8775 32.6074C20.923 32.6075 20.9666 32.6255 20.9988 32.6575C21.031 32.6896 21.0491 32.733 21.0491 32.7783V33.8037C21.0491 33.849 21.031 33.8925 20.9988 33.9245C20.9666 33.9565 20.923 33.9746 20.8775 33.9746H4.81383C4.76833 33.9746 4.72471 33.9565 4.69254 33.9245C4.66036 33.8925 4.64226 33.849 4.64221 33.8037V32.7783C4.64226 32.733 4.66036 32.6896 4.69254 32.6575C4.72471 32.6255 4.76833 32.6075 4.81383 32.6074H20.8775ZM18.4727 27.1387L18.4743 27.1387L18.4758 27.1387H18.818C18.8635 27.1387 18.9072 27.1567 18.9393 27.1888C18.9715 27.2208 18.9896 27.2643 18.9897 27.3096V31.582H6.70165V27.3096C6.70171 27.2643 6.71981 27.2208 6.75198 27.1888C6.78415 27.1567 6.82777 27.1387 6.87327 27.1387H7.21548L7.21699 27.1387L7.21857 27.1387H18.4727ZM16.8256 26.1133H8.86572C9.84248 25.3077 10.6219 24.291 11.1446 23.1403C11.499 22.349 11.7245 21.5065 11.8126 20.6445H13.8787C13.9668 21.5065 14.1923 22.349 14.5467 23.1403C15.0694 24.291 15.8488 25.3077 16.8256 26.1133ZM14.3559 19.6191H11.3354C11.1533 19.6191 10.9787 19.5471 10.85 19.4189C10.7212 19.2907 10.6489 19.1168 10.6489 18.9355C10.6489 18.7542 10.7212 18.5804 10.85 18.4522C10.9787 18.324 11.1533 18.252 11.3354 18.252H11.7919C11.808 18.2526 11.824 18.2527 11.84 18.252H13.8601C13.8654 18.2521 13.8706 18.2529 13.8759 18.2529C13.8805 18.2529 13.8852 18.2521 13.8899 18.252H14.3559C14.538 18.252 14.7126 18.324 14.8413 18.4522C14.9701 18.5804 15.0424 18.7542 15.0424 18.9355C15.0424 19.1168 14.9701 19.2907 14.8413 19.4189C14.7126 19.5471 14.538 19.6191 14.3559 19.6191ZM13.7253 17.2266H11.966C10.4196 16.2251 7.71943 14.0578 6.07435 10.355C4.56031 6.94682 4.59223 3.76414 4.8857 1.69436C4.9134 1.50855 5.00716 1.33881 5.14993 1.21604C5.2927 1.09327 5.47499 1.02562 5.66362 1.02539H20.0276C20.2163 1.0256 20.3985 1.09325 20.5413 1.21603C20.6841 1.33881 20.7778 1.50855 20.8055 1.69436C21.099 3.76414 21.1309 6.94682 19.6169 10.355C17.9718 14.0578 15.2716 16.225 13.7252 17.2266H13.7253ZM24.6487 4.24539L24.2629 6.62587C24.0106 8.19006 23.3763 9.66859 22.4159 10.9316C21.4555 12.1946 20.1983 13.2034 18.7548 13.8694C19.4668 12.9042 20.0716 11.8649 20.5585 10.7698C21.6297 8.35134 22.1138 5.71562 21.9715 3.07617H23.6488C23.7954 3.07623 23.9403 3.10798 24.0734 3.16923C24.2066 3.23048 24.3247 3.31978 24.4198 3.43095C24.5149 3.54212 24.5846 3.67251 24.6241 3.81313C24.6636 3.95374 24.672 4.10123 24.6487 4.24539Z" />
@@ -95,10 +79,154 @@
                 </div>
                 {{-- end of side bar --}}
 
+                @if (session()->has('success'))
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary d-none" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn btn-primary bg-primary"
+                                        data-bs-dismiss="modal">Oke</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                {{-- modal --}}
+                {{-- end of modal --}}
+
                 {{-- Profile details --}}
                 <div id="profileDetails" class="col-9 content align-items-center justify-content-center">
                     <div class="title">
                         <h3>Profile Details</h3>
+                    </div>
+
+                    <div class="card container personalInfo px-4">
+                        <div class="row justify-content-center">
+                            <div class="col-6 data-changable">
+                                <form action="{{ route('profile.editName') }}" method="POST">
+                                    @csrf
+                                    <div class="bar-name d-flex justify-content-start"
+                                        style="font-weight: 700; font-size: 1.2rem;">
+                                        Name
+                                        <div class="btn-group d-flex justify-content-start">
+                                            <button type="button" class="@error('name')
+                                                eb
+                                            @enderror  button border-0 rounded-3 edit-btn"
+                                                style="width: fit-content; background-color: white;">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+    
+                                    <hr class="my-1" style="width: auto;">
+                                    <input type="text" name='name' class="form-control"
+                                        value="{{ Auth::user()->name }}" disabled>
+                                    @error('name')
+                                        <p class="text-danger mb-0 mt-1">{{ $message }}</p>
+                                    @enderror
+                                </form>
+                            </div>
+                            <div class="col-6 ">
+                                <div class="bar-name" style="font-weight: 700; font-size: 1.2rem;">Jenis Kelamin</div>
+                                <div class="bar-name" style="font-size: 1.2rem;--bs-border-opacity: 0.45;">
+                                    <hr class="my-1" style="width: auto;">
+                                    <small>{{ Auth::user()->gender }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-6 data-changable">
+                                <form action="{{ route('profile.editEmail') }}" method="POST">
+                                    @csrf
+                                    <div class="bar-email d-flex justify-content-start"
+                                        style="font-weight: 700; font-size: 1.2rem;">
+                                        Email
+                                        <div class="btn-group d-flex justify-content-start">
+                                            <button type="button" class="@error('email')
+                                                eb
+                                            @enderror  button border-0 rounded-3 edit-btn"
+                                                style="width: fit-content; background-color: white;">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+    
+                                    <hr class="my-1" style="width: auto;">
+                                    <input type="email" name='email' class="form-control"
+                                        value="{{ Auth::user()->email }}" disabled>
+                                    @error('email')
+                                        <p class="text-danger mb-0 mt-1">{{ $message }}</p>
+                                    @enderror
+                                </form>
+                            </div>
+                            <div class="col-6 ">
+                                <div class="bar-date" style="font-weight: 700; font-size: 1.2rem;">Tanggal Lahir</div>
+                                <div class="bar-date" style="font-size: 1.2rem;--bs-border-opacity: 0.45;">
+                                    <hr class="my-1" style="width: auto;">
+                                    <small>{{ Auth::user()->birth_date }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <div class="bar-password" style="font-weight: 700; font-size: 1.2rem;">
+                                    Password
+                                    <button type="button" class="button border-0 rounded-3"
+                                        style="width: fit-content; background-color: white;">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
+
+                                </div>
+
+                                <hr class="my-1" style="width: auto;">
+                                <div class="bar-email" style="--bs-border-opacity: 0.45;">
+                                    <small>{{ Auth::user()->password }}</small>
+                                </div>
+                            </div>
+                            <div class="col-6 ">
+                                <div class="bar-phonenumber" style="font-weight: 700; font-size: 1.2rem;">Nomor Telepon
+                                </div>
+                                <div class="bar-phonenumber" style="font-size: 1.2rem;--bs-border-opacity: 0.45;">
+                                    <hr class="my-1" style="width: auto;">
+                                    <small>{{ Auth::user()->phone_number }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 data-changable">
+                                <form action="{{ route('profile.editAddress') }}" method="POST">
+                                    @csrf
+                                    <div class="bar-name d-flex justify-content-start"
+                                        style="font-weight: 700; font-size: 1.2rem;">
+                                        Alamat
+                                        <div class="btn-group d-flex justify-content-start">
+                                            <button type="button" class="@error('address')
+                                                eb
+                                            @enderror  button border-0 rounded-3 edit-btn"
+                                                style="width: fit-content; background-color: white;">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+    
+                                    <hr class="my-1" style="width: auto;">
+                                    <textarea class="form-control" name="address" id="" rows="3" disabled>{{ Auth::user()->address }}</textarea>
+
+                                    @error('address')
+                                        <p class="text-danger mb-0 mt-1">{{ $message }}</p>
+                                    @enderror
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {{-- end of Profile details --}}
@@ -116,7 +244,8 @@
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M23.5 16.825V23.5C23.5 24.163 23.2366 24.7989 22.7678 25.2678C22.2989 25.7366 21.663 26 21 26H3.5C2.83696 26 2.20107 25.7366 1.73223 25.2678C1.26339 24.7989 1 24.163 1 23.5V6C1 5.33696 1.26339 4.70107 1.73223 4.23223C2.20107 3.76339 2.83696 3.5 3.5 3.5H10.175"
-                                        stroke="#794028" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        stroke="#794028" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M21 1L26 6L13.5 18.5H8.5V13.5L21 1Z"
                                         stroke="#794028" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" />
@@ -167,22 +296,111 @@
                 </div>
                 {{-- end of draft receipt --}}
 
-                {{-- History --}}
-                <div id="history" class="col-9 content align-items-center justify-content-center d-none">
-                    <div class="title">
-                        <h3>History</h3>
-                    </div>
-                </div>
-                {{-- end of history --}}
-
                 {{-- Reward --}}
                 <div id="reward" class="col-9 content align-items-center justify-content-center d-none">
                     <div class="title">
                         <h3>Reward</h3>
                     </div>
+                    <div class="card reward-content">
+                        <div class="card justify-content-center align-items-center border-0"
+                            style="padding-top: 1rem;padding-bottom: 1rem;">
+                            <div class="row">
+                                <img src="{{ asset('img/Starbucks.png') }}" class="rounded-5"
+                                    style="width: 7rem; height: auto;">
+                            </div>
+                            <h4 style="font-weight: 700; padding-top: 1.3rem;">
+                                Coffee Lover!
+                            </h4>
+                            <div class="col" style="width: 20rem;">
+                                <small style="font-weight: 700;">
+                                    13 transaction more......
+                                </small>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 25%; background-color: #a17453">25%</div>
+                                </div>
+                            </div>
+                            <div class="row" style="width: 40rem;">
+                                <small>
+                                    Your Reward as
+                                </small><small style="font-weight: 700;">
+                                    Coffee Lovers
+                                </small>
+                                <div class="row" style="padding-top: 1.5rem;">
+                                    <div class="col border rounded position-relative ps-0 d-flex" style="margin: 0.5rem;">
+                                        <div class="position-relative z-1 " style="overflow: hidden;">
+                                            <img src="{{ asset('img/Group 384.png') }}" class="position-absolute z-0"
+                                                style="height: 120%;" alt="...">
+                                            <div class="infovoucher" style="padding-left: 5rem;">
+                                                <h3 class="font-weight-bold"
+                                                    style="justify-content: center; font-size: 1.5rem;">
+                                                    15% OFF
+                                                </h3>
+                                                <h6 class="font-weight-bold" style="font-size: 0.7rem;">
+                                                    FOR ORDERS OVER RP 100.000!
+                                                </h6>
+                                                <div class="row" style="font-size: 0.7rem;  margin-bottom: 0.5rem;">
+                                                    <div class="col d-flex align-items-center"
+                                                        style="padding-top: 0.2rem;">
+                                                        <img src="{{ asset('img/Vector.png') }}" class="icons"
+                                                            alt="..."
+                                                            style="height: 0.65rem; padding-right: 0.2rem;">
+                                                        <small class="date_expired_voucher">
+                                                            7 JUNE 2023
+                                                        </small>
+                                                    </div>
+                                                    <div class="col d-flex">
+                                                        <button
+                                                            class="btn btn-primary p-1 text-truncate border-1 border d-flex align-items-center"><small
+                                                                class="font-weight-bold" style="font-size: small;">Redeem
+                                                                Now</small></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col border rounded position-relative ps-0 d-flex" style="margin: 0.5rem;">
+                                        <div class="position-relative z-1 "style="overflow: hidden;">
+                                            <img src="{{ asset('img/Group 384.png') }}" class="position-absolute z-0"
+                                                style="height: 120%; object-fit: cover;" alt="...">
+                                            <div class="infovoucher" style="padding-left: 5rem;">
+                                                <h3 class="font-weight-bold"
+                                                    style="justify-content: center; font-size: 1.5rem;">
+                                                    15% OFF
+                                                </h3>
+                                                <h6 class="font-weight-bold" style="font-size: 0.7rem;">
+                                                    FOR ORDERS OVER RP 100.000!
+                                                </h6>
+                                                <div class="row" style="font-size: 0.7rem; margin-bottom: 0.5rem;">
+                                                    <div class="col d-flex align-items-center">
+                                                        <img src="{{ asset('img/Vector.png') }}" class="icons"
+                                                            alt="..."
+                                                            style="height: 0.65rem; padding-right: 0.2rem;">
+                                                        <small class="date_expired_voucher">
+                                                            7 JUNE 2023
+                                                        </small>
+                                                    </div>
+                                                    <div class="col d-flex ">
+                                                        <button
+                                                            class="btn btn-primary p-1 text-truncate border-1 border d-flex align-items-center"><small
+                                                                class="font-weight-bold" style="font-size: small;">Redeem
+                                                                Now</small></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                {{-- end of Reward --}}
             </div>
+        </div>
+        {{-- end of Reward --}}
+        </div>
         </div>
     </section>
 @endsection
@@ -194,9 +412,7 @@
 @endsection
 
 @section('js')
-    {{-- <script src={{asset('js/index.js')}}></script>   --}}
+    <script src="https://kit.fontawesome.com/a72340eb77.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/profile.js') }}"></script>
-    <script>
-        // button-flex
-    </script>
+    <script src="{{ asset('js/main.js') }}"></script>
 @endsection

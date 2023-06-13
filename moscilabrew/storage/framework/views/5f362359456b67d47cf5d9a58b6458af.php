@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Check your blend vendors | MoscilaBrew'); ?>
 
 <?php $__env->startSection('navbar'); ?>

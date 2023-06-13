@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', '...'); ?>
 
 <?php $__env->startSection('navbar'); ?>

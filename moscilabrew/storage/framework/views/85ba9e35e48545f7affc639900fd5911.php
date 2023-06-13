@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Coffee Blend | MoscilaBrew'); ?>
 
 <?php $__env->startSection('navbar'); ?>
