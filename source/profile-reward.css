@@ -3,3 +3,33 @@
     font-weight: bold;
     text-align: center;
 }
+
+.progress {
+  height: 1.5rem;
+  overflow: visible;
+  margin-bottom: 1.2rem;
+  border-radius: 5rem;
+}
+
+.progress .progress-bar {
+  position: relative;
+}
+
+.progress .progress-bar {
+  height: 100%;
+  color: white;
+  background-color: #EFC3A4;
+  border-radius: 5rem;
+
+}
+
+.progress .progress-bar:after {
+  content: "";
+  background: #fff;
+  position: absolute;
+  right: -0.001rem;
+  top: 0.25rem;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+}

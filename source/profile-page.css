@@ -1,0 +1,25 @@
+.content h3{
+    font-size: 27pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.personalInfo {
+    margin-top: 2rem;
+    margin-bottom: auto;
+}
+
+.personalInfo .row {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.personalInfo h5{
+    font-size: 21pt;
+    font-weight: bold;
+}
+
+.personalInfo h6{
+    font-size: 16.5pt;
+    font-weight: normal;
+}
