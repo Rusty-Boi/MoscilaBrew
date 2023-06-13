@@ -14,12 +14,12 @@ class VendorSeeder extends Seeder
     public function run(): void
     {
         Vendor::create([
-            'vendor_name' => 'Aceh',    
+            'vendor_name' => 'Arutala',    
             'vendor_logo' => 'img/coffee-pack.png'
         ]);
 
         Vendor::create([
-            'vendor_name' => 'Vendor Name',    
+            'vendor_name' => 'Dropshot',    
             'vendor_logo' => 'img/coffee-pack.png'
         ]);       
     }

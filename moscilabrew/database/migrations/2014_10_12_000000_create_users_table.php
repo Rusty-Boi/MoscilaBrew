@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('address')->nullable();
             $table->string('phone_number')->unique();
+            $table->string('gender')->nullable();
+            $table->string('birth_date')->nullable();
             // $table->foreign('history_id')->;
             // $table->id('history_id')->foreign()->references('history_id')->on('histories');
             // $table->uuid('vendor_id')->foreign()->references('vendor_id')->on('vendors');

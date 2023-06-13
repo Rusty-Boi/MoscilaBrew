@@ -19,7 +19,9 @@ class UserSeeder extends Seeder
             'email' => 'hengki@gmail.com',
             'password' => 'bene',
             'address' => 'bengkayang',
-            'phone_number' => '081257520000'
+            'phone_number' => '081257520000',
+            'gender' => 'laki-laki',
+            'birth_date' => '12-01-2000'
         ]);
         
         User::create([
@@ -27,7 +29,9 @@ class UserSeeder extends Seeder
             'email' => 'bene@gmail.com',
             'password' => 'ben',
             'address' => 'bengkayang',
-            'phone_number' => '0812575210000'
+            'phone_number' => '0812575210000',
+            'gender' => 'laki-laki',
+            'birth_date' => '12-01-2000'
         ]);
            
     }
