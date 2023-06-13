@@ -65,17 +65,57 @@
       </div>
     </div>
   </nav>
+  
 
   <div class="container-fluid mt-5 py-3 px-5">
     <div class="row">
-        <div class="col">
+      <div class="profileContainer d-flex justify-content-between">
+        <div class="profileInfo d-flex">
+          <div class="profileheader mx-auto bg warning">
+            <h2>Your Account</h2>
+          </div>
+          <!--css rounded image
+        img{border-radius: 50%};-->
+          <img class="profileImage" src="Profile pict.png" alt="Avatar">
+          <div class="headinfo">
+            <h4>Your Name</h4>
+            <label id="label" for="email">email@gmail.com</label>
+          </div>
+          <!--Account menu//block menurun-->
+          <div class="accountMenu">
+            
+            <!--Personal Info btn-->
+            <button onclick="personalInfo()" class="button btnPersonalInfo" type="button" id="personalInfo" width="150" height="25" fill="black" class="bi bi-person" viewBox="0 0 16 16">Personal Information
+              
+            </button>
+            <br>
+            <!--receipt btn-->
+            <button onclick="receipt()" class="button active btnReceipt" type="button" id="receipt">Draft Receipt
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="150" height="25" fill="black" class="bi bi-person" viewBox="0 0 16 16"> -->
+                    <!--path?-->
+                <!-- </svg> -->
+            </button>
+            <br>
+            <!--history btn-->
+            <button onclick="history()" class="button btnHistory" type="button" id="history">History
+                
+            </button>
+            <br>
+            <!--reward btn-->
+            <button onclick="reward()" class="button btnReward" type="button" id="reward">Reward
+                
+            </button>
+          
+        </div>
+      </div>
+        <!-- <div class="col">
             <div class="card-body">
                 <h5 class="card-title justify-content-center">Nama Pembeli</h5>
                 <div class="picture">
                     <img src="Profile pict.png" class="img-thumbnail border-0 text-center" alt="...">
                 </div>
           </div>
-        </div>
+        </div> -->
         <div class="col-9">
             <div class="card-title">
                 <h2 class="text-center font-weight-bold">Reward</h2>
