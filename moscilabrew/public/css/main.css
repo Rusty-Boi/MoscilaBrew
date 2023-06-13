@@ -19,7 +19,6 @@
     794028 */
     --Montserrat : 'Montserrat', sans-serif;
     --Overpass : 'Overpass', sans-serif;
-    
 }
 
 /* body */
@@ -584,4 +583,11 @@ body.productPage .progress {
 
 body.productPage .progress .progress-bar{
     background-color: #319DFF;
+}
+
+
+  
+/* Mengubah warna thumb slider */
+body.coffeeBlendPage input[type="range"]::-webkit-slider-thumb {
+background-color: rgba(var(--primary-rgb), 1); /* Ganti dengan warna yang Anda inginkan */
 }

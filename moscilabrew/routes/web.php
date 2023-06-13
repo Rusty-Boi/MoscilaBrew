@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CoffeeController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CoffeeBlendController;
 
 
@@ -46,23 +47,31 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [UserController::class, 'logout',]);
     
-    Route::get('/profile', function () {
-        return view('profile');
-    });
-    
     Route::post('/catalog/{coffee:id}/addToCart', [CartController::class, 'addToCart'])->name('cart.add');
     
     Route::get('/catalog/{coffee:id}/remove', [CartController::class, 'removeItem'])->name('cart.remove');
     
     Route::get('/{coffee:id}/addToOrderList', [OrderController::class, 'addToOrderList'])->name('order.add');
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
     
+    // coffee order
     Route::get('/{vendor:id}/addItemsToOrderList', [OrderController::class, 'addItemsToOrderList'])->name('order.addItems');
     
     Route::get('/{coffee:id}/removeItemsOrderList', [OrderController::class, 'removeItemsOrderList'])->name('order.removeItems');
     
     Route::get('/{coffee:id}/removeItemOrderList', [OrderController::class, 'removeItemOrderList'])->name('order.remove');
-
-    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    
+    // coffee blend
+    Route::post('/coffee-blend/create', [CoffeeBlendController::class, 'create'])->name('coffeeBlend.create');
+    
+    Route::get('/coffee-blend/blend-vendors', [CoffeeBlendController::class, 'showBlendVendors'])->name('coffeeBlend.blendVendors');
+    
+    Route::get('/coffee-blend/confirmation-buy-custom-blend/', [CoffeeBlendController::class, 'showConfirmationCustomBlend'])->name('coffeeBlend.confirmationBlend');
+    
+    // profile
+    
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 });
 
 // main fitur
@@ -73,11 +82,8 @@ Route::get('/catalog/{bean_cat}', [CoffeeController::class, 'showProductsByBeanC
 
 Route::get('/catalog/{vendor_name}/{coffee}', [CoffeeController::class, 'showProductPage']);
 
+// coffee blend
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
-
-Route::get('/coffee-blend/blend-vendors', [CoffeeBlendController::class, 'showBlendVendors']);
-
-Route::get('/confirmation-buy-custom-blend', [CoffeeBlendController::class, 'showConfirmationCustomBlend']);
 
 Route::get('/daftar-transaksi', [UserController::class, 'showDaftarTransaksi']);
 
