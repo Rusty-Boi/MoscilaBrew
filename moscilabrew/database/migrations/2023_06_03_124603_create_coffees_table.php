@@ -14,8 +14,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('coffees', function (Blueprint $table) {
-            $table->uuid('product_id')->default(DB::raw('uuid()'));
-            $table->uuid('vendor_id')->foreign()->references('vendor_id')->on('vendors');
+            // $table->uuid('product_id')->default(DB::raw('uuid()'));
+            $table->id();
+            // $table->uuid('vendor_id')->foreign()->references('vendor_id')->on('vendors');
+            // $table->foreign('vendor_id')->references('vendor_id')->on('vendors');
+            // $table->unsignedBigInteger('vendor_id')->foreign()->references('vendor_id')->on('vendors');
+            $table->foreignId('vendor_id');
             $table->string('bean_category_name');
             $table->string('product_img');
             $table->string('product_name');

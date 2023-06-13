@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('vendors', function (Blueprint $table) {
-            $table->uuid('vendor_id')->default(DB::raw('uuid()'));
+            // $table->uuid('vendor_id')->default(DB::raw('uuid()'));
+            $table->id();
             $table->string('vendor_name');
             $table->string('vendor_logo');
             $table->timestamps();

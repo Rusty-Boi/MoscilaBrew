@@ -1,11 +1,11 @@
 @extends('layouts.master')
-@section('title', "Coffee Blend | MoscilaBrew")
+@section('title', 'Coffee Blend | MoscilaBrew')
 
 @section('navbar')
     @include('layouts.header')
 @endsection
 
-@section('bodyClass', "coffeeBlendPage")
+@section('bodyClass', 'coffeeBlendPage')
 
 @section('content')
     <section class="coffee-blend nav-on" id="coffee-blend">
@@ -13,179 +13,110 @@
             <h2>Let's Customize your Coffee!</h2>
         </div>
 
-        <img src={{asset('img/coffee-pack.png')}} alt="" style="width: 40vmin;">
-        
-        <form class="coffee-blend-form w-md-50 rounded-4">
+        <div class="coffee-blend-form rounded-4">
             <h2>COFFEE BLEND</h2>
-            <div class="mb-3 w-100">
-                <div class="row row-cols-1 row-cols-md-3 gx-3">
-                    <div class="col col-md-3 text-center align-self-center">
-                        <img class="w-25 w-md-75" src={{asset('img/double-beans.png')}} alt="">
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="category" class="form-label fw-semibold">Category</label>
-                        <select class="form-select form-select-sm" name="category" id="category">
-                            <option selected>Arabica</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="percentage" class="form-label fw-semibold">Percentage</label>
-                        <select class="form-select form-select-sm" name="percentage" id="percentage">
-                            <option selected>90%</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col col-md-3 text-center align-self-center">
-                        <img class="w-25 w-md-75" src={{asset('img/double-beans.png')}} alt="">
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="category" class="form-label fw-semibold">Category</label>
-                        <select class="form-select form-select-sm" name="category" id="category">
-                            <option selected>Arabica</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="percentage" class="form-label fw-semibold">Percentage</label>
-                        <select class="form-select form-select-sm" name="percentage" id="percentage">
-                            <option selected>90%</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col col-md-3 text-center align-self-center">
-                        <img class="w-25 w-md-75" src={{asset('img/double-beans.png')}} alt="">
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="category" class="form-label fw-semibold">Category</label>
-                        <select class="form-select form-select-sm" name="category" id="category">
-                            <option selected>Arabica</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="percentage" class="form-label fw-semibold">Percentage</label>
-                        <select class="form-select form-select-sm" name="percentage" id="percentage">
-                            <option selected>90%</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col col-md-12 d-flex flex-column justify-content-center align-items-center mt-2 mt-md-0">
-                        <div class="w-100 w-md-50">
-                            <div class="mb-0 mb-md-3">
-                            <label for="wight" class="form-label fw-semibold">Weight</label>
-                            <input type="text" class="form-control" name="wight" id="wight" placeholder="" disabled>
+
+            <div class="row justify-content-center g-2">
+
+                <div class="col-4 align-self-center text-center">
+                    <img class="rounded-4" src={{ asset('img/coffee-pack.png') }} alt="" style="width: 80%;">
+                </div>
+
+                <div class="col">
+                    <div class="container">
+                        <form action="{{ route('coffeeBlend.create') }}" method="POST">
+                            @csrf
+                            <div class="d-flex align-items-end justify-content-between mb-3">
+                                <div class="me-2 flex-fill">
+                                    <label for="inputName" class="form-label mb-0">Reciept Name</label>
+                                    <input type="text" class="form-control" name="inputName" id="inputName">
+                                </div>
+
+                                <a class="btn bg-primary d-flex align-items-center"
+                                    href="#" role="button">
+                                    <small class="text-truncate me-1">Your Receipt!</small>
+                                    <i class="fa-solid fa-receipt"></i>
+                                </a>
                             </div>
-                        </div>
+
+                            <div>
+                                <div class="slider">
+                                    <label for="slider1" class="form-label">Primary</label>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input name='primary_ratio' type="range" class="form-range me-3" id="slider1" step="1" min="0" max="10" value="5">       
+                                        </div>
+                                        <div class="col-1">
+                                            <p class="mb-0"></p>
+                                        </div>
+                                    </div>
+                                </div>                          
+                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                <div class="slider">
+                                    <label for="slider2" class="form-label">Base</label>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input name='base_ratio' type="range" class="form-range me-3" id="slider2" step="1" min="0" max="10" value="5">       
+                                        </div>
+                                        <div class="col-1">
+                                            <p class="mb-0"></p>
+                                        </div>
+                                    </div>
+                                </div>                          
+                                                              
+                                <div class="slider">
+                                    <label for="slider3" class="form-label">Secondary (optional)</label>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input name='secondary_ratio' type="range" class="form-range me-3" id="slider3" step="1" min="0" max="10" value="0">       
+                                        </div>
+                                        <div class="col-1">
+                                            <p class="mb-0"></p>
+                                        </div>
+                                    </div>
+                                </div>                          
+                                  
+                                <div class="d-flex justify-content-center">
+                                    <span class="sliderRatio"></span>
+                                    <span class="mx-2">:</span>
+                                    <span class="sliderRatio"></span>
+                                    <span class="mx-2">:</span>
+                                    <span class="sliderRatio"></span>
+                                </div>
+                            </div>
+
+                            <div class="ratio_sum_status alert alert-danger p-2 d-none" role="alert">
+                            </div>
+
+                            <div class="d-flex align-items-end justify-content-between mb-3">
+                                <p class="mb-0 flex-fill"><span class="fs-5">Subtotal</span><br> <span
+                                        class="fw-bold fs-4">Rp 180.000</span></p>
+
+                                <button type="submit" class="btn bg-primary mx-2 rounded-4">
+                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    Submit
+                                </button>
+
+                                <a name="" id="" class="btn bg-primary rounded-4" href="#"
+                                    role="button">
+                                    <i class="bi bi-bookmark-plus"></i>
+                                </a>
+                            </div>
+                        </form>
                     </div>
                 </div>
+
             </div>
-            <button type="submit" class="btn rounded-pill px-5 text-black" style="background-color: #F2EFEF;">Submit</button>
-        </form>
+        </div>
     </section>
-
-
-    {{-- <div class="container d-flex flex-column justify-content-center align-items-center nav-on">
-        <h1>Let's Customize your Coffee!</h1>
-        <img src={{asset('img/coffee-pack.png')}} alt="" style="width: 40vmin;">
-        <form class="d-flex flex-column align-items-center justify-content-center w-80 w-md-50 p-2 rounded-4" style="background-color: #D9D9D9;">
-            <h2>COFFEE BLEND</h2>
-            <div class="mb-3 w-100">
-                <div class="row row-cols-1 row-cols-md-3 gx-3">
-                    <div class="col col-md-3 text-center align-self-center">
-                        <img class="w-25 w-md-75" src={{asset('img/double-beans.png')}} alt="">
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="category" class="form-label fw-semibold">Category</label>
-                        <select class="form-select form-select-sm" name="category" id="category">
-                            <option selected>Arabica</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="percentage" class="form-label fw-semibold">Percentage</label>
-                        <select class="form-select form-select-sm" name="percentage" id="percentage">
-                            <option selected>90%</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col col-md-3 text-center align-self-center">
-                        <img class="w-25 w-md-75" src={{asset('img/double-beans.png')}} alt="">
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="category" class="form-label fw-semibold">Category</label>
-                        <select class="form-select form-select-sm" name="category" id="category">
-                            <option selected>Arabica</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="percentage" class="form-label fw-semibold">Percentage</label>
-                        <select class="form-select form-select-sm" name="percentage" id="percentage">
-                            <option selected>90%</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col col-md-3 text-center align-self-center">
-                        <img class="w-25 w-md-75" src={{asset('img/double-beans.png')}} alt="">
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="category" class="form-label fw-semibold">Category</label>
-                        <select class="form-select form-select-sm" name="category" id="category">
-                            <option selected>Arabica</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col align-self-center">
-                        <label for="percentage" class="form-label fw-semibold">Percentage</label>
-                        <select class="form-select form-select-sm" name="percentage" id="percentage">
-                            <option selected>90%</option>
-                            <option value="">New Delhi</option>
-                            <option value="">Istanbul</option>
-                            <option value="">Jakarta</option>
-                        </select>
-                    </div>
-                    <div class="col col-md-12 d-flex flex-column justify-content-center align-items-center mt-2 mt-md-0">
-                        <div class="w-100 w-md-50">
-                            <div class="mb-0 mb-md-3">
-                            <label for="wight" class="form-label fw-semibold">Weight</label>
-                            <input type="text" class="form-control" name="wight" id="wight" placeholder="" disabled>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary rounded-pill px-5 text-black" style="background-color: #F2EFEF;">Submit</button>
-        </form>
-    </div> --}}
 @endsection
 
 @section('css')
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 @endsection
 
 @section('js')
-	{{-- ... --}}
+    <script src="https://kit.fontawesome.com/a72340eb77.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 @endsection

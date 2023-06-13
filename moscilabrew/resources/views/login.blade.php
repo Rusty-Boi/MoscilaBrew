@@ -81,9 +81,7 @@
                             </symbol>
                         </svg>
                         <div class="alert alert-danger d-flex align-items-center mb-0" role="alert" style="height: 1rem">
-                            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" style="width: 1rem">
-                                <use xlink:href="#check-circle-fill" />
-                            </svg>
+                            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" style="width: 1rem"><use xlink:href="#exclamation-triangle-fill"/></svg>
                             <div>
                                 {{ session('login_failed') }}
                             </div>

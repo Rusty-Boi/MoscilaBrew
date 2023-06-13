@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vendor;
 use App\Models\CoffeeBlend;
 use App\Http\Requests\StoreCoffeeBlendRequest;
 use App\Http\Requests\UpdateCoffeeBlendRequest;
+use Illuminate\Http\Request;
 
 class CoffeeBlendController extends Controller
 {
@@ -23,15 +25,17 @@ class CoffeeBlendController extends Controller
     public function showBlendVendors()
     {
         return view('coffee-blend.blend-vendors', [
-            'blend_vendors' => CoffeeBlend::allBlendVendors(),
+            'blend_vendors' => Vendor::all(),
+            'coffee_blend_data' => session('coffee_blend_data'),
             'partners_status_img' => CoffeeBlend::allStatusPartner()
         ]);
     }
 
-    public function showConfirmationCustomBlend()
+    public function showConfirmationCustomBlend(Request $request)
     {
+        
         return view('coffee-blend.confirmation-buy', [
-            'blend_vendors' => CoffeeBlend::allBlendVendors(),
+            'vendor' => Vendor::find($request['vendor_id']),
             'partners_status_img' => CoffeeBlend::allStatusPartner()
         ]);
     }
@@ -39,9 +43,14 @@ class CoffeeBlendController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $coffee_blend_data = [
+            'primary_ratio' => $request->primary_ratio,
+            'base_ratio' => $request->base_ratio,
+            'secondary_ratio' => $request->secondary_ratio
+        ];   
+        return redirect()->route('coffeeBlend.blendVendors')->with('coffee_blend_data', $coffee_blend_data);
     }
 
     /**

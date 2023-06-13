@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    {{ $coffee['product_name']}} | MoscilaBrew
+    {{ $coffee['product_name'] }} | MoscilaBrew
 @endsection
 
 @section('navbar')
@@ -53,10 +53,12 @@
                                             <span class="rating-icon w-50"><i class="fa-solid fa-star"></i></span>
                                         </label>
                                     </div>
-                                    <p class="mb-0 ms-2 fw-bold">{{ $coffee->rating_product }} <span class="text-muted">(200)</span></p>
+                                    <p class="mb-0 ms-2 fw-bold">{{ $coffee->rating_product }} <span
+                                            class="text-muted">(200)</span></p>
                                 </div>
 
-                                <p class="mb-0" style="text-align: justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi officia,
+                                <p class="mb-0" style="text-align: justify">Lorem ipsum dolor sit amet consectetur,
+                                    adipisicing elit. Modi officia,
                                     tenetur, blanditiis ex labore ullam est ut distinctio maiores dolores optio, excepturi
                                     doloremque inventore perferendis dolorum nisi. Voluptates dolores quis vitae maiores id
                                     deleniti praesentium quisquam asperiores nobis, ea molestiae quibusdam perspiciatis est
@@ -102,9 +104,10 @@
                                             <span class="rating-icon"><i class="fa-regular fa-star"></i></span>
                                             <span class="rating-icon"><i class="fa-solid fa-star"></i></span>
                                         </label>
-                                    </div>                                        
+                                    </div>
                                     <div class="progress mx-3">
-                                        <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="180" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" aria-label="Basic example"
+                                            aria-valuenow="180" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <span class="text-muted progress-text">180</span>
                                 </div>
@@ -130,9 +133,10 @@
                                             <span class="rating-icon"><i class="fa-regular fa-star"></i></span>
                                             <span class="rating-icon"><i class="fa-solid fa-star"></i></span>
                                         </label>
-                                    </div>                                        
+                                    </div>
                                     <div class="progress mx-3">
-                                        <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" aria-label="Basic example"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <span class="text-muted progress-text">20</span>
                                 </div>
@@ -158,9 +162,10 @@
                                             <span class="rating-icon"><i class="fa-regular fa-star"></i></span>
                                             <span class="rating-icon"><i class="fa-solid fa-star"></i></span>
                                         </label>
-                                    </div>                                        
+                                    </div>
                                     <div class="progress mx-3">
-                                        <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" aria-label="Basic example"
+                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <span class="text-muted progress-text">0</span>
                                 </div>
@@ -186,9 +191,10 @@
                                             <span class="rating-icon"><i class="fa-regular fa-star"></i></span>
                                             <span class="rating-icon"><i class="fa-solid fa-star"></i></span>
                                         </label>
-                                    </div>                                        
+                                    </div>
                                     <div class="progress mx-3">
-                                        <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" aria-label="Basic example"
+                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <span class="text-muted progress-text">0</span>
                                 </div>
@@ -214,9 +220,10 @@
                                             <span class="rating-icon"><i class="fa-regular fa-star"></i></span>
                                             <span class="rating-icon"><i class="fa-solid fa-star"></i></span>
                                         </label>
-                                    </div>                                        
+                                    </div>
                                     <div class="progress mx-3">
-                                        <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" aria-label="Basic example"
+                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <span class="text-muted progress-text">0</span>
                                 </div>
@@ -231,7 +238,9 @@
                                     <div class="col-2 text-center">
                                         <img class="rounded-circle" src="{{ asset('img/4352365-removebg-preview.png') }}"
                                             alt="" style="max-width: 100%">
-                                        <p class="text-truncate fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="tooltip-arrow-auto" data-bs-title="Cristian ...">
+                                        <p class="text-truncate fw-bold" data-bs-toggle="tooltip"
+                                            data-bs-placement="bottom" data-bs-custom-class="tooltip-arrow-auto"
+                                            data-bs-title="Cristian ...">
                                             Cristian ...</p>
                                         <span class="text-start">Feb 22, 2023</span>
                                     </div>
@@ -278,32 +287,60 @@
                     <div class="my-border d-flex flex-column justify-content-center">
                         <p>Stok : 55</p>
                         <p>Harga : <span class="fw-bold fs-5">{{ $coffee['price'] }}</span></p>
-                        <div class="plus-minus-sign w-50 mb-3">
-                            <div class="center">
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <button type="button" class="btn btn-number" disabled="disabled"
-                                            data-type="minus" data-field="quant[1]">
-                                            <i class="fa-solid fa-circle-minus fa-lg"></i>
-                                        </button>
-                                    </span>
-                                    <input type="text" name="quant[1]" class="form-control input-number"
-                                        value="1" min="1" max="10">
-                                    <span class="input-group-text">
-                                        <button type="button" class="btn btn-number" data-type="plus"
-                                            data-field="quant[1]">
-                                            <i class="fa-solid fa-circle-plus fa-lg"></i>
-                                        </button>
-                                    </span>
+
+                        <form action="{{ route('cart.add', $coffee->id) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="coffee_id" value="{{ $coffee->id }}">
+                            <div class="plus-minus-sign w-50 mb-3">
+                                <div class="center">
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <button type="button" class="btn btn-number" disabled="disabled"
+                                                data-type="minus" data-field="quantity">
+                                                <i class="fa-solid fa-circle-minus fa-lg"></i>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quantity" class="form-control input-number"
+                                            value="1" min="1" max="10">
+                                        <span class="input-group-text">
+                                            <button type="button" class="btn btn-number" data-type="plus"
+                                                data-field="quantity">
+                                                <i class="fa-solid fa-circle-plus fa-lg"></i>
+                                            </button>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <a name="" id=""
-                            class="btn bg-primary align-self-center fw-bold rounded-pill px-4" href="#"
-                            role="button">
-                            <i class="fa-solid fa-plus fa-lg"></i>
-                            Keranjang
-                        </a>
+
+                            <!-- Button trigger modal -->
+                            <button type="submit" class="btn bg-primary align-self-center fw-bold rounded-pill px-4">
+                                <i class="fa-solid fa-plus fa-lg"></i>
+                                Keranjang
+                            </button>
+
+                            
+
+                            @if (session()->has('success'))
+                                <!-- Modal -->
+                                <div class="modal fade" id="addToCartSuccessModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" style="top: 50%; transform: translateY(-50%)">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                Success add to cart!
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <a href="{{ route('cart') }}">
+                                                    <button type="button" class="btn btn-primary">View cart</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                        </form>
                     </div>
                 </div>
             </div>
@@ -313,7 +350,7 @@
 
 @section('css')
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fastbootstrap@1.1.1/dist/css/fastbootstrap.min.css"> --}}
-    
+
     {{-- <link rel="stylesheet" href={{ asset('css/style.css') }} type="text/css"> --}}
 
 @endsection
@@ -322,4 +359,9 @@
     <script src={{ asset('js/main.js') }}></script>
     <script src="https://kit.fontawesome.com/a72340eb77.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/fastbootstrap@1.1.1/dist/js/fastbootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#addToCartSuccessModal").modal('show');
+        });
+    </script>
 @endsection

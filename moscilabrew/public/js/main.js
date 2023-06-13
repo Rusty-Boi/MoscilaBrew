@@ -1,4 +1,40 @@
 /* 
+    redirect to link
+*/
+function redirectToLink(url, value) {
+    var urlWithParam = url + '?value=' + encodeURIComponent(value);
+    window.location.href = urlWithParam;
+
+    location.href = "{{ route('order.add', $item['coffee_id']) }}"
+}
+
+/* 
+    Order input
+*/
+function orderInput(e, val){
+    coffee_id = e.value;
+    if (val == 'item'){
+        // jika checkbutton di check
+        if ($(e).is(':checked')) {
+            location.href = "/"+e.value+"/addToOrderList";
+        }
+        // jika checkbutton di check
+        else {
+            location.href = "/"+e.value+"/removeItemOrderList";
+        }
+    }else{
+        // jika checkbutton di check
+        if ($(e).is(':checked')) {
+            location.href = "/"+e.value+"/addItemsToOrderList";
+        }
+        // jika checkbutton di check
+        else {
+            location.href = "/"+e.value+"/removeItemsOrderList";
+        }
+    }
+}
+
+/* 
     generate currency
 */
 function generateIdr(amount) {
@@ -120,3 +156,78 @@ let e = $(".rating-progress_bar");
 e.each(function () { 
     $(this).find('.progress-bar').css("width", $(this).find('.progress-bar').attr("aria-valuenow") / reviews_count * 100 + '%');
  })
+
+
+/* 
+ Coffee Blend Page
+*/
+function getRatioBlend(sliders) {
+    var blend_ratio = 0;
+    $(sliders).each(function (index, element) {
+        // element == this
+        blend_ratio += parseInt($(element).find('p').html());
+    });
+
+    return blend_ratio;
+}
+
+$(document).ready(function () {
+    var bodyCoffeeBlend = $('body.coffeeBlendPage');
+    // var value = bodyCoffeeBlend.find('input#primarySlider').attr('value')*10 + "%";
+
+    // $("p#primarySliderText").html(value);
+
+    // Multiple Elements:
+    var sliders = document.querySelectorAll('body.coffeeBlendPage .slider');
+    var sliders_ratio = document.querySelectorAll('body.coffeeBlendPage .sliderRatio');
+    
+    var blend_ratio = 0;
+    $(sliders).each(function (index, element) {
+        // element == this
+        // munculkan range value slider
+        $(element).find('p').html($(element).find('input').attr('value'));
+        $(sliders_ratio[index]).html($(element).find('input').attr('value'));
+       
+        $(element).find('input').on('input', function() {
+            var value = $(this).val();
+            $(element).find('p').html(value);
+            $(sliders_ratio[index]).html(value);
+            
+            var ratio_blend = getRatioBlend(sliders);
+            // memastikan bahwa base ratio lebih tinggi dari primary ratio
+            var base_ratio = parseInt($(sliders[1]).find('p').html());
+            var primary_ratio = parseInt($(sliders[0]).find('p').html());
+            var secondary_ratio = parseInt($(sliders[2]).find('p').html());
+            if (ratio_blend > 10) {
+                $("body.coffeeBlendPage div.ratio_sum_status").html('The total ratio cannot exceed 10!');
+                $("body.coffeeBlendPage div.ratio_sum_status").removeClass('d-none');
+                $("body.coffeeBlendPage button[type='submit']").addClass('disabled');
+                
+            }
+            // memastikan bahwa base ratio lebih tinggi dari primary ratio
+            else if (base_ratio < primary_ratio){
+                $("body.coffeeBlendPage div.ratio_sum_status").html('The base ratio cannot be less than the primary ratio!');
+                $("body.coffeeBlendPage div.ratio_sum_status").removeClass('d-none');
+                $("body.coffeeBlendPage button[type='submit']").addClass('disabled');
+            }
+            // memastikan bahwa base ratio lebih tinggi dari secondary ratio
+            else if (base_ratio < secondary_ratio){
+                $("body.coffeeBlendPage div.ratio_sum_status").html('The base ratio cannot be less than the secondary ratio!');
+                $("body.coffeeBlendPage div.ratio_sum_status").removeClass('d-none');
+                $("body.coffeeBlendPage button[type='submit']").addClass('disabled');
+            }
+            // memastikan jumlah blend ratio harus 10
+            else if (ratio_blend < 10){
+                $("body.coffeeBlendPage div.ratio_sum_status").html('The total ratio must be 10!');
+                $("body.coffeeBlendPage div.ratio_sum_status").removeClass('d-none');
+                $("body.coffeeBlendPage button[type='submit']").addClass('disabled');
+            }
+            else{
+                $("body.coffeeBlendPage div.ratio_sum_status").addClass('d-none');
+                $("body.coffeeBlendPage button[type='submit']").removeClass('disabled');
+            }
+        });     
+    });
+
+    getRatioBlend(sliders);
+});

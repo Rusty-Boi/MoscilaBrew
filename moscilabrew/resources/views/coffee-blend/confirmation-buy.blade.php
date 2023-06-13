@@ -21,11 +21,11 @@
                         <div class="card-body p-2">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title vendor-name mb-0">{{ $blend_vendors[0]['vendor-Name'] }}</h5>
+                                    <h5 class="card-title vendor-name mb-0">{{ $vendor->vendor_name }}</h5>
                                     <p class="card-text partner-status">
-                                        {{ $blend_vendors[0]['partner-status'] }}
+                                        Gold Partner
                                         <img class="m-0 vendor-img"
-                                            src={{ asset($partners_status_img[$blend_vendors[0]['partner-status']]) }}
+                                            src={{ asset($partners_status_img['Gold Partner']) }}
                                             alt="">
                                     </p>
                                 </div>
@@ -51,7 +51,7 @@
                                             <p class="col-3 px-0 fw-bold align-self-center">(Base)</p>
                                             <p class="col-5 px-0 align-self-center">Arabica Sumatra</p>
                                             <div class="col-3 rounded-pill percentage-group">
-                                                <p class="percentage-text position-relative z-1">90%</p>
+                                                <p class="percentage-text position-relative z-1">{{request()['data']['base_ratio'] * 10}}%</p>
                                                 <div class="percentage-bar rounded-start-pill"></div>
                                             </div>
                                         </div>
@@ -60,20 +60,21 @@
                                             <p class="col-3 px-0 fw-bold align-self-center">(Primary)</p>
                                             <p class="col-5 px-0 align-self-center">Arabica Java</p>
                                             <div class="col-3 rounded-pill percentage-group">
-                                                <p class="percentage-text position-relative z-1">5%</p>
+                                                <p class="percentage-text position-relative z-1">{{request()['data']['primary_ratio'] * 10}}%</p>
                                                 <div class="percentage-bar rounded-start-pill"></div>
                                             </div>
                                         </div>
-
+                                        @if (request()['data']['secondary_ratio'])
                                         <div class="row takaran-coffee-blend">
                                             <p class="col-3 px-0 fw-bold align-self-center">(Secondary)</p>
                                             <p class="col-5 px-0 align-self-center">Arabica</p>
                                             <div class="col-3 rounded-pill percentage-group">
-                                                <p class="percentage-text position-relative z-1">5%</p>
+                                                <p class="percentage-text position-relative z-1">{{request()['data']['secondary_ratio'] * 10}}%</p>
                                                 <div class="percentage-bar rounded-start-pill"></div>
                                             </div>
                                         </div>
-
+                                        @endif
+                                        
                                         <div class="row mt-2">
                                             <p class="col text-center mb-0">
                                                 Weight

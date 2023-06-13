@@ -19,7 +19,6 @@
     794028 */
     --Montserrat : 'Montserrat', sans-serif;
     --Overpass : 'Overpass', sans-serif;
-    
 }
 
 /* body */
@@ -98,6 +97,20 @@ section .section-title h2{
 
 .accordion .accordion-body .list-unstyled {
     text-align: start;
+}
+
+/* badge notificion */
+.badge-notification {
+    position: absolute;
+    padding: 0;
+    border-radius: 50%;
+    padding: 0 0.3rem 0 0.3rem;
+    background-color: var(--brown);
+    color: var(--secondary);
+    font-size: 0.8rem; 
+    right: 0; 
+    bottom: 0; 
+    transform: translateX(-0.3rem);
 }
 
 /* ukuran medium */
@@ -570,4 +583,11 @@ body.productPage .progress {
 
 body.productPage .progress .progress-bar{
     background-color: #319DFF;
+}
+
+
+  
+/* Mengubah warna thumb slider */
+body.coffeeBlendPage input[type="range"]::-webkit-slider-thumb {
+background-color: rgba(var(--primary-rgb), 1); /* Ganti dengan warna yang Anda inginkan */
 }

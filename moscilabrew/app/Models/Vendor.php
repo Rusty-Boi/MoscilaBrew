@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Coffee;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Vendor extends Model
 {
@@ -17,6 +18,6 @@ class Vendor extends Model
      */
     public function coffee(): HasMany
     {
-        return $this->hasMany(Phone::class);
+        return $this->hasMany(Coffee::class);
     }
 }
