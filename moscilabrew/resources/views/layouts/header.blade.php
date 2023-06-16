@@ -15,7 +15,7 @@
                         <div class="border-bottom"></div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('catalog') ? 'active' : '' }}" href="/catalog">Catalog</a>
+                        <a class="nav-link {{ request()->is('catalog*') ? 'active' : '' }}" href="/catalog">Catalog</a>
                         <div class="border-bottom"></div>
                     </li>
                     <li class="nav-item">

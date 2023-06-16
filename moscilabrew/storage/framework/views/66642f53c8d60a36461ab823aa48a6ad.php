@@ -15,7 +15,7 @@
                         <div class="border-bottom"></div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php echo e(request()->is('catalog') ? 'active' : ''); ?>" href="/catalog">Catalog</a>
+                        <a class="nav-link <?php echo e(request()->is('catalog*') ? 'active' : ''); ?>" href="/catalog">Catalog</a>
                         <div class="border-bottom"></div>
                     </li>
                     <li class="nav-item">

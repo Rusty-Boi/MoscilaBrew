@@ -229,5 +229,10 @@ $(document).ready(function () {
         });     
     });
 
-    getRatioBlend(sliders);
+    // reset button submit berdasarkan jumlah ratio_blend
+    if (getRatioBlend(sliders) == 10) {
+        $('body.coffeeBlendPage button[type="submit"]').removeClass('disabled');
+    }else {
+        $('body.coffeeBlendPage button[type="submit"]').addClass('disabled');
+    }
 });

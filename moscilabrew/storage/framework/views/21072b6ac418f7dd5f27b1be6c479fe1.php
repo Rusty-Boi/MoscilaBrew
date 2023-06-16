@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Cart | MoscilBrew'); ?>
 
 <?php $__env->startSection('navbar'); ?>

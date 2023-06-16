@@ -152,4 +152,11 @@
 @section('js')
     <script src="https://kit.fontawesome.com/a72340eb77.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            // reset button submit
+            jq
+        });
+    </script>
 @endsection

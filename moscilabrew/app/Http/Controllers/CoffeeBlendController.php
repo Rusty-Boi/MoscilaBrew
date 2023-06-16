@@ -12,10 +12,52 @@ use Illuminate\Http\Request;
 
 class CoffeeBlendController extends Controller
 {
+    public function search(Request $request){
+        // if ($request->ajax()) {
+        //     // dd(request('search'));
+        // }
+        $data = [];
+        if ($request->search){
+            $data = Coffee::where('product_name', 'like', '%' . $request->search . '%')->get();
+        }elseif ($request->search == null) {
+            $data = Coffee::all();
+        }
+
+        $output = '';
+        if (count($data) > 0) {
+            foreach ($data as $key => $value) {
+                $output .= sprintf('<button type="button"
+                class="btn p-0 m-0 text-start w-100 bean_option_btn"
+                data-bs-dismiss="modal">
+                <input type="number" class="form-control visually-hidden"
+                    aria-describedby="helpId" value="%s">
+                <div class="container">
+                    <div
+                        class="row d-flex flex-row p-0 searchResult align-items-center justify-content-start">
+                        <div class="col-2 p-0 px-2">
+                            <img class="img-fluid h-auto"
+                                src="%s"
+                                alt="">
+                        </div>
+                        <div class="col p-2">
+                            <h5 class="p-0 m-0">%s
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </button>', $data[$key]['id'], $data[$key]['product_img'], $data[$key]['product_name']);
+            }
+        }else {
+            $output .= 'No result';
+        }
+        
+        return $output;
+    }
+    
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         return view('coffee-blend.index', [
             'coffees' => Coffee::all()
@@ -24,7 +66,7 @@ class CoffeeBlendController extends Controller
 
     /* 
         Bean Chooser
-    */
+        */
     public function beanChooser(){
         // diterima id coffee
         $validated = request()->validate([

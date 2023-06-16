@@ -95,6 +95,8 @@ Route::get('/catalog/{bean_cat}', [CoffeeController::class, 'showProductsByBeanC
 Route::get('/catalog/{vendor_name}/{coffee}', [CoffeeController::class, 'showProductPage']);
 
 // coffee blend
+Route::get('search', [CoffeeBlendController::class, 'search']); // search bean
+
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 
 Route::get('/daftar-transaksi', [UserController::class, 'showDaftarTransaksi']);
