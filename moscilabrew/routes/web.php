@@ -63,7 +63,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/{coffee:id}/removeItemOrderList', [OrderController::class, 'removeItemOrderList'])->name('order.remove');
     
     // coffee blend
+    Route::post('/coffee-blend/bean-chooser', [CoffeeBlendController::class, 'beanChooser'])->name('coffeeBlend.beanChooser');
+    
     Route::post('/coffee-blend/create', [CoffeeBlendController::class, 'create'])->name('coffeeBlend.create');
+    
+    Route::post('/coffee-blend/buy', [CoffeeBlendController::class, 'buy'])->name('coffeeBlend.buy');
+    
+    Route::get('/coffee-blend/create-blend', [CoffeeBlendController::class, 'createView'])->name('coffeeBlend.create.index');
     
     Route::get('/coffee-blend/blend-vendors', [CoffeeBlendController::class, 'showBlendVendors'])->name('coffeeBlend.blendVendors');
     

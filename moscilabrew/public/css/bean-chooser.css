@@ -45,10 +45,6 @@
     max-width: 90%;
 }
 
-.searchResult img{
-    height: 5rem;
-    width: 6rem;
-}
 
 .btn-secondary {
     --bs-btn-color: #000;
@@ -70,4 +66,8 @@
 .row h4,
 .row h3{
     text-align: center;
+}
+
+.bean-modal .modal-body button:hover {
+    background-color: rgba(var(--primary-rgb), 0.5);
 }

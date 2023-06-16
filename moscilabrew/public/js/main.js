@@ -159,7 +159,7 @@ e.each(function () {
 
 
 /* 
- Coffee Blend Page
+ Coffee Blend Page 
 */
 function getRatioBlend(sliders) {
     var blend_ratio = 0;
@@ -195,8 +195,8 @@ $(document).ready(function () {
             
             var ratio_blend = getRatioBlend(sliders);
             // memastikan bahwa base ratio lebih tinggi dari primary ratio
-            var base_ratio = parseInt($(sliders[1]).find('p').html());
-            var primary_ratio = parseInt($(sliders[0]).find('p').html());
+            var base_ratio = parseInt($(sliders[0]).find('p').html());
+            var primary_ratio = parseInt($(sliders[1]).find('p').html());
             var secondary_ratio = parseInt($(sliders[2]).find('p').html());
             if (ratio_blend > 10) {
                 $("body.coffeeBlendPage div.ratio_sum_status").html('The total ratio cannot exceed 10!');

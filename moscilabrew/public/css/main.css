@@ -26,6 +26,10 @@ body {
     font-family: var(--font-primary)
 }
 
+.selected-1, .selected-1:hover {
+    background-color: rgba(var(--primary-rgb), 1);
+}
+
 /* GENERAL */
 h1, 
 h2,

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vendor;
+use App\Models\User;
+use App\Models\Coffee;
 use App\Models\CoffeeBlend;
 use App\Http\Requests\StoreCoffeeBlendRequest;
 use App\Http\Requests\UpdateCoffeeBlendRequest;
@@ -15,29 +17,23 @@ class CoffeeBlendController extends Controller
      */
     public function index()
     {
-        return view('coffee-blend.index');
+        return view('coffee-blend.index', [
+            'coffees' => Coffee::all()
+        ]);
     }
 
     /* 
-        Blend Vendors
+        Bean Chooser
     */
-
-    public function showBlendVendors()
-    {
-        return view('coffee-blend.blend-vendors', [
-            'blend_vendors' => Vendor::all(),
-            'coffee_blend_data' => session('coffee_blend_data'),
-            'partners_status_img' => CoffeeBlend::allStatusPartner()
+    public function beanChooser(){
+        // diterima id coffee
+        $validated = request()->validate([
+            "base_bean" => "required",
         ]);
-    }
 
-    public function showConfirmationCustomBlend(Request $request)
-    {
-        
-        return view('coffee-blend.confirmation-buy', [
-            'vendor' => Vendor::find($request['vendor_id']),
-            'partners_status_img' => CoffeeBlend::allStatusPartner()
-        ]);
+        request()->session()->put('coffeeBlendData', $validated);
+
+        return redirect()->route('coffeeBlend.create.index');
     }
 
     /**
@@ -45,12 +41,77 @@ class CoffeeBlendController extends Controller
      */
     public function create(Request $request)
     {
-        $coffee_blend_data = [
-            'primary_ratio' => $request->primary_ratio,
-            'base_ratio' => $request->base_ratio,
-            'secondary_ratio' => $request->secondary_ratio
-        ];   
-        return redirect()->route('coffeeBlend.blendVendors')->with('coffee_blend_data', $coffee_blend_data);
+        $coffeeBlendData = session('coffeeBlendData');
+
+        $request_keys = $request->keys();
+        $coffeeBlendData_keys = array_keys($coffeeBlendData);
+
+
+        for ($i=0; $i < count($coffeeBlendData); $i++) { 
+            $coffeeBlendData[$coffeeBlendData_keys[$i]]['ratio'] = $request[$request_keys[$i+2]];
+        }
+
+        $request->session()->put('coffeeBlendData', $coffeeBlendData);
+
+        return redirect()->route('coffeeBlend.blendVendors');
+    }
+
+    public function createView(){      
+        $coffeeBlendData = [];
+        
+        foreach (session('coffeeBlendData') as $key => $value) {
+            if ($value != null){
+                $coffeeBlendData[$key]['coffee'] = Coffee::find($value);
+            }
+        }
+    
+        request()->session()->put('coffeeBlendData', $coffeeBlendData);
+
+        return view('coffee-blend.create', [
+            "coffeeBlendData" => session('coffeeBlendData')
+        ]);
+    }
+
+    /* 
+        Blend Vendors
+    */
+
+    public function showBlendVendors()
+    {        
+        return view('coffee-blend.blend-vendors', [
+            'blend_vendors' => Vendor::all(),
+            // 'coffee_blend_data' => session('coffeeBlendData'),
+            'partners_status_img' => Vendor::allStatusPartner()
+        ]);
+    }
+
+    public function showConfirmationCustomBlend(Request $request)
+    {
+        $coffeeBlendData = [];
+
+        if (!array_key_exists('beans', session('coffeeBlendData'))) {
+            $coffeeBlendData['beans'] = session('coffeeBlendData');
+            $coffeeBlendData['blend_vendor'] = Vendor::find($request->vendor_id);
+        }else {
+            $coffeeBlendData = session('coffeeBlendData');
+        }
+        
+        $request->session()->put('coffeeBlendData', $coffeeBlendData);
+
+        return view('coffee-blend.confirmation-buy', [
+            'coffeeBlendData' => $coffeeBlendData,
+            'partners_status_img' => Vendor::allStatusPartner(),
+            "delivery_address_list" => User::allDeliveryAddress(),
+            "delivery_address_default" => 'Kos',
+            "delivery_expedition_default" => 'jnt'
+        ]);
+    }
+
+    /* 
+        Buy
+    */
+    public function buy(Request $request){
+        dd($request);
     }
 
     /**

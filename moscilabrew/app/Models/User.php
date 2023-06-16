@@ -47,6 +47,25 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    // delivery address
+    static $delivery_address_list = [
+        [
+            'label' => 'Home', // unique
+            'address' => 'Jl. Meruya Selatan No.36, RT.5/RW.1, Joglo, Kec. Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11640',
+            'phone_number' => "081299878847"
+        ],
+        [
+            'label' => 'Kantor',
+            'address' => 'Jl. Meruya Selatan No.36, RT.5/RW.1, Joglo, Kec. Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11640',
+            'phone_number' => "081299878847"
+        ],
+        [
+            'label' => 'Kos',
+            'address' => 'Jl. Meruya Selatan No.50, RT.5/RW.1, Joglo, Kec. Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11640',
+            'phone_number' => "081299870312"
+        ]
+    ];
+
     /**
      * Get the cart associated with the user.
      */
@@ -95,5 +114,9 @@ class User extends Authenticatable
 
     public static function allTransaction(){
         return self::$transactions;
+    }
+
+    public static function allDeliveryAddress(){
+        return self::$delivery_address_list;
     }
 }

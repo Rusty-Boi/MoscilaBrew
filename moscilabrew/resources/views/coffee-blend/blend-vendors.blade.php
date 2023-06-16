@@ -17,7 +17,7 @@
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
                 @foreach ($blend_vendors as $vendor)
                     <div class="col">
-                        <a class="card vendor-card rounded-4 text-decoration-none" href="{{ route('coffeeBlend.confirmationBlend', ['vendor_id' => $vendor->id, 'data' => session('coffee_blend_data')])}}">
+                        <a class="card vendor-card rounded-4 text-decoration-none" href="{{ route('coffeeBlend.confirmationBlend', ['vendor_id' => $vendor->id])}}">
                             <img src="{{ asset('img/beans-tall.png') }}" class="card-img-top">
                             <div class="card-body p-2">
                                 <div class="row">
