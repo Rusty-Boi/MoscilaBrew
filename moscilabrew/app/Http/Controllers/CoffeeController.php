@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Vendor;
 use App\Models\Coffee;
 use App\Http\Requests\StoreCoffeeRequest;
@@ -23,8 +25,19 @@ class CoffeeController extends Controller
     */
     public function showCatalog()
     {
+        $coffees = Coffee::all();
+
+        if (request('search')) {
+            $coffees = Coffee::join('vendors', 'vendor_id' , '=', 'vendors.id')
+                                ->select('coffees.*', 'vendors.vendor_name')
+                                ->where('product_name', 'like', '%' . request('search') . '%')
+                                ->orWhere('bean_category_name', 'like', '%' . request('search') . '%')
+                                ->orWhere('vendor_name', 'like', '%' . request('search') . '%')
+                                ->get();
+        }
+        
         return view('catalog', [
-            'coffees' => Coffee::all(),
+            'coffees' => $coffees,
             'bean_categories' => Coffee::getBeanCategories(),
             'vendors' => Vendor::all()
             // 'test' => Coffee::all()->where('vendor-id', 'VD0001')->merge(Coffee::getVendors())

@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title'); ?>
     <?php echo e($coffee['product_name']); ?> | MoscilaBrew
 <?php $__env->stopSection(); ?>

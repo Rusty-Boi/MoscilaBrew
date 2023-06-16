@@ -11,8 +11,25 @@
     <section class="categories nav-on" id="categories">
         <div class="container">
 
-            <div class="section-title text-start">
-                <h2>Jenis Biji Kopi</h2>
+            <div class="section-title text-start row">
+                <div class="col">
+                    <h2>Jenis Biji Kopi</h2>
+                </div>
+
+                <div class="col-5">
+                    <form action="/catalog">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Cari nama produk / kategori / vendor" name="search" value="{{ request('search') }}">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <div class="container">
@@ -34,7 +51,7 @@
                                         <div class="accordion-body">
                                             <ul class="list-unstyled">
                                                 <li>
-                                                    <a href="/catalog/{{$bean_cat}}"
+                                                    <a href="/catalog/{{ $bean_cat }}"
                                                         class="filterItem link-body-emphasis text-decoration-none">
                                                         {{ ucwords($bean_cat) }}
                                                     </a>
@@ -48,6 +65,7 @@
                     </div>
                     <div class="col">
                         <div class="row row-cols-1 row-cols-md-2 g-2">
+                            @if (count($coffees) > 0)
                             @foreach ($coffees as $coffee)
                                 <div class="col">
                                     <a class="product-card card container"
@@ -64,11 +82,13 @@
                                         </div>
                                         <div class="product-desc row g-0">
                                             <div class="col-4">
-                                                <img class="product-img" src="{{ asset($coffee->product_img) }}" alt="">
+                                                <img class="product-img" src="{{ asset($coffee->product_img) }}"
+                                                    alt="">
                                             </div>
                                             <div class="col">
                                                 <span class="product-title">{{ $coffee->product_name }}</span>
-                                                <span class="price">Rp {{ number_format($coffee->harga_product, 0, ',', '.') }}</span>
+                                                <span class="price">Rp
+                                                    {{ number_format($coffee->harga_product, 0, ',', '.') }}</span>
                                                 <div class="rate-average">
                                                     <span class="rate">{{ $coffee->rating_product }}</span>
                                                     <span class="average">{{ $coffee->average }}</span>
@@ -77,169 +97,14 @@
                                         </div>
                                     </a>
                                 </div>
-                            @endforeach
+                            @endforeach                                
+                            @else
+                                <p>Tidak ditemukan</p>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
-
-            {{-- <div class="row g-2 g-lg-3">
-                <div class="col-2 d-none d-lg-inline">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item filterBar">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Arabica
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <ul class="list-unstyled">
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item filterBar">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Robusta
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <ul class="list-unstyled">
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item filterBar">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Espresso Blend
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <ul class="list-unstyled">
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item filterBar">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    House Blend
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <ul class="list-unstyled">
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                        <li><a href="#" class="filterItem link-body-emphasis text-decoration-none">Robusta
-                                                origin</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="container text-center">
-                        <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
-                            <div class="col product">
-                                <img src="product1.jpg" alt="Product 1">
-                                <div class="product-info">
-                                    <h2 class="product-title">Product 1</h2>
-                                    <p class="product-description">Description of Product 1</p>
-                                    <p class="product-price">$99.99</p>
-                                </div>
-                            </div>
-                            <div class="col product">
-                                <img src="product1.jpg" alt="Product 1">
-                                <div class="product-info">
-                                    <h2 class="product-title">Product 1</h2>
-                                    <p class="product-description">Description of Product 1</p>
-                                    <p class="product-price">$99.99</p>
-                                </div>
-                            </div>
-                            <div class="col product">
-                                <img src="product1.jpg" alt="Product 1">
-                                <div class="product-info">
-                                    <h2 class="product-title">Product 1</h2>
-                                    <p class="product-description">Description of Product 1</p>
-                                    <p class="product-price">$99.99</p>
-                                </div>
-                            </div>
-                            <div class="col product">
-                                <img src="product1.jpg" alt="Product 1">
-                                <div class="product-info">
-                                    <h2 class="product-title">Product 1</h2>
-                                    <p class="product-description">Description of Product 1</p>
-                                    <p class="product-price">$99.99</p>
-                                </div>
-                            </div>
-                            <div class="col product">
-                                <img src="product1.jpg" alt="Product 1">
-                                <div class="product-info">
-                                    <h2 class="product-title">Product 1</h2>
-                                    <p class="product-description">Description of Product 1</p>
-                                    <p class="product-price">$99.99</p>
-                                </div>
-                            </div>
-                            <div class="col product">
-                                <img src="product1.jpg" alt="Product 1">
-                                <div class="product-info">
-                                    <h2 class="product-title">Product 1</h2>
-                                    <p class="product-description">Description of Product 1</p>
-                                    <p class="product-price">$99.99</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
-            {{-- <div class="popular-purchase text-center mt-2">
-              <h2>Popular Purchases</h2>
-              <div class="row">
-                <div class="col">
-                  Arabica
-                </div>
-              </div>
-            </div> --}}
         </div>
     </section>
 @endsection

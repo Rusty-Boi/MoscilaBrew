@@ -30,9 +30,8 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav me-right flex-row">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <form class="d-flex" role="search">
-                            {{-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> --}}
                             <button onclick="search()" class="btn" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -41,7 +40,7 @@
                                 </svg>
                             </button>
                         </form>
-                    </li>
+                    </li> --}}
 
                     @auth
                         <li class="nav-item">

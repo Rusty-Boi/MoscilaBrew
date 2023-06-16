@@ -18,7 +18,7 @@
                 <form action="{{ route('coffeeBlend.beanChooser') }}" method="POST">
                     @csrf
                     <div class="existingRecipe d-flex justify-content-end">
-                        <button class="btn btn-primary" id="getRecipe">Use Existing Recipe</button>
+                        <button class="btn btn-primary" id="receipt">Use Existing Recipe</button>
                     </div>
                     <div class="row mt-2 justify-content-center align-items-center beans-chooser">
     
@@ -319,6 +319,27 @@
             addRemoveBtn($('body.coffeeBlendChooserPage .bean-chooser:last-child'))
         }
 
+        function updateBeanChooser(bean_chooser, coffees) {
+            // ketika input_bean_id berubah nilainya
+            var bean_id = $(bean_chooser).find("input.bean_id").val()
+            // tampilkan gambar coffenya
+            $(bean_chooser).find('img.bean_image').attr('src',
+                            coffees[bean_id - 1]['product_img'])
+                        // tampllkan nama coffeenya
+                        // $(bean_chooser).find('.bean-name-p').html(
+                        //     '<h4 class="m-0">' + coffees[bean_id - 1][
+                        //         'product_name'
+                        //     ] + '</h4>')
+                        var data_bs_target = $(bean_chooser).find('.bean-name-p button').attr('data-bs-target')
+                        $(bean_chooser).find('.bean-name-p').html(
+                            `<button data-bs-toggle="modal" data-bs-target="${data_bs_target}" type="button"
+                                        class="btn d-flex align-items-center justify-content-center rounded-4 border-0 mx-0 p-0">
+                                        <h4 class="bean-name m-0 p-0">${coffees[bean_id - 1][
+                                'product_name'
+                            ]}</h4>
+                                    </button>`)
+        }
+
         function addBean(bean_chooser) {
             // untuk setiap bean_option_btn
             var btn_bean_option = $(bean_chooser).find("button.bean_option_btn")
@@ -334,29 +355,7 @@
                     // isi input_bean_id
                     $(bean_chooser).find("input.bean_id").val(element_val);
 
-                    // ketika input_bean_id berubah nilainya
-                    var bean_id = $(bean_chooser).find("input.bean_id").val()
-                    // e.preventDefault();
-                    if (bean_id != undefined) {
-                        // tampilkan gambar coffenya
-                        $(bean_chooser).find('img.bean_image').attr('src',
-                            coffees[bean_id - 1]['product_img'])
-                        // tampllkan nama coffeenya
-                        // $(bean_chooser).find('.bean-name-p').html(
-                        //     '<h4 class="m-0">' + coffees[bean_id - 1][
-                        //         'product_name'
-                        //     ] + '</h4>')
-                        var data_bs_target = $(bean_chooser).find('.bean-name-p button').attr('data-bs-target')
-                        $(bean_chooser).find('.bean-name-p').html(
-                            `<button data-bs-toggle="modal" data-bs-target="${data_bs_target}" type="button"
-                                        class="btn d-flex align-items-center justify-content-center rounded-4 border-0 mx-0 p-0">
-                                        <h4 class="bean-name m-0 p-0">${coffees[bean_id - 1][
-                                'product_name'
-                            ]}</h4>
-                                    </button>`)
-
-                            
-                    }
+                    updateBeanChooser(bean_chooser, coffees)
                 });
             });
         }

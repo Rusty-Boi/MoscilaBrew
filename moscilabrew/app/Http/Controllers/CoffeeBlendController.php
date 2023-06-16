@@ -29,9 +29,18 @@ class CoffeeBlendController extends Controller
         // diterima id coffee
         $validated = request()->validate([
             "base_bean" => "required",
+            "primary_bean" => "",
+            "secondary_bean" => "",
         ]);
+        
+        $valid = [];
 
-        request()->session()->put('coffeeBlendData', $validated);
+        foreach ($validated as $key => $value) {
+            if ($value !== null) {
+                $valid[$key] = $value;
+            }
+        }
+        request()->session()->put('coffeeBlendData', $valid);
 
         return redirect()->route('coffeeBlend.create.index');
     }
@@ -58,14 +67,14 @@ class CoffeeBlendController extends Controller
 
     public function createView(){      
         $coffeeBlendData = [];
-        
+
         foreach (session('coffeeBlendData') as $key => $value) {
-            if ($value != null){
-                $coffeeBlendData[$key]['coffee'] = Coffee::find($value);
-            }
+            $coffeeBlendData[$key]['coffee'] = Coffee::find($value);
         }
-    
+        
+        
         request()->session()->put('coffeeBlendData', $coffeeBlendData);
+        
 
         return view('coffee-blend.create', [
             "coffeeBlendData" => session('coffeeBlendData')
