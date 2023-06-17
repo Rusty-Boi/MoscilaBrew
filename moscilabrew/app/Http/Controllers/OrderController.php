@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Coffee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -21,11 +23,21 @@ class OrderController extends Controller
     */
     public function addItemsToOrderList($vendor_id){
         
-        $order_list = session('order_list');
-        
-        $order_list[$vendor_id] = session('cart')[$vendor_id];
+        $carts = Auth::user()->carts->groupBy('vendor_id')[$vendor_id];
 
-        session()->put('order_list', $order_list);
+        foreach ($carts as $cart) {
+            // jika item sudah ada di order list tidak perlu untuk menambahkan kembali
+            if (!Auth::user()->orders->firstWhere('cart_id', $cart->id)) {
+                $order = new Order;
+                
+                $order->cart_id = $cart->id;
+                $order->user_id = $cart->user_id;
+                $order->vendor_id = $cart->vendor_id;
+                
+                $order->save();
+            }
+        }
+        
 
         return redirect()->back();
 
@@ -35,29 +47,30 @@ class OrderController extends Controller
         Remove items to order list 
     */
     public function removeItemsOrderList($vendor_id){
-        $order_list = session('order_list');
-        
-        unset($order_list[(int) $vendor_id]);
 
-        session()->put('order_list', $order_list);
+        $orders = Auth::user()->orders->groupBy('vendor_id')[$vendor_id];
 
+        foreach ($orders as $order) {
+            $order->delete();
+        }
         return redirect()->back();
     }
-
+    
     /* 
         Add to Order List
     */
-    public function addToOrderList(Coffee $coffee){
+    public function addToOrderList(Cart $cart){
+        // jika item sudah ada di order list tidak perlu untuk menambahkan kembali
+        if (!Auth::user()->orders->firstWhere('cart_id', $cart->id)) {
+            $order = new Order;
+            
+            $order->cart_id = $cart->id;
+            $order->user_id = $cart->user_id;
+            $order->vendor_id = $cart->vendor_id;
+            
+            $order->save();
+        }
         
-        $order_list = session('order_list');
-        $cart = session('cart');
-        
-        $vendor_id = $coffee->vendor->id;
-        $coffee_id = $coffee->id;
-
-        $order_list[$vendor_id][$coffee_id] = $cart[$vendor_id][$coffee_id];
-
-        session()->put('order_list', $order_list);
 
         return redirect()->back();
     }
@@ -65,19 +78,14 @@ class OrderController extends Controller
     /* 
         Remove Order list Item 
     */
-    public function removeItemOrderList(Coffee $coffee){
-        $order_list = session('order_list');
+    public static function removeItemOrderList(Cart $cart){
+        $orders = Auth::user()->orders;
+        // dd($cart->id);
+        // dd($orders->firstWhere('cart_id', $cart->id));
         
-        $vendor_id = $coffee->vendor->id;
-        $coffee_id = $coffee->id;
-        
-        unset($order_list[$vendor_id][$coffee_id]);
-
-        if (empty($order_list[$vendor_id])) {
-            unset($order_list[$vendor_id]);
+        if ($orders->firstWhere('cart_id', $cart->id)){
+            $orders->firstWhere('cart_id', $cart->id)->delete();
         }
-
-        session()->put('order_list', $order_list);
 
         return redirect()->back();
     }

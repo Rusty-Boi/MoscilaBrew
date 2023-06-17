@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Register'); ?>
 
 <?php $__env->startSection('content'); ?>

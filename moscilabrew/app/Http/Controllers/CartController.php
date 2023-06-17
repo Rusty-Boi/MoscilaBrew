@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vendor;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\User;
@@ -14,66 +15,44 @@ class CartController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+
     public function index(){
+        $carts = Auth::user()->carts->groupBy('vendor_id');
+        $orders = Auth::user()->orders->groupBy('vendor_id');
+
         return view('cart', [
-            // 'carts' => Auth::user()->carts,
-            // 'carts' => Auth::user()->carts,
+            'carts' => $carts,
+            'coffees' => Coffee::all(),
+            'orders' => $orders,
+            'vendors' => Vendor::all(),
             'coffees_id' => Cart::pluck('coffee_id'),
-            'quantity' => Cart::pluck('quantity'),            
-            'coffees' => Coffee::all()
+            'quantity' => Cart::pluck('quantity')
         ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
-    // public function addToCart(Request $request, $vendor_name, Coffee $coffee)
-    // {        
-    //     $user = Auth::user();
-    //     $total_price = $request['quantity'] * $coffee->harga_product; 
-    //     $coffee_id = $coffee->id;
-
-    //     // membuat entry baru dalam shopping cart
-    //     $cartItem = new Cart;
-        
-    //     $cartItem->user_id = $user->id;
-    //     $cartItem->coffee_id = $coffee_id;
-    //     $cartItem->quantity = $request['quantity'];
-    //     $cartItem->total_price = $total_price;
-
-    //     $cartItem->save();
-
-    //     return redirect('/catalog')->with('success', 'Success add to cart!');
-    // }
 
     public function addToCart(Request $request, Coffee $coffee)
     {                
-        $cart = session()->get('cart', []);
+        // jika item sudah ada dikeranjang tambahkan quantitynya
+        if (Auth::user()->carts->firstWhere('coffee_id', $coffee->id)) {
+            $cart = Auth::user()->carts->firstWhere('coffee_id', $coffee->id);         
+            $cart->quantity = $cart->quantity + $request->quantity;
+            $cart->total_price = $coffee->harga_product * $cart->quantity;   
+        }
+        // jika tidak ada membuat entry baru dalam shopping cart
+        else {
+            $cart = new Cart;
+            $cart->user_id = Auth::user()->id;
+            $cart->vendor_id = $coffee->vendor->id;
+            $cart->coffee_id = $coffee->id;
+            $cart->quantity = $request->quantity;
+            $cart->total_price = $coffee->harga_product * $cart->quantity;
+        }      
         
-        $quantity = (int) $request['quantity'];
-        $total_price = $quantity * $coffee->harga_product;
-
-        if (isset($cart[$coffee->vendor->id][$coffee->id])) {
-            $cart[$coffee->vendor->id][$coffee->id]['quantity'] += (int) $request['quantity'];
-            $cart[$coffee->vendor->id][$coffee->id]['total_price'] += (int) $request['total_price'];
-        }
-        else{
-            $cart[$coffee->vendor->id][$coffee->id] = [
-                'quantity' =>  $quantity,
-                'coffee_id' => $coffee->id,
-                'total_price' => $total_price
-            ];
-        }
-
-        session()->put('cart', $cart);
+        $cart->save();
 
         return redirect()->back()->with('success', 'Success add to cart!');
     }
@@ -83,16 +62,39 @@ class CartController extends Controller
     */
     public function removeItem(Coffee $coffee)
     {
-        $cart = session('cart');
-        unset($cart[$coffee->id]);
-        session()->put('cart', $cart);
+        $carts = Auth::user()->carts;
+        
+        if ($carts->firstWhere('coffee_id', $coffee->id)){
+            // cek apakah cart id ada di order list
+            $cart = $carts->firstWhere('coffee_id', $coffee->id);
+            
+            // hapus cart ketika ada di order list
+            if (Auth::user()->orders->firstWhere('cart_id', $cart->id)){
+                OrderController::removeItemOrderList($cart);
+                // dd(Auth::user()->orders->firstWhere('cart_id', $cart->id));
+                // Auth::user()->orders->firstWhere('cart_id', $cart->id);
+            }
 
-        // hapus item di orderlist
-        if (isset(session("order_list")[$coffee->vendor->id][$coffee->id])) {
-            Order::removeItemOrderList($coffee);
+            $carts->firstWhere('coffee_id', $coffee->id)->delete();
+        }else {
+            return redirect()->back()->with('failed', 'Gagal menghapus item!');
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Success remove item!');
+    }
+
+    public function minusQty(Cart $cart){
+        // jika item sudah ada dikeranjang tambahkan quantitynya
+        dd(Auth::user()->carts->find($cart->id));
+        if (Auth::user()->carts->find($cart->id)) {
+            // $cart = Auth::user()->carts->firstWhere('coffee_id', $coffee->id);         
+            // $cart->quantity = $cart->quantity + $request->quantity;
+            // $cart->total_price = $coffee->harga_product * $cart->quantity;   
+            
+            // $cart->save();
+        }
+
+        return redirect()->back()->with('success', 'Success add to cart!');
     }
 
     /**

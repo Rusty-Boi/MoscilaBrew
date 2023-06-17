@@ -332,7 +332,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <a href="<?php echo e(route('cart')); ?>">
+                                                <a href="<?php echo e(route('cart.index')); ?>">
                                                     <button type="button" class="btn btn-primary">View cart</button>
                                                 </a>
                                             </div>

@@ -47,20 +47,21 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [UserController::class, 'logout',]);
     
-    Route::post('/catalog/{coffee:id}/addToCart', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     
-    Route::get('/catalog/{coffee:id}/remove', [CartController::class, 'removeItem'])->name('cart.remove');
+    Route::post('/cart/addToCart/{coffee:id}', [CartController::class, 'addToCart'])->name('cart.add');
     
-    Route::get('/{coffee:id}/addToOrderList', [OrderController::class, 'addToOrderList'])->name('order.add');
+    Route::get('/cart/remove/{coffee:id}', [CartController::class, 'removeItem'])->name('cart.remove');
+    
+    Route::get('/cart/minusQty/{cart:id}', [CartController::class, 'minusQty'])->name('cart.minusQty');
+    
+    Route::get('/cart/addToOrderList/{cart:id}', [OrderController::class, 'addToOrderList'])->name('order.add');
+    
+    Route::get('/cart/removeItemOrderList/{cart:id}', [OrderController::class, 'removeItemOrderList'])->name('order.remove');
 
-    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::get('/cart/addItemsToOrderList/{vendor:id}', [OrderController::class, 'addItemsToOrderList'])->name('order.addItems');
     
-    // coffee order
-    Route::get('/{vendor:id}/addItemsToOrderList', [OrderController::class, 'addItemsToOrderList'])->name('order.addItems');
-    
-    Route::get('/{coffee:id}/removeItemsOrderList', [OrderController::class, 'removeItemsOrderList'])->name('order.removeItems');
-    
-    Route::get('/{coffee:id}/removeItemOrderList', [OrderController::class, 'removeItemOrderList'])->name('order.remove');
+    Route::get('/cart/removeItemsOrderList/{vendor:id}', [OrderController::class, 'removeItemsOrderList'])->name('order.removeItems');
     
     // coffee blend
     Route::post('/coffee-blend/bean-chooser', [CoffeeBlendController::class, 'beanChooser'])->name('coffeeBlend.beanChooser');
