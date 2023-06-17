@@ -116,7 +116,7 @@
                                                                                             name="quant[1]"
                                                                                             class="form-control input-number"
                                                                                             value="{{ $cart->quantity }}"
-                                                                                            min="1" max="10">
+                                                                                            min="1" max="{{ $coffees->find($cart->coffee_id)->jumlah_stok }}">
 
                                                                                         <span class="input-group-text">
                                                                                             <button type="button"
@@ -261,7 +261,48 @@
             });
             
             $('div.bottom').each(function (index, element) {
-                // element == this
+                $(this).find("button[data-type='plus']").click(function (e) { 
+                    e.preventDefault();
+                    var $cart_id = $(element).attr('aria-cart-id');
+                    
+                    $.ajax({
+                        type: "get",
+                        url: "/cart/plusQty/",
+                        data: {'cart' : $cart_id},
+                        success: function (response) {
+                            location.reload();
+                        }
+                    });
+                });
+
+                $(this).find('input[name="quant[1]"]').on('change', function () {
+                    var $cart_id = $(element).attr('aria-cart-id');
+                    var $value = $(this).val();
+                    
+                    $.ajax({
+                        type: "get",
+                        url: "/cart/updateQty/",
+                        data: {'cart' : $cart_id,
+                                'value' : $value},
+                        success: function (response) {
+                            location.reload();
+                        }
+                    });
+                });
+
+                $(this).find("button[data-type='minus']").click(function (e) { 
+                    e.preventDefault();
+                    var $cart_id = $(element).attr('aria-cart-id');
+                    
+                    $.ajax({
+                        type: "get",
+                        url: "/cart/minusQty/",
+                        data: {'cart' : $cart_id},
+                        success: function (response) {
+                            location.reload();
+                        }
+                    });
+                });
             });
         });
     </script>

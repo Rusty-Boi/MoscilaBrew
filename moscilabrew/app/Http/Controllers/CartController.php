@@ -60,7 +60,7 @@ class CartController extends Controller
     /* 
         Remove Item
     */
-    public function removeItem(Coffee $coffee)
+    public static function removeItem(Coffee $coffee)
     {
         $carts = Auth::user()->carts;
         
@@ -83,18 +83,51 @@ class CartController extends Controller
         return redirect()->back()->with('success', 'Success remove item!');
     }
 
-    public function minusQty(Cart $cart){
+    public function updateQty(){
         // jika item sudah ada dikeranjang tambahkan quantitynya
-        dd(Auth::user()->carts->find($cart->id));
-        if (Auth::user()->carts->find($cart->id)) {
-            // $cart = Auth::user()->carts->firstWhere('coffee_id', $coffee->id);         
-            // $cart->quantity = $cart->quantity + $request->quantity;
-            // $cart->total_price = $coffee->harga_product * $cart->quantity;   
-            
-            // $cart->save();
+        $cart = Cart::find(request('cart'));
+        $value = request('value');
+
+        if ($value > 1 && $value <= Coffee::find($cart->coffee_id)->jumlah_stok){
+            $cart->quantity = $value;
+            $cart->total_price = Coffee::find($cart->coffee_id)->harga_product * $cart->quantity;
+            $cart->save();
         }
 
-        return redirect()->back()->with('success', 'Success add to cart!');
+        return redirect()->back();
+    }
+
+    public function plusQty(){
+        // jika item sudah ada dikeranjang tambahkan quantitynya
+        $cart = Cart::find(request('cart'));
+
+        // if ($cart->quantity <= 1){
+        //     CartController::removeItem($cart->coffee_id);
+        // }else {
+        //     $cart->quantity += 1;
+        //     $cart->total_price = Coffee::find($cart->coffee_id)->harga_product * $cart->quantity;
+        //     $cart->save();
+        // }
+        $cart->quantity += 1;
+        $cart->total_price = Coffee::find($cart->coffee_id)->harga_product * $cart->quantity;
+        $cart->save();
+
+        return redirect()->back();
+    }
+
+    public function minusQty(){
+        // jika item sudah ada dikeranjang tambahkan quantitynya
+        $cart = Cart::find(request('cart'));
+        
+        if ($cart->quantity <= 1){
+            CartController::removeItem($cart->coffee_id);
+        }else {
+            $cart->quantity -= 1;
+            $cart->total_price = Coffee::find($cart->coffee_id)->harga_product * $cart->quantity;
+            $cart->save();
+        }
+
+        return redirect()->back();
     }
 
     /**

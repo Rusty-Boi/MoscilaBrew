@@ -53,7 +53,11 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/cart/remove/{coffee:id}', [CartController::class, 'removeItem'])->name('cart.remove');
     
-    Route::get('/cart/minusQty/{cart:id}', [CartController::class, 'minusQty'])->name('cart.minusQty');
+    Route::get('/cart/minusQty', [CartController::class, 'minusQty'])->name('cart.minusQty');
+    
+    Route::get('/cart/plusQty', [CartController::class, 'plusQty'])->name('cart.plusQty');
+    
+    Route::get('/cart/updateQty', [CartController::class, 'updateQty'])->name('cart.updateQty');
     
     Route::get('/cart/addToOrderList/{cart:id}', [OrderController::class, 'addToOrderList'])->name('order.add');
     

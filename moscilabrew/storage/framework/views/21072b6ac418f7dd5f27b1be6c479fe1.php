@@ -95,7 +95,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="bottom">
+                                                                    <div class="bottom" aria-cart-id = <?php echo e($cart->id); ?>>
                                                                         <div class="d-flex">
                                                                             <div class="plus-minus-sign">
                                                                                 <div class="center">
@@ -114,7 +114,7 @@
                                                                                             name="quant[1]"
                                                                                             class="form-control input-number"
                                                                                             value="<?php echo e($cart->quantity); ?>"
-                                                                                            min="1" max="10">
+                                                                                            min="1" max="<?php echo e($coffees->find($cart->coffee_id)->jumlah_stok); ?>">
 
                                                                                         <span class="input-group-text">
                                                                                             <button type="button"
@@ -258,6 +258,51 @@
                 }else {
                     window.location.href = "/cart/removeItemsOrderList/" + $(this).val();
                 }
+            });
+            
+            $('div.bottom').each(function (index, element) {
+                $(this).find("button[data-type='plus']").click(function (e) { 
+                    e.preventDefault();
+                    var $cart_id = $(element).attr('aria-cart-id');
+                    
+                    $.ajax({
+                        type: "get",
+                        url: "/cart/plusQty/",
+                        data: {'cart' : $cart_id},
+                        success: function (response) {
+                            location.reload();
+                        }
+                    });
+                });
+
+                $(this).find('input[name="quant[1]"]').on('change', function () {
+                    var $cart_id = $(element).attr('aria-cart-id');
+                    var $value = $(this).val();
+                    
+                    $.ajax({
+                        type: "get",
+                        url: "/cart/updateQty/",
+                        data: {'cart' : $cart_id,
+                                'value' : $value},
+                        success: function (response) {
+                            location.reload();
+                        }
+                    });
+                });
+
+                $(this).find("button[data-type='minus']").click(function (e) { 
+                    e.preventDefault();
+                    var $cart_id = $(element).attr('aria-cart-id');
+                    
+                    $.ajax({
+                        type: "get",
+                        url: "/cart/minusQty/",
+                        data: {'cart' : $cart_id},
+                        success: function (response) {
+                            location.reload();
+                        }
+                    });
+                });
             });
         });
     </script>
