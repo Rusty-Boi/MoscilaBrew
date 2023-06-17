@@ -215,10 +215,12 @@
                                     </div>
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <button type="button" class="btn bg-primary rounded-pill fw-bold">
-                                Beli
-                                <i class="fa-solid fa-bag-shopping fa-lg ms-1"></i>
-                            </button>
+                            <a href="<?php echo e(route('cart.checkout')); ?>" class="text-decoration-none text-black">
+                            <button type="button" class="btn bg-primary rounded-pill fw-bold w-100">
+                                    Checkout
+                                    <i class="fa-solid fa-bag-shopping fa-lg ms-1"></i>
+                                </button>
+                            </a>
                         <?php else: ?>
                             <p>Empty</p>
                         <?php endif; ?>

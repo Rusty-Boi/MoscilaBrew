@@ -130,35 +130,28 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Cart $cart)
-    {
-        //
-    }
+    public function showCheckout() {
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Cart $cart)
-    {
-        //
-    }
+        $carts = Auth::user()->carts;
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Cart $cart)
-    {
-        //
-    }
+        dd($carts);
+        // $coffeeBlendData = [];
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Cart $cart)
-    {
-        //
+        // if (!array_key_exists('beans', session('coffeeBlendData'))) {
+        //     $coffeeBlendData['beans'] = session('coffeeBlendData');
+        //     $coffeeBlendData['blend_vendor'] = Vendor::find($request->vendor_id);
+        // }else {
+        //     $coffeeBlendData = session('coffeeBlendData');
+        // }
+
+        // return view('coffee-blend.confirmation-buy', [
+        //     // 'coffeeBlendData' => $coffeeBlendData,
+        //     'partners_status_img' => Vendor::allStatusPartner(),
+        //     "delivery_address_list" => User::allDeliveryAddress(),
+        //     "delivery_address_default" => 'Kos',
+        //     "delivery_expedition_default" => 'jnt'
+        // ]);
+
+        return view('confirmation-buy');
     }
 }

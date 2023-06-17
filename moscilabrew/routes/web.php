@@ -67,6 +67,8 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/cart/removeItemsOrderList/{vendor:id}', [OrderController::class, 'removeItemsOrderList'])->name('order.removeItems');
     
+    Route::get('/cart/confirmation-buy', [CartController::class, 'showCheckout'])->name('cart.checkout');
+    
     // coffee blend
     Route::post('/coffee-blend/bean-chooser', [CoffeeBlendController::class, 'beanChooser'])->name('coffeeBlend.beanChooser');
     
@@ -105,10 +107,6 @@ Route::get('search', [CoffeeBlendController::class, 'search']); // search bean
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 
 Route::get('/daftar-transaksi', [UserController::class, 'showDaftarTransaksi']);
-
-Route::get('/confirmation-buy', function () {
-    return view('confirmation-buy');
-});
 
 
 /* =============

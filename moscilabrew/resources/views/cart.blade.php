@@ -215,10 +215,12 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <button type="button" class="btn bg-primary rounded-pill fw-bold">
-                                Beli
-                                <i class="fa-solid fa-bag-shopping fa-lg ms-1"></i>
-                            </button>
+                            <a href="{{ route('cart.checkout') }}" class="text-decoration-none text-black">
+                            <button type="button" class="btn bg-primary rounded-pill fw-bold w-100">
+                                    Checkout
+                                    <i class="fa-solid fa-bag-shopping fa-lg ms-1"></i>
+                                </button>
+                            </a>
                         @else
                             <p>Empty</p>
                         @endif
