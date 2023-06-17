@@ -9,13 +9,29 @@
     <div class="container nav-on">
         
         <h1>Keranjang</h1>
+        <div class="row gx-3"  style="width: 31.8rem;padding-bottom: 1rem;">
+          <div class="col">
+            <h4>Delivery
+
+            </h4>
+            <div class="bg-desertSand-30 p-2 rounded-3 border border-2" style="font-size: small;">
+                <p class="fw-bold">Home</p>
+                <p class="mb-0">
+                    {{ Auth::user()->address }}
+                </p>
+                <p class="mb-0 fw-semibold">{{ Auth::user()->phone_number }}</p>
+            </div>
+          </div>  
+        </div>
         <div class="row gx-3">
+        @foreach ($transactions as $transaction)
             <div class="col-7" style="padding-right: 10rem;">
                 <div class="bg-desertSand-30 rounded-4">
+                @foreach ($transaction['product-items'] as $item)
                     <img class="w-100" src="beans-tall.png" alt="">
                     <div class="container d-flex justify-content-between py-2">
                         <div>
-                            <p class="mb-0">Vendor Name</p>
+                            <p class="mb-0">{{ $transaction['vendor-name'] }}</p>
                             <p class="fw-bold ms-3 mb-0" style="font-size: small;">Gold-Partners</p>
                         </div>
                         <div class="position-relative d-flex align-items-center">
@@ -31,13 +47,15 @@
                                 <h5 class="card-title">What you buy:</h5>
                                 <h6 class="card-subtitle mb-2 text-body-secondary">
                                     <img src="coffee-pack.png" alt="" style="width: 2rem; max-width: 100%;">
-                                    Kopi Gayo by VendorName
+                                    {{ $item['product-title'] }}
                                 </h6>
                                 <p class="card-text">
-                                    <img class="mb-2" src="aceh-gayo.png" alt="">
+                                    <img class="mb-2" src="{{ $item['product-img'] }}" alt="">
                                     <br>
                                     Total
-                                    <span class="rounded-3 py-2 px-5 mx-2 bg-desertSand-30">2</span>
+                                    <span class="rounded-3 py-2 px-5 mx-2 bg-desertSand-30">
+                                    {{ $item['qty'] }}
+                                    </span>
                                     Pouch
                                 </p>
                             </div>
@@ -48,19 +66,10 @@
                             Subtotal
                         </p>
                         <p>
-                            Rp 180.000
+                            {{ $item['qty'] }} x {{ $item['price'] }} = Rp. 180.000
                         </p>
                     </div>
                     <div class="col-12">
-                        <h4>Delivery</h4>
-                        <div class="bg-desertSand-30 p-2 rounded-3 border border-2" style="font-size: small;">
-                            <p class="fw-bold">Home</p>
-                            <p class="mb-0">
-                                Jl. Meruya Selatan No.36, RT.5/RW.1, Joglo, Kec. Kembangan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11640
-                            </p>
-                            <p class="mb-0 fw-semibold">+62 812 9987 8847</p>
-                        </div>
-
                         <div id="deliveryOptions">
                             <h6 class="title fw-semibold mt-2">Select delivery options</h6>
                             <div class="container mt-2">

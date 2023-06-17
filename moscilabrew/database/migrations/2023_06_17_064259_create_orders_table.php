@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('vendor_id');
             $table->foreignId('cart_id');
+            $table->string('delivery');
             $table->timestamps();
         });
     }

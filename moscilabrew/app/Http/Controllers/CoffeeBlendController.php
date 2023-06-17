@@ -162,7 +162,8 @@ class CoffeeBlendController extends Controller
         Buy
     */
     public function buy(Request $request){
-        dd($request);
+        // dd($request);
+        
     }
 
     /**

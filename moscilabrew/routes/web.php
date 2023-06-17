@@ -68,7 +68,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cart/removeItemsOrderList/{vendor:id}', [OrderController::class, 'removeItemsOrderList'])->name('order.removeItems');
     
     Route::get('/cart/confirmation-buy', [CartController::class, 'showCheckout'])->name('cart.checkout');
-    
+
+
     // coffee blend
     Route::post('/coffee-blend/bean-chooser', [CoffeeBlendController::class, 'beanChooser'])->name('coffeeBlend.beanChooser');
     

@@ -131,10 +131,12 @@ class CartController extends Controller
     }
 
     public function showCheckout() {
-
+        
         $carts = Auth::user()->carts;
-
-        dd($carts);
+        return view('confirmation-buy', [
+            'transactions' => User::allTransaction()
+        ]);
+        // dd($carts);
         // $coffeeBlendData = [];
 
         // if (!array_key_exists('beans', session('coffeeBlendData'))) {
@@ -152,6 +154,9 @@ class CartController extends Controller
         //     "delivery_expedition_default" => 'jnt'
         // ]);
 
-        return view('confirmation-buy');
+        // return view('confirmation-buy');
+    }
+    public function delivery_input(){
+        
     }
 }
