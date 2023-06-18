@@ -1,7 +1,8 @@
 <section class="add-product-process" id="add-product-process">
     
-    <div class="process-link">
-        <a class="process-link-eclipse" href="#prod-desc">
+    <div class="process-link <?php echo e($process_num == 1 ? 'active' : ''); ?> <?php if($process_num == 1): ?> active <?php endif; ?> <?php if($process_num > 1): ?> passed <?php endif; ?>">
+    
+        <a class="process-link-eclipse " href="#prod-desc">
             <div class="coloring"></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-pencil-square logo" viewBox="0 0 16 16">
@@ -19,7 +20,7 @@
         </a>
         <p class="process-link-title">Add Product</p>
     </div>
-    <div class="process-link">
+    <div class="process-link <?php echo e($process_num == 2 ? 'active' : ''); ?> <?php if($process_num > 2): ?> passed <?php endif; ?>">
         <a class="process-link-eclipse" href="#prod-photos">
             <div class="coloring"></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -34,11 +35,11 @@
                 <path
                     d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
             </svg>
-            <img class="process-link-eclipse-line" src="<?php echo e(asset('img/line.png')); ?>">
+            <img class="d-none process-link-eclipse-line" src="<?php echo e(asset('img/line.png')); ?>">
         </a>
         <p class="process-link-title">Photos</p>
     </div>
-    <div class="process-link">
+    <div class="d-none process-link <?php if($process_num == 3): ?> active <?php endif; ?> <?php if($process_num > 3): ?> passed <?php endif; ?>">
         <a class="process-link-eclipse" href="#prod-delivery">
             <div class="coloring"></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -55,7 +56,7 @@
         </a>
         <p class="process-link-title">Delivery</p>
     </div>
-    <div class="process-link">
+    <div class="d-none process-link <?php if($process_num == 4): ?> active <?php endif; ?>">
         <a class="process-link-eclipse" href="#prod-complaints">
             <div class="coloring"></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

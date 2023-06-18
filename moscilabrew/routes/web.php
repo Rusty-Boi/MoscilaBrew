@@ -117,4 +117,8 @@ Route::get('/seller/dashboard', [SellerController::class, 'dashboard']);
 Route::get('/seller/discuss', [SellerController::class, 'discuss']);
 
 // add product
-Route::get('/seller/add-product', [ProductController::class, 'add']);
+Route::get('/seller/add-product', [ProductController::class, 'viewAddProduct'])->name('seller.viewAddProduct');
+
+Route::post('/seller/storeProduct/{process_num}', [ProductController::class, 'addProductProcess'])->name('seller.addProductProcess');
+
+Route::post('/seller/storeProduct', [ProductController::class, 'store'])->name('seller.storeProduct');

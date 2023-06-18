@@ -26,9 +26,9 @@ return new class extends Migration
             $table->text('product_desc');
             $table->integer('jumlah_stok');
             $table->integer('harga_product');
-            $table->decimal('rating_product', 2, 1);
-            $table->string('average');
-            $table->integer('jumlah_review');
+            $table->decimal('rating_product', 2, 1)->default(0);
+            $table->string('average')->default(0);
+            $table->integer('jumlah_review')->default(0);
             $table->timestamps();
 
         });

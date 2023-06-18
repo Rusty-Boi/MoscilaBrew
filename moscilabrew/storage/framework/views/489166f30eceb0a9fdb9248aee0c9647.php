@@ -57,17 +57,7 @@
                                             class="text-muted">(200)</span></p>
                                 </div>
 
-                                <p class="mb-0" style="text-align: justify">Lorem ipsum dolor sit amet consectetur,
-                                    adipisicing elit. Modi officia,
-                                    tenetur, blanditiis ex labore ullam est ut distinctio maiores dolores optio, excepturi
-                                    doloremque inventore perferendis dolorum nisi. Voluptates dolores quis vitae maiores id
-                                    deleniti praesentium quisquam asperiores nobis, ea molestiae quibusdam perspiciatis est
-                                    tempore suscipit possimus consequuntur impedit, provident eius. Exercitationem nostrum
-                                    vero quaerat pariatur debitis officia omnis aliquam corrupti laboriosam, nobis
-                                    aspernatur? Dolor atque, tempore incidunt tempora, impedit, pariatur odit ab numquam
-                                    dolorem cum ex! Animi repudiandae amet fugiat sapiente ratione deserunt autem cum
-                                    exercitationem quasi. Dolor corrupti aut totam quasi, eveniet veritatis qui doloremque
-                                    pariatur perferendis maxime velit?</p>
+                                <p class="mb-0" style="text-align: justify"><?php echo e($coffee->product_desc); ?></p>
                             </div>
                         </div>
                         <hr>

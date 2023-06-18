@@ -4,7 +4,16 @@
 
 // default process link
 $(document).ready(function () {
-    $(".process-link-eclipse[href = '#prod-desc']").click()
+    // if () {
+        
+    // }
+    // $(".process-link-eclipse[href = '#prod-desc']").click()
+
+    var process_link_active = $('.process-link.active');
+    var href = $(process_link_active).find('a.process-link-eclipse').attr('href');
+
+    $(href).removeClass('d-none');
+
 });
 
 // process link di klik 
@@ -26,8 +35,8 @@ $(".process-link-eclipse").click(function (e) {
 });
 
 // ketika button next ditekan | add product page
-$("section.add-product-inputs button[name = 'next']").click(function (e) { 
-    e.preventDefault();
+$("section.add-product-inputs button[aria-btn-name='next']").click(function (e) { 
+    // e.preventDefault();
     
-    $(".process-link-eclipse[href='"+$(this).attr('value')+"'").click()
+    // $(".process-link-eclipse[href='"+$(this).attr('value')+"'").click()
 });

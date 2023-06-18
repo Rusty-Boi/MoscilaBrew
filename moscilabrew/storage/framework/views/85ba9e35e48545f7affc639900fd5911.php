@@ -414,7 +414,6 @@
                     $(element).find("input[aria-action='beanSearch']").on("keyup", function(e) {
                         var q = $(this).val();
                         // munculkan coffee sesuai dengan inputan
-                        console.log(q)
                         $.ajax({
                             type: "GET",
                             url: "search",

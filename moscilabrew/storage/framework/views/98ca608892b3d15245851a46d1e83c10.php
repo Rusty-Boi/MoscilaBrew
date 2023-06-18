@@ -18,7 +18,7 @@
         </a>
       </li>
       <li>
-        <a href="/seller/add-product" class="nav-link <?php echo e((request()->is('seller/add-product*')) ? 'active' : ''); ?> py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
+        <a href="<?php echo e(route('seller.viewAddProduct')); ?>" class="nav-link <?php echo e((request()->is('seller/add-product*')) ? 'active' : ''); ?> py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
           <img src=<?php echo e(asset('img/add-beans.png')); ?> width="40" height="40">
         </a>
       </li>

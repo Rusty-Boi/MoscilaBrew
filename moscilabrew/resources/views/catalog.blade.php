@@ -19,7 +19,8 @@
                 <div class="col-5">
                     <form action="/catalog">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Cari nama produk / kategori / vendor" name="search" value="{{ request('search') }}">
+                            <input type="text" class="form-control" placeholder="Cari nama produk / kategori / vendor"
+                                name="search" value="{{ request('search') }}">
                             <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-search" viewBox="0 0 16 16">
@@ -66,38 +67,40 @@
                     <div class="col">
                         <div class="row row-cols-1 row-cols-md-2 g-2">
                             @if (count($coffees) > 0)
-                            @foreach ($coffees as $coffee)
-                                <div class="col">
-                                    <a class="product-card card container"
-                                        href="/catalog/{{ $coffee->vendor->vendor_name }}/{{ $coffee->id }}">
-                                        <div class="vendor row g-0">
-                                            <div class="col-1">
-                                                <img src={{ asset($coffee->vendor->vendor_logo) }} class="vendor-logo">
-                                            </div>
-                                            <div class="col">
-                                                <span class="vendor-name">
-                                                    {{ $coffee->vendor->vendor_name }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="product-desc row g-0">
-                                            <div class="col-4">
-                                                <img class="product-img" src="{{ asset($coffee->product_img) }}"
-                                                    alt="">
-                                            </div>
-                                            <div class="col">
-                                                <span class="product-title">{{ $coffee->product_name }}</span>
-                                                <span class="price">Rp
-                                                    {{ number_format($coffee->harga_product, 0, ',', '.') }}</span>
-                                                <div class="rate-average">
-                                                    <span class="rate">{{ $coffee->rating_product }}</span>
-                                                    <span class="average">{{ $coffee->average }}</span>
+                                @foreach ($coffees as $coffee)
+                                    <div class="col">
+                                        <a class="product-card card container h-100"
+                                            href="/catalog/{{ $coffee->vendor->vendor_name }}/{{ $coffee->id }}">
+                                            <div class="vendor row g-0">
+                                                <div class="col-1">
+                                                    <img src={{ asset($coffee->vendor->vendor_logo) }} class="vendor-logo">
+                                                </div>
+                                                <div class="col">
+                                                    <span class="vendor-name">
+                                                        {{ $coffee->vendor->vendor_name }}
+                                                    </span>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach                                
+                                            <div class="product-desc row g-0 gx-3 h-100">
+                                                <div class="col-4">
+                                                    <img class="product-img" src="{{ asset($coffee->product_img) }}" alt="">
+                                                </div>
+                                                <div class="col">
+                                                    <span class="product-title">{{ $coffee->product_name }}</span>
+                                                    <span class="price">Rp
+                                                        {{ number_format($coffee->harga_product, 0, ',', '.') }}</span>
+
+                                                    @if ($coffee->rating_product != 0 && $coffee->average != 0)
+                                                        <div class="rate-average">
+                                                            <span class="rate">{{ $coffee->rating_product }}</span>
+                                                            <span class="average">{{ $coffee->average }}</span>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
                             @else
                                 <p>Tidak ditemukan</p>
                             @endif
