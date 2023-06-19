@@ -1,0 +1,174 @@
+/* seller body */
+body.seller-body main {
+    background-color: rgba(var(--bs-tertiary-bg-rgb));
+    margin-top: 20vh;
+    margin-left: 4.5rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+/* 
+== seller sidebar ==
+*/
+section.seller-sidebar {
+    padding: 0;
+    width: 4.5rem;
+    position: fixed;
+}
+
+section.seller-sidebar .active{
+    background-color: var(--active) !important;
+}
+
+
+/* 
+=== moscila dashboard ===
+*/
+section#moscila_dashboard .performa-card {
+    background-color: rgba(239, 195, 164, .3);
+    border-radius: 2rem;
+}
+
+section#moscila_dashboard .performa-card .number {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+
+/* start of seller add-product */
+section.add-product-process  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+section.add-product-process .process-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 4rem;
+}
+
+section.add-product-process .process-link-title {
+    margin: 0;
+    font-weight: 450;
+}
+
+.add-product-process .process-link-eclipse {
+    border-radius: 50%; 
+    height: 3.5rem; 
+    width: 3.5rem; 
+    color: black !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.add-product-process .process-link-eclipse .coloring {
+    position: relative;
+    background-color: rgb(255, 245, 236);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+    z-index: 1
+}
+
+.add-product-process .process-link-eclipse:hover .coloring{
+    background-color: var(--primary) !important;
+}
+
+.add-product-process .process-link.active .process-link-eclipse .coloring{
+    background-color: #BE7656 !important;
+    color: white !important;
+}
+
+.add-product-process .process-link .process-link-eclipse .logo{
+    position: absolute;
+    z-index: 2;
+}
+
+section.add-product-process .process-link-eclipse-line {
+    position: absolute; 
+    z-index: 0; 
+    left: 0; 
+    top: 50%;
+    opacity: 0.3;
+}
+
+section.add-product-process .process-link .process-link-eclipse-green-check {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+}
+
+section.add-product-process .process-link.passed .process-link-eclipse-green-check {
+    display: block;
+    right: 0; 
+    bottom: 0; 
+    background-color: white; 
+    border-radius: 50%; 
+    fill: green;
+    position: absolute;
+}
+
+section.add-product-process .process-link.passed .process-link-eclipse-line {
+    opacity: 1;
+}
+
+
+#add-product-inputs {
+    background-color: white;
+    padding: 1rem;
+}
+
+#add-product-inputs select, textarea {
+    background-color: var(--grey) !important;
+}
+
+#add-product-inputs select, button, textarea {
+    border: none !important;
+    color: black;
+}
+
+#add-product-inputs input {
+    --bs-body-bg: var(--secondary);
+    border: none !important;
+    color: black;
+}
+
+
+#add-product-inputs p, label {
+    color: black;
+    font-weight: bold;
+}
+
+#add-product-inputs .btn-submit {
+    background-color: #BE7656;
+    color: white;
+    font-weight: bold;
+}
+
+#add-product-inputs .btn-submit:focus {
+    box-shadow: 0 0 0 0.25rem var(--secondary);
+}
+
+
+/*   delivery process */
+.delivery-option .form-check-input {
+    margin: 0;
+    background-color: whitesmoke;
+}
+
+.delivery-option .form-check-input:checked {
+    background-color: var(--active);
+}
+
+/* end of seller add-product */
+
+

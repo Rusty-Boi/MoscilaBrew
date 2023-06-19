@@ -1,0 +1,1 @@
+<?php /**PATH D:\Project\MoscilaBrew\moscilabrew\resources\views/seller/add-product.blade.php ENDPATH**/ ?>
