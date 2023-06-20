@@ -13,10 +13,10 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        
         User::create([
             'name' => 'Hengki',
             'email' => 'hengki@gmail.com',
+            'picture' => 'img\Profile pict.png',
             'password' => 'bene',
             'address' => 'bengkayang',
             'phone_number' => '081257520000',
@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Bene',
             'email' => 'bene@gmail.com',
+            'picture' => 'img\Profile pict.png',
             'password' => 'ben',
             'address' => 'bengkayang',
             'phone_number' => '0812575210000',

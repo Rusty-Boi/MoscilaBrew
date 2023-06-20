@@ -1,5 +1,4 @@
-
-<?php $__env->startSection('title', '...'); ?>
+<?php $__env->startSection('title', 'Daftar Transaksi'); ?>
 
 <?php $__env->startSection('navbar'); ?>
     <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -47,49 +46,55 @@
                     </div>
 
                     <div class="row gy-2">
-
+                        <?php if(count($transactions) > 0): ?>
                         <?php $__currentLoopData = $transactions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $transaction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="col-12">
-                                <div class="product-card card container">
-                                    <div class="tgl-transaksi">
-                                        <p><?php echo e($transaction['tgl-transaksi']); ?></p>
+                        <div class="col-12">
+                            <div class="product-card card container">
+                                <div class="tgl-transaksi">
+                                    <p><?php echo e($transaction['tgl_transaksi']); ?></p>
+                                </div>
+                                <?php $__currentLoopData = $transaction->transactionDetails->groupBy('vendor_id'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vendor_id => $transaction_items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="vendor row g-0">
+                                    <div class="col-1">
+                                        <img src="<?php echo e($coffees->find($vendor_id)['vendor-logo']); ?>" class="vendor-logo">
                                     </div>
-                                    <div class="vendor row g-0">
-                                        <div class="col-1">
-                                            <img src="<?php echo e($transaction['vendor-logo']); ?>" class="vendor-logo">
-                                        </div>
-                                        <div class="col text-start">
-                                            <span class="vendor-name">
-                                                <?php echo e($transaction['vendor-name']); ?>
+                                    <div class="col text-start">
+                                        <span class="vendor-name">
+                                            <?php echo e($coffees->find($vendor_id)['vendor-name']); ?>
 
-                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <?php $__currentLoopData = $transaction_items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                                        
+                                    <div class="product-desc row g-0 mb-2">
+                                        <div class="col-2">
+                                            <img class="product-img" src="<?php echo e($coffees->find($item->coffee_id)['product_img']); ?>" alt="">
+                                        </div>
+                                        <div class="col">
+                                            <span class="product-title"><?php echo e($coffees->find($item->coffee_id)['product_name']); ?></span>
+                                            <span class="qty">Total <span class="bg-primary rounded-pill px-2"><?php echo e($item['quantity']); ?></span>
+                                                Pouch</span>
+                                            <span class="total-price-item"><?php echo e($item['quantity']); ?> x Rp <?php echo e(number_format($coffees->find($item->coffee_id)['harga_product'], 0, ',', '.')); ?> = Rp <?php echo e(number_format($item['total_price'], 0, ',', '.')); ?></span>
                                         </div>
                                     </div>
-                                    <?php $__currentLoopData = $transaction['product-items']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                                        
-                                        <div class="product-desc row g-0 mb-2">
-                                            <div class="col-2">
-                                                <img class="product-img" src="<?php echo e($item['product-img']); ?>" alt="">
-                                            </div>
-                                            <div class="col">
-                                                <span class="product-title"><?php echo e($item['product-title']); ?></span>
-                                                <span class="qty">Total <span class="bg-primary rounded-pill px-2"><?php echo e($item['qty']); ?></span>
-                                                    Pouch</span>
-                                                <span class="total-price-item"><?php echo e($item['qty']); ?> x <?php echo e($item['price']); ?> = Rp. 180.000</span>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    <div class="bottom justify-content-end">
-                                        <div class="d-flex">
-                                            <p class="total-price">Total <?php echo e($transaction['total-price']); ?></p>
-                                            <a class="btn details" href="#" role="button">
-                                                <?php echo e($transaction['status']); ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <div class="bottom justify-content-end">
+                                    <div class="d-flex">
+                                        <p class="total-price">Total Rp <?php echo e(number_format($transaction->subtotal, 0, ',', '.')); ?></p>
+                                        <a class="btn details" href="#" role="button">
+                                            <?php echo e($transaction['action']); ?>
 
-                                            </a>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php else: ?>
+                            <p>Tidak ada transaksi!</p>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="col-4">
@@ -203,16 +208,12 @@
 <?php $__env->startSection('js'); ?>
     <script src=<?php echo e(asset('js/index.js')); ?>></script>
     <script src="https://kit.fontawesome.com/a72340eb77.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
+    
     <script src='fullcalendar/dist/index.global.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-    </script>
+    
     <script type="text/javascript">
         $(function() {
             $('#datepicker').datepicker();

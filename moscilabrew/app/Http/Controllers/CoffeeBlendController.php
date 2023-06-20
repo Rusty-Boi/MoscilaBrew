@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Vendor;
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Coffee;
 use App\Models\CoffeeBlend;
 use App\Http\Requests\StoreCoffeeBlendRequest;
 use App\Http\Requests\UpdateCoffeeBlendRequest;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class CoffeeBlendController extends Controller
@@ -138,6 +140,7 @@ class CoffeeBlendController extends Controller
 
     public function showConfirmationCustomBlend(Request $request)
     {
+        // request()->session()->forget('coffeeBlendData');
         $coffeeBlendData = [];
 
         if (!array_key_exists('beans', session('coffeeBlendData'))) {
@@ -146,16 +149,44 @@ class CoffeeBlendController extends Controller
         }else {
             $coffeeBlendData = session('coffeeBlendData');
         }
+        $coffeeBlendData['blend_price'] = 0;
+        $coffeeBlendData['total_delivery'] = 20000;
+        $coffeeBlendData['subtotal'] = $coffeeBlendData['total_delivery']+$coffeeBlendData['blend_price'];
+
+        
+        $deliveries = DB::table('deliveries')
+        ->join('delivery_details', 'deliveries.deliveryDetail_id', '=', 'delivery_details.id')
+        ->join('ms_deliveries', 'delivery_details.msDelivery_id', '=', 'ms_deliveries.id')
+        ->join('ms_delivery_services', 'delivery_details.msDeliveryService_id', '=', 'ms_delivery_services.id')
+        ->select('deliveries.*', 'ms_delivery_services.*', 'ms_deliveries.*')
+        ->get()
+        ->groupBy('vendor_id');
         
         $request->session()->put('coffeeBlendData', $coffeeBlendData);
 
         return view('coffee-blend.confirmation-buy', [
             'coffeeBlendData' => $coffeeBlendData,
             'partners_status_img' => Vendor::allStatusPartner(),
-            "delivery_address_list" => User::allDeliveryAddress(),
-            "delivery_address_default" => 'Kos',
-            "delivery_expedition_default" => 'jnt'
+            'deliveries' => $deliveries
+            // "delivery_address_list" => User::allDeliveryAddress(),
+            // "delivery_address_default" => 'Kos',
+            // "delivery_expedition_default" => 'jnt'
         ]);
+    }
+
+    public function setWeight(Request $request){
+        // harga per gram
+        $price_detail = [];
+        $pricepergr = 300;
+        $total_price = $request->weight * $pricepergr;
+        $price_detail['blend_price'] = $total_price;
+        // dd($price_detail['blend_price']);
+        $price_detail['subtotal'] = $price_detail['blend_price']+session('coffeeBlendData')['total_delivery'];
+        // dd($price_detail['subtotal']);
+        $request->session()->put('priceDetail', $price_detail);
+        
+        return $price_detail;
+
     }
 
     /* 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\History;
 use App\Models\Cart;
 use App\Models\Order;
 use Laravel\Sanctum\HasApiTokens;
@@ -124,5 +125,13 @@ class User extends Authenticatable
 
     public static function allDeliveryAddress(){
         return self::$delivery_address_list;
+    }
+
+    /**
+     * Get the histories associated with the user.
+     */
+    public function histories(): HasMany
+    {
+        return $this->hasMany(History::class);
     }
 }

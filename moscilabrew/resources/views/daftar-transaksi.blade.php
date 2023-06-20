@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', '...')
+@section('title', 'Daftar Transaksi')
 
 @section('navbar')
     @include('layouts.header')
@@ -47,47 +47,53 @@
                     </div>
 
                     <div class="row gy-2">
-
+                        @if (count($transactions) > 0)
                         @foreach ($transactions as $transaction)
-                            <div class="col-12">
-                                <div class="product-card card container">
-                                    <div class="tgl-transaksi">
-                                        <p>{{ $transaction['tgl-transaksi'] }}</p>
+                        <div class="col-12">
+                            <div class="product-card card container">
+                                <div class="tgl-transaksi">
+                                    <p>{{ $transaction['tgl_transaksi'] }}</p>
+                                </div>
+                                @foreach ($transaction->transactionDetails->groupBy('vendor_id') as $vendor_id => $transaction_items)
+                                <div class="vendor row g-0">
+                                    <div class="col-1">
+                                        <img src="{{ $coffees->find($vendor_id)['vendor-logo'] }}" class="vendor-logo">
                                     </div>
-                                    <div class="vendor row g-0">
-                                        <div class="col-1">
-                                            <img src="{{ $transaction['vendor-logo'] }}" class="vendor-logo">
+                                    <div class="col text-start">
+                                        <span class="vendor-name">
+                                            {{ $coffees->find($vendor_id)['vendor-name'] }}
+                                        </span>
+                                    </div>
+                                </div>
+                                @foreach ($transaction_items as $item)                                        
+                                    <div class="product-desc row g-0 mb-2">
+                                        <div class="col-2">
+                                            <img class="product-img" src="{{ $coffees->find($item->coffee_id)['product_img'] }}" alt="">
                                         </div>
-                                        <div class="col text-start">
-                                            <span class="vendor-name">
-                                                {{ $transaction['vendor-name'] }}
-                                            </span>
+                                        <div class="col">
+                                            <span class="product-title">{{ $coffees->find($item->coffee_id)['product_name'] }}</span>
+                                            <span class="qty">Total <span class="bg-primary rounded-pill px-2">{{ $item['quantity'] }}</span>
+                                                Pouch</span>
+                                            <span class="total-price-item">{{ $item['quantity'] }} x Rp {{ number_format($coffees->find($item->coffee_id)['harga_product'], 0, ',', '.') }} = Rp {{ number_format($item['total_price'], 0, ',', '.') }}</span>
                                         </div>
                                     </div>
-                                    @foreach ($transaction['product-items'] as $item)                                        
-                                        <div class="product-desc row g-0 mb-2">
-                                            <div class="col-2">
-                                                <img class="product-img" src="{{ $item['product-img'] }}" alt="">
-                                            </div>
-                                            <div class="col">
-                                                <span class="product-title">{{ $item['product-title'] }}</span>
-                                                <span class="qty">Total <span class="bg-primary rounded-pill px-2">{{ $item['qty'] }}</span>
-                                                    Pouch</span>
-                                                <span class="total-price-item">{{ $item['qty'] }} x {{ $item['price'] }} = Rp. 180.000</span>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                    <div class="bottom justify-content-end">
-                                        <div class="d-flex">
-                                            <p class="total-price">Total {{ $transaction['total-price'] }}</p>
-                                            <a class="btn details" href="#" role="button">
-                                                {{ $transaction['status'] }}
-                                            </a>
-                                        </div>
+                                @endforeach
+                                    
+                                @endforeach
+                                <div class="bottom justify-content-end">
+                                    <div class="d-flex">
+                                        <p class="total-price">Total Rp {{ number_format($transaction->subtotal, 0, ',', '.') }}</p>
+                                        <a class="btn details" href="#" role="button">
+                                            {{ $transaction['action']}}
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        </div>
+                    @endforeach
+                        @else
+                            <p>Tidak ada transaksi!</p>
+                        @endif
                     </div>
                 </div>
                 <div class="col-4">
@@ -201,16 +207,16 @@
 @section('js')
     <script src={{ asset('js/index.js') }}></script>
     <script src="https://kit.fontawesome.com/a72340eb77.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
+    </script> --}}
     <script src='fullcalendar/dist/index.global.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-    </script>
+    </script> --}}
     <script type="text/javascript">
         $(function() {
             $('#datepicker').datepicker();

@@ -69,6 +69,8 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/cart/confirmation-buy', [CartController::class, 'showCheckout'])->name('cart.checkout');
     
+    Route::get('/setDeliveryFee', [CartController::class, 'setDeliveryFee'])->name('setDeliveryFee');
+    
     // coffee blend
     Route::post('/coffee-blend/bean-chooser', [CoffeeBlendController::class, 'beanChooser'])->name('coffeeBlend.beanChooser');
     
@@ -81,6 +83,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/coffee-blend/blend-vendors', [CoffeeBlendController::class, 'showBlendVendors'])->name('coffeeBlend.blendVendors');
     
     Route::get('/coffee-blend/confirmation-buy-custom-blend/', [CoffeeBlendController::class, 'showConfirmationCustomBlend'])->name('coffeeBlend.confirmationBlend');
+    
+    Route::get('/coffee-blend/set-weight', [CoffeeBlendController::class, 'setWeight']);
     
     // profile
     
@@ -106,7 +110,7 @@ Route::get('search', [CoffeeBlendController::class, 'search']); // search bean
 
 Route::get('/coffee-blend', [CoffeeBlendController::class, 'index']);
 
-Route::get('/daftar-transaksi', [UserController::class, 'showDaftarTransaksi']);
+Route::get('/daftar-transaksi', [UserController::class, 'showDaftarTransaksi'])->name('daftar-transaksi');
 
 
 /* =============
@@ -122,3 +126,5 @@ Route::get('/seller/add-product', [ProductController::class, 'viewAddProduct'])-
 Route::post('/seller/storeProduct/{process_num}', [ProductController::class, 'addProductProcess'])->name('seller.addProductProcess');
 
 Route::post('/seller/storeProduct', [ProductController::class, 'store'])->name('seller.storeProduct');
+
+Route::get('/waiting-payment{transaction}', [CartController::class, 'showWaitingPayment'])->name('showWaitingPayment');

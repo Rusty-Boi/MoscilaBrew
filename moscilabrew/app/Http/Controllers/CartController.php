@@ -7,8 +7,12 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Coffee;
+use App\Models\History;
+use App\Models\DeliveryDetail;
+use App\Models\TransactionDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -36,25 +40,33 @@ class CartController extends Controller
 
     public function addToCart(Request $request, Coffee $coffee)
     {                
-        // jika item sudah ada dikeranjang tambahkan quantitynya
-        if (Auth::user()->carts->firstWhere('coffee_id', $coffee->id)) {
-            $cart = Auth::user()->carts->firstWhere('coffee_id', $coffee->id);         
-            $cart->quantity = $cart->quantity + $request->quantity;
-            $cart->total_price = $coffee->harga_product * $cart->quantity;   
+        // dd($coffee->jumlah_stok);
+        // dd((int)$request->quantity);
+        if ($request->quantity > $coffee->jumlah_stok ){
+            return redirect()->back()->with('failed', 'Gagal menambahkan ke keranjang!');
+        }else {
+            // jika item sudah ada dikeranjang tambahkan quantitynya
+            if (Auth::user()->carts->firstWhere('coffee_id', $coffee->id)) {
+                $cart = Auth::user()->carts->firstWhere('coffee_id', $coffee->id);         
+                $cart->quantity = $cart->quantity + $request->quantity;
+                $cart->total_price = $coffee->harga_product * $cart->quantity;   
+            }
+            // jika tidak ada membuat entry baru dalam shopping cart
+            else {
+                $cart = new Cart;
+                $cart->user_id = Auth::user()->id;
+                $cart->vendor_id = $coffee->vendor->id;
+                $cart->coffee_id = $coffee->id;
+                $cart->quantity = $request->quantity;
+                $cart->total_price = $coffee->harga_product * $cart->quantity;
+            }      
+            
+            $cart->save();
+            
+            return redirect()->back()->with('success', 'Success add to cart!');
         }
-        // jika tidak ada membuat entry baru dalam shopping cart
-        else {
-            $cart = new Cart;
-            $cart->user_id = Auth::user()->id;
-            $cart->vendor_id = $coffee->vendor->id;
-            $cart->coffee_id = $coffee->id;
-            $cart->quantity = $request->quantity;
-            $cart->total_price = $coffee->harga_product * $cart->quantity;
-        }      
         
-        $cart->save();
 
-        return redirect()->back()->with('success', 'Success add to cart!');
     }
 
     /* 
@@ -130,28 +142,88 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    public function showCheckout() {
+    public function showCheckout(Request $request) {
 
-        $carts = Auth::user()->carts;
+        $orders = Auth::user()->orders;
+        $vendors = Vendor::all();
+        $coffees = Coffee::all();
 
-        dd($carts);
-        // $coffeeBlendData = [];
+        $deliveries = DB::table('deliveries')
+            ->join('delivery_details', 'deliveries.deliveryDetail_id', '=', 'delivery_details.id')
+            ->join('ms_deliveries', 'delivery_details.msDelivery_id', '=', 'ms_deliveries.id')
+            ->join('ms_delivery_services', 'delivery_details.msDeliveryService_id', '=', 'ms_delivery_services.id')
+            ->select('deliveries.*', 'ms_delivery_services.*', 'ms_deliveries.*')
+            ->get()
+            ->groupBy('vendor_id');
 
-        // if (!array_key_exists('beans', session('coffeeBlendData'))) {
-        //     $coffeeBlendData['beans'] = session('coffeeBlendData');
-        //     $coffeeBlendData['blend_vendor'] = Vendor::find($request->vendor_id);
-        // }else {
-        //     $coffeeBlendData = session('coffeeBlendData');
-        // }
+        // dd($deliveries[]->);
+        // dd(DeliveryDetail::find($vendors[0]->deliveries[0]->deliveryDetail_id));
+        // dd($vendors[0]->deliveries[0]->deliveryDetail_id);
+        // dd($orders[0]->vendor_id);
+        // dd(Vendor::find($orders[1]->vendor_id)->deliveries[0]->deliveryDetail->msDeliveryServiceName->service_name);
+        // dd(Vendor::find($orders[1]->vendor_id)->deliveries[0]->deliveryDetail->msDeliveryName->delivery_name);
+        
+        if (count($orders) > 0){
+            
+            $transaction = new History;
+            $transaction->user_id = Auth::user()->id;
+            $transaction->category = 'coffees';
+            $transaction->save();
+            $request->session()->put('transaction', $transaction);
+    
+            foreach ($orders as $order) {
+                $transaction_detail = new TransactionDetail;
+                $transaction_detail->history_id = $transaction->id;
+                $transaction_detail->vendor_id = $order->vendor_id;
+                $transaction_detail->user_id = $order->user_id; 
+                $transaction_detail->coffee_id = Cart::find($order->cart_id)->coffee_id;
+                $transaction_detail->quantity = Cart::find($order->cart_id)->quantity;
+                $transaction_detail->total_price = Cart::find($order->cart_id)->total_price;
+                $transaction_detail->save();
+            }
 
-        // return view('coffee-blend.confirmation-buy', [
-        //     // 'coffeeBlendData' => $coffeeBlendData,
-        //     'partners_status_img' => Vendor::allStatusPartner(),
-        //     "delivery_address_list" => User::allDeliveryAddress(),
-        //     "delivery_address_default" => 'Kos',
-        //     "delivery_expedition_default" => 'jnt'
-        // ]);
+            $transaction = session('transaction');
+            $transaction->action = 'belum selesai';
+            foreach ($transaction->transactionDetails as $transaction_item) {
+                $transaction->product_fee += $transaction_item->total_price;
+            }
+            $transaction->category = 'coffees';
+            $transaction->delivery_fee = 20000;
+            $transaction->subtotal = $transaction->product_fee + $transaction->delivery_fee;
+            // dd($transaction->id);
 
-        return view('confirmation-buy');
+            $transaction->save();
+
+            
+            return view('confirmation-buy', [
+                'vendors' => $vendors,
+                'coffees' => $coffees,
+                'deliveries' => $deliveries,
+                'transaction' => $transaction
+            ]);
+        }
+
+            return redirect()->back();
+    }
+
+    public function setDeliveryFee(Request $request){
+        dd('ok');
+    }
+
+    public function showWaitingPayment($total_harga){
+        $transaction = History::find(request('transaction'));
+
+        // Auth::user()->orders->truncate();
+        // Auth::user()->carts->truncate();
+
+        $transaction->action = "menunggu pembayaran";
+        $transaction->save();
+
+        DB::table('carts')->where('user_id', '=', Auth::user()->id)->delete();
+        DB::table('orders')->where('user_id', '=', Auth::user()->id)->delete();
+
+        return view('waiting-payment-page', [
+            'transaction' => $transaction
+        ]);
     }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', '...')
+@section('title', 'Blend Coffee Checkout')
 
 @section('navbar')
     @include('layouts.header')
@@ -79,12 +79,20 @@
                                             @endfor
 
                                             <div class="row mt-2">
-                                                <p class="col text-center mb-0">
-                                                    Weight
-                                                    <span
-                                                        class="rounded-3 py-2 px-5 mx-2 bg-desertSand-30 bg-danger">1000</span>
-                                                    Pouch
-                                                </p>
+                                                <div
+                                                    class="col text-center mb-0 d-flex align-items-center justify-content-center">
+                                                    <p class="mb-0">Weight</p>
+
+                                                    <select class="form-select mx-3" aria-label="weight"
+                                                        style="width: 5rem">
+                                                        <option selected>200</option>
+                                                        <option value="1">400</option>
+                                                        <option value="2">600</option>
+                                                        <option value="3">800</option>
+                                                    </select>
+
+                                                    <p class="mb-0">gr</p>
+                                                </div>
                                             </div>
                                         </div>
                                         </p>
@@ -96,111 +104,52 @@
                                 <p>
                                     Subtotal
                                 </p>
-                                <p>
-                                    Rp 180.000
+                                <p class='blend_price'>
+                                    Rp 0
                                 </p>
                             </div>
                             <div class="col-12 deliveryCol">
                                 <h4>Delivery</h4>
-                                <div id="delivery_address" class="bg-desertSand-30 p-2 rounded-3 border border-2" style="font-size: small;">
-                                    <input type="hidden" name="delivery_address_label" value="{{ $delivery_address_default }}">
-                                    <p class="fw-bold ">
-
-                                        <span class="label"></span>
-
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn m-0 ms-1 p-0 border-0" data-bs-toggle="modal"
-                                            data-bs-target="#delivery_address_modal">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
-
+                                <div class="bg-desertSand-30 p-2 rounded-3 border border-2" style="font-size: small;">
+                                    <p class="fw-bold">Home</p>
+                                    <p class="mb-0">
+                                        {{ Auth::user()->address }}
                                     </p>
-                                    <p class="mb-0 address"></p>
-                                    <p class="mb-0 fw-semibold phone_number"></p>
+                                    <p class="mb-0 fw-semibold">{{ Auth::user()->phone_number }}</p>
                                 </div>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="delivery_address_modal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Delivery Address
-                                                </h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                @foreach ($delivery_address_list as $item)
-                                                    <button type="button"
-                                                        class="btn m-0 mb-2 p-0 border-0 text-start delivery_address_option @if ($item['label'] == $delivery_address_default) selected-1 @endif">
-                                                        <div class="bg-desertSand-30 p-2 rounded-3 border border-2"
-                                                            style="font-size: small;">
-                                                            <p class="fw-bold">
-                                                                <span class="label">{{ $item['label'] }}</span>
-                                                            </p>
-                                                            <p class="mb-0 address">
-                                                                {{ $item['address'] }}
-                                                            </p>
-                                                            <p class="mb-0 fw-semibold phone_number">
-                                                                {{ $item['phone_number'] }}</p>
-                                                        </div>
-                                                    </button>
-                                                @endforeach
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary save-changes">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div id="deliveryOptions">
+                            </div>
+                            <div class="col-12">
+                                <div class="deliveryOptions">
                                     <h6 class="title fw-semibold mt-2">Select delivery options</h6>
                                     <div class="container mt-2">
-                                        <div class="row border border-2 rounded-3 p-2" style="background-color: #F8F8F8;">
-                                            <div class="col-3 d-flex align-items-center">
-                                                <div class="form-check mb-0">
-                                                    <input class="form-check-input" type="radio" name='delivery_name'
-                                                        id="jnt" onclick="changeColor()" value='jnt'>
-                                                    <label class="form-check-label" for="jnt">
-                                                        JNT
-                                                    </label>
+                                        @foreach ($deliveries[session('coffeeBlendData')['blend_vendor']->id]->groupBy('delivery_name') as $delivery_name => $delivery_item)
+                                            <div class="row border border-2 rounded-3 p-2 deliveryField"
+                                                style="background-color: #F8F8F8;">
+                                                <div class="col-3 d-flex align-items-center">
+                                                    <div class="form-radio mb-0">
+                                                        {{-- <input class="form-radio-input" type="radio" value="{{$delivery_name}}" --}}
+                                                        <input checked class="form-radio-input" type="radio"
+                                                            value="" id="{{ $delivery_name }}"
+                                                            name="deliveryId{{ session('coffeeBlendData')['blend_vendor']->id }}">
+                                                        <label class="form-radio-label" for="{{ $delivery_name }}">
+                                                            {{ $delivery_name }}
+                                                        </label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col">
-                                                <select class="form-select form-select-sm rounded-4 mx-2"
-                                                    aria-label="Default select example">
-                                                    <option selected>Reguler</option>
-                                                    <option value="1">One</option>
+                                                <div class="col">
+                                                    <select class="form-select form-select-sm rounded-4 mx-2"
+                                                        aria-label="deliveryChoice">
+                                                        @foreach ($delivery_item as $item)
+                                                            <option aria-delivery-detail-id={{ $item->deliveryDetail_id }}
+                                                                @if ($loop->first) selected @endif>
+                                                                {{ $item->service_name }}</option>
+                                                        @endforeach
+                                                        {{-- <option value="1">One</option>
                                                     <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="col">
-                                                <select class="form-select form-select-sm rounded-4 mx-2"
-                                                    aria-label="Default select example">
-                                                    <option selected>Reguler</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="container mt-2">
-                                        <div class="row border border-2 rounded-3 p-2" style="background-color: #F8F8F8;">
-                                            <div class="col-3 d-flex align-items-center">
-                                                <div class="form-check mb-0">
-                                                    <input class="form-check-input" type="radio" name='delivery_name'
-                                                        id="sicepat" onclick="changeColor()" value='sicepat'>
-                                                    <label class="form-check-label" for="sicepat">
-                                                        SiCepat
-                                                    </label>
+                                                    <option value="3">Three</option> --}}
+                                                    </select>
                                                 </div>
-                                            </div>
-                                            <div class="col">
+                                                {{-- <div class="col">
                                                 <select class="form-select form-select-sm rounded-4 mx-2"
                                                     aria-label="Default select example">
                                                     <option selected>Reguler</option>
@@ -208,17 +157,9 @@
                                                     <option value="2">Two</option>
                                                     <option value="3">Three</option>
                                                 </select>
+                                            </div> --}}
                                             </div>
-                                            <div class="col">
-                                                <select class="form-select form-select-sm rounded-4 mx-2"
-                                                    aria-label="Default select example">
-                                                    <option selected>Reguler</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -230,24 +171,118 @@
                             <p class="fw-bold">Ringkasan Belanja</p>
                             <div class="d-flex justify-content-between">
                                 <p>Blend Coffee</p>
-                                <p>Rp 180.000</p>
+                                <p class='blend_price'>Rp {{ number_format($coffeeBlendData['blend_price'], 0, ',', '.') }}</p>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <p>Delivery-fee</p>
-                                <p>Rp 20.000</p>
+                                <p>Rp {{ number_format($coffeeBlendData['total_delivery'], 0, ',', '.') }}</p>
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between fw-bold">
                                 <p>Total Harga</p>
-                                <p>Rp 200.000</p>
+                                <p class="total-harga">Rp {{ number_format($coffeeBlendData['subtotal'], 0, ',', '.') }}</p>
                             </div>
-                            <button type="submit" class="btn w-50 mx-auto d-block"
-                                style="background-color: #EFC3A4;">Beli</button>
+                            <a name="" id="" data-bs-toggle="modal" data-bs-target="#buyPop"
+                            class="btn w-50 mx-auto d-block" href="#" role="button"
+                            style="background-color: #EFC3A4;">Beli</a>
                         </div>
                     </div>
                 </div>
             </form>
         </section>
+    </div>
+
+    <div class="modal fade" id="buyPop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="">Payment</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-10 d-flex flex-column">
+                    <div class="border border-2 p-3 rounded-4">
+                        <p class="fw-bold">Payment Method</p>
+                        <div class="accordion" id="payMethod">
+                            <div class="accordion-item filterBar">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#pm" aria-expanded="true" aria-controls="pm">
+                                        Select Payment
+                                    </button>
+                                </h2>
+                                <div id="pm" class="accordion-collapse collapse" data-bs-parent="#payMethod">
+                                    <div class="accordion-body">
+                                        <ul class="list-group list-unstyled">
+                                            <div class="accordion-item filterBar">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                        aria-expanded="true" aria-controls="collapseOne">
+                                                        E-Money
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseOne" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        <li><a href="#"
+                                                                class="disabled d-flex ms-3 justify-content-between align-items-center list-group-item"><img
+                                                                    class="w-5" style="height: 2rem; width: 5rem;"
+                                                                    src="{{ asset('img/Logo-Ovo-Png 1.png') }}"></a></li>
+                                                        <li><a href="#"
+                                                                class="disabled d-flex ms-3 justify-content-between align-items-center list-group-item"><img
+                                                                    class="w-5" style="height: 1rem; width: 5rem;"
+                                                                    src="{{ asset('img/gopay.png') }}"></a></li>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item filterBar">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                        aria-expanded="true" aria-controls="collapseTwo">
+                                                        Debit
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseTwo" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        <ul class="list-group list-unstyled">
+                                                            <li><a href="#" id='btn_mandiri'
+                                                                    class="d-flex ms-3 justify-content-between align-items-center list-group-item"><img
+                                                                        class="w-5" style="height: 2rem; width: 5rem;"
+                                                                        src="{{ asset('img/mandiriLogo.png') }}">></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-2 p-3 rounded-4">
+                        <p class="fw-bold">Payment Summary</p>
+                        <div class="d-flex justify-content-between">
+                            <p>Coffee Blend</p>
+                            <p>Rp {{ number_format(session('priceDetail')['blend_price'], 0, ',', '.') }}</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p>Delivery-fee</p>
+                            <p>Rp {{ number_format($coffeeBlendData['total_delivery'], 0, ',', '.') }}</p>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between fw-bold">
+                            <p>Total Harga</p>
+                            <p>Rp {{ number_format(session('priceDetail')['subtotal'], 0, ',', '.') }}</p>
+                        </div>
+                    </div>
+                    <div class="row m-3 justify-content-center ">
+                        <a id="buyBtn" href="{{ route('showWaitingPayment', ['transaction' => session('transaction')]) }}" class="btn w-50 btn-primary"
+                            style="border: none; background-color: #EFC3A4; color: black;">Buy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
@@ -257,11 +292,33 @@
 @endsection
 
 @section('js')
+    <script src={{ asset('js/main.js') }}></script>
+
     <script>
+        $(document).ready(function() {
+            $('select[aria-label="weight"]').change(function(e) {
+                e.preventDefault();
+                var value = $(this).find(':selected').text();
+                $.ajax({
+                    type: "get",
+                    url: "/coffee-blend/set-weight",
+                    data: {
+                        "weight": value
+                    },
+                    success: function(response) {
+                        
+                        $("p.blend_price").html("Rp " + response['blend_price']);
+                        $("p.total-harga").html("Rp " + response['subtotal']);
+                    }
+                });
+            });
+        });
+    </script>
+
+    {{-- <script>
         var delivery_address_list = {{ Js::from($delivery_address_list) }}
         var delivery_address_choice = {{ Js::from($delivery_address_default) }}
     </script>
-    <script src={{ asset('js/main.js') }}></script>
     <script>
         function updateDeliveryAddress() {
             // delivery address
@@ -311,5 +368,5 @@
                 });
             });
         });
-    </script>
+    </script> --}}
 @endsection

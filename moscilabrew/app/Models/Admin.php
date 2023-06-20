@@ -87,6 +87,6 @@ class Admin extends Model
 
     public static function generatePrice($price)
     {
-        return 'Rp ' . number_format($amount, 0, ',', '.');
+        return 'Rp ' . number_format($price, 0, ',', '.');
     }   
 }

@@ -23,6 +23,10 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             VendorSeeder::class,
             CoffeeSeeder::class,
+            DeliveryDetailsSeeder::class,
+            DeliverySeeder::class,
+            MsDeliveriesSeeder::class,
+            MsDeliveryServicesSeeder::class,
         ]);
     }
 }

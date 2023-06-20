@@ -275,7 +275,7 @@
                 </div>
                 <div class="col-4">
                     <div class="my-border d-flex flex-column justify-content-center">
-                        <p>Stok : 55</p>
+                        <p>Stok : <?php echo e($coffee->jumlah_stok); ?></p>
                         <p>Harga : <span class="fw-bold fs-5"><?php echo e($coffee['price']); ?></span></p>
 
                         <form action="<?php echo e(route('cart.add', $coffee->id)); ?>" method="POST">
@@ -291,7 +291,7 @@
                                             </button>
                                         </span>
                                         <input type="text" name="quantity" class="form-control input-number"
-                                            value="1" min="1" max="10">
+                                            value="1" min="1" max="<?php echo e($coffee->jumlah_stok); ?>">
                                         <span class="input-group-text">
                                             <button type="button" class="btn btn-number" data-type="plus"
                                                 data-field="quantity">
@@ -308,7 +308,7 @@
                                 Keranjang
                             </button>
 
-                            
+
 
                             <?php if(session()->has('success')): ?>
                                 <!-- Modal -->
@@ -317,7 +317,8 @@
                                     <div class="modal-dialog" style="top: 50%; transform: translateY(-50%)">
                                         <div class="modal-content">
                                             <div class="modal-body">
-                                                Success add to cart!
+                                                <?php echo e(session('success')); ?>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -329,7 +330,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php endif; ?>
+                            <?php elseif(session()->has('failed')): ?>
+                                <!-- Modal -->
+                                <div class="modal fade" id="addToCartSuccessModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" style="top: 50%; transform: translateY(-50%)">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <?php echo e(session('failed')); ?>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         </form>
                     </div>
                 </div>
@@ -350,7 +368,7 @@
     <script src="https://kit.fontawesome.com/a72340eb77.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/fastbootstrap@1.1.1/dist/js/fastbootstrap.min.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             $("#addToCartSuccessModal").modal('show');
         });
     </script>

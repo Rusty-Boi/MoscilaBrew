@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Vendor;
+use App\Models\Coffee;
 use Illuminate\Http\Request;
 use \Illuminate\Validation\Rules\PASSWORD;
 use \Illuminate\Support\Facades\Auth;
@@ -13,8 +15,12 @@ class UserController extends Controller
         Daftar Transaksi
     */
     public function showDaftarTransaksi(){
+        
         return view('daftar-transaksi', [
-            'transactions' => User::allTransaction()
+            // 'transactions' => User::allTransaction()
+            'transactions' => Auth::user()->histories,
+            'coffees' => Coffee::all(),
+            'vendors' => Vendor::all()
         ]);
     }
     
