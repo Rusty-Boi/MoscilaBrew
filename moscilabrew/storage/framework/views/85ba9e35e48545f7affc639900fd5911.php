@@ -18,7 +18,7 @@
                 <form action="<?php echo e(route('coffeeBlend.beanChooser')); ?>" method="POST">
                     <?php echo csrf_field(); ?>
                     <div class="existingRecipe d-flex justify-content-end">
-                        <button class="btn btn-primary" id="receipt">Use Existing Recipe</button>
+                        <button class="btn btn-primary" disabled id="receipt">Use Existing Recipe</button>
                     </div>
                     <div class="row mt-2 justify-content-center align-items-center beans-chooser">
 

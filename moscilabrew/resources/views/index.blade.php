@@ -60,7 +60,7 @@
             <div class="row justify-content-center align-items-center g-2 g-md-3">
                 @foreach ($featured_coffee_catalog as $coffee)
                     <div class="col-11 col-md-3">
-                        <a class="featured-content" href="#">
+                        <a class="featured-content" href="/catalog">
                             <img src="{{ $coffee['img'] }}" alt="">
                             <span class="caption">{{ $coffee['coffee-name'] }}</span>
                         </a>

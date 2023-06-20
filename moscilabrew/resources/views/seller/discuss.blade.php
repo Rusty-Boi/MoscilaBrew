@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', '...')
+@section('title', 'Seller Discuss')
 
 @section('navbar')
     @include('layouts.header-seller')

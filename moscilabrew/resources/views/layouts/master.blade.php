@@ -32,5 +32,6 @@
 
     {{-- custom javascript --}}
     @yield('js')
+    <script src="https://kit.fontawesome.com/a72340eb77.js" crossorigin="anonymous"></script>
   </body>
 </html>

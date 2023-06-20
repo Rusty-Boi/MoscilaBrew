@@ -32,5 +32,6 @@
 
     
     <?php echo $__env->yieldContent('js'); ?>
+    <script src="https://kit.fontawesome.com/a72340eb77.js" crossorigin="anonymous"></script>
   </body>
 </html><?php /**PATH D:\Project\MoscilaBrew\moscilabrew\resources\views/layouts/master.blade.php ENDPATH**/ ?>

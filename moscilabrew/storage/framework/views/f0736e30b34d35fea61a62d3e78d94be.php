@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', '...'); ?>
+<?php $__env->startSection('title', 'Seller Dashboard | MoscilaBrew'); ?>
 
 <?php $__env->startSection('navbar'); ?>
     <?php echo $__env->make('layouts.header-seller', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

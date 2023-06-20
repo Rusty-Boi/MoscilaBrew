@@ -60,7 +60,7 @@
             <div class="row justify-content-center align-items-center g-2 g-md-3">
                 <?php $__currentLoopData = $featured_coffee_catalog; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $coffee): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-11 col-md-3">
-                        <a class="featured-content" href="#">
+                        <a class="featured-content" href="/catalog">
                             <img src="<?php echo e($coffee['img']); ?>" alt="">
                             <span class="caption"><?php echo e($coffee['coffee-name']); ?></span>
                         </a>
