@@ -25,7 +25,9 @@ use App\Http\Controllers\CoffeeBlendController;
 */
 
 Route::get('/', [AdminController::class, 'index'])->name('dashboard');
-
+Route::get('/aboutUs', function () {
+    return view('aboutus');
+});
 Route::middleware(['guest'])->group(function () {
     
     Route::get('/login', function () {
