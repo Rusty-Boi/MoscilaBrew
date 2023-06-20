@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', '...')
+@section('title', 'Add-product')
 
 @section('navbar')
     @include('layouts.header-seller')
@@ -30,7 +30,7 @@
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
                                 <input type="text" class="form-control form-control-sm" name="product_name" id="title" value="{{session('new_product')['product_name'] ?? ''}}"
-                                    aria-describedby="helpTitle" placeholder="Graphic card GIGABYTE GeForce RTX 3050" required>
+                                    aria-describedby="helpTitle" placeholder="" required>
                                 <small id="helpTitle" class="form-text text-muted">0/60</small>
                             </div>
                             <div class="mb-3">
