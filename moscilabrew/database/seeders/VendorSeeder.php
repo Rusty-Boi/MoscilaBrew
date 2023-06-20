@@ -15,12 +15,16 @@ class VendorSeeder extends Seeder
     {
         Vendor::create([
             'vendor_name' => 'Arutala',    
-            'vendor_logo' => 'img/coffee-pack.png'
+            'vendor_logo' => 'img/coffee-pack.png',
+            'no_rekening' => '123456789',
+            'nama_bank' => 'mandiri'
         ]);
-
+        
         Vendor::create([
             'vendor_name' => 'Dropshot',    
-            'vendor_logo' => 'img/coffee-pack.png'
+            'vendor_logo' => 'img/coffee-pack.png',
+            'no_rekening' => '123456789',
+            'nama_bank' => 'mandiri'
         ]);       
     }
 }
