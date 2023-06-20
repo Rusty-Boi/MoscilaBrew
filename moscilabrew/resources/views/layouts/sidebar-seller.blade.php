@@ -4,19 +4,18 @@
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li class="nav-item">
         <a href="/seller/dashboard" class="nav-link {{ (request()->is('seller/dashboard')) ? 'active' : '' }} py-3 border-bottom rounded-0" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-          <img src={{asset('img/home.png')}} width="40" height="40">          
+          <!-- <img src={{asset('img/home.png')}} width="40" height="40">-->
+          <!-- <img src="{{asset('img/seller-icon/house-chimney-solid.svg')}}" width="40" height="40" > -->
+          <i class="fa-solid fa-house-chimney fa-2xl" style="color: #a34a09;"></i>
         </a>
       </li>
       <li>
         <a href="/seller/discuss" class="nav-link {{ (request()->is('seller/discuss')) ? 'active' : '' }} py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Dashboard" data-bs-original-title="Dashboard">
-          <img src={{asset('img/chat-conversation.png')}} width="40" height="40">
+          <!-- <img src={{asset('img/chat-conversation.png')}} width="40" height="40"> -->
+          <i class="fa-solid fa-comments fa-2xl" style="color: #a34a09;"></i>
         </a>
       </li>
-      <li>
-        <a href="#" class="nav-link {{ (request()->is('#')) ? 'active' : '' }} py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
-          <img src={{asset('img/show-chart.png')}} width="40" height="40">
-        </a>
-      </li>
+      
       <li>
         <a href="/seller/add-product" class="nav-link {{ (request()->is('seller/add-product*')) ? 'active' : '' }} py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
           <img src={{asset('img/add-beans.png')}} width="40" height="40">
