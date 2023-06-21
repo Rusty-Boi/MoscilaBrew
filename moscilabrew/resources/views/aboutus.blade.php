@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center align-items-center" style="margin-top: 4rem; color: #ffffff;">
         <img class="z-0" src="{{ asset('img/about-us-img1.png') }}" alt="">
-        <div class="z-1 position-absolute">
+        <div class="z-1 position-absolute ms-4">
             <h3 style="font-size: 6vh; font-weight: bold;">We Deliver What You Brew</h3>
             <p style="font-size: 3vh; font-weight: 400; width: 50%;">We can help you make your own blend. Our website provides various bean for you to use in your coffee blend.</p>
         </div>

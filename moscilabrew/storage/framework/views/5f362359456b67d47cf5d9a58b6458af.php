@@ -22,7 +22,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <h5 class="card-title vendor-name mb-0"><?php echo e($vendor->vendor_name); ?></h5>
-                                        <p class="card-text partner-status bg-danger">
+                                        <p class="card-text partner-status">
                                             Gold Partner
                                             <img class="m-0 vendor-img"
                                                 src=<?php echo e(asset($partners_status_img['Gold Partner'])); ?>

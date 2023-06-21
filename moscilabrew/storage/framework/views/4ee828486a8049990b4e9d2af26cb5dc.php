@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', '...'); ?>
+<?php $__env->startSection('title', 'Add-product'); ?>
 
 <?php $__env->startSection('navbar'); ?>
     <?php echo $__env->make('layouts.header-seller', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -29,7 +29,7 @@
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
                                 <input type="text" class="form-control form-control-sm" name="product_name" id="title" value="<?php echo e(session('new_product')['product_name'] ?? ''); ?>"
-                                    aria-describedby="helpTitle" placeholder="Graphic card GIGABYTE GeForce RTX 3050" required>
+                                    aria-describedby="helpTitle" placeholder="" required>
                                 <small id="helpTitle" class="form-text text-muted">0/60</small>
                             </div>
                             <div class="mb-3">
