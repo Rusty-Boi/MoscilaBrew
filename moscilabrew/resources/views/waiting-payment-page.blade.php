@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-6 px-0" style="width: fit-content;">
                     <h3 style="font-weight: 700; font-size: 1rem;">
-                        {{$transaction->tgl_transaksi}}
+                        {{$transaction->tgl_transaksi ?? 'tidak muncil'}}
                     </h3>
                 </div>
             </div>

@@ -227,8 +227,8 @@ class CartController extends Controller
         ]);
     }
 
-    public function showWaitingPayment2($total_harga){
-
+    public function showWaitingPayment2(){
+        $total_harga = request('total_harga');
         return view('waiting-payment-page', [
             'total_harga' => $total_harga
         ]);

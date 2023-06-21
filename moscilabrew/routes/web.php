@@ -131,4 +131,4 @@ Route::post('/seller/storeProduct', [ProductController::class, 'store'])->name('
 
 Route::get('/waiting-payment{transaction}', [CartController::class, 'showWaitingPayment'])->name('showWaitingPayment');
 
-Route::get('/waiting-payment2{total_harga}', [CartController::class, 'showWaitingPayment2'])->name('showWaitingPayment2');
+Route::get('/waiting-payment/2', [CartController::class, 'showWaitingPayment2'])->name('showWaitingPayment2');

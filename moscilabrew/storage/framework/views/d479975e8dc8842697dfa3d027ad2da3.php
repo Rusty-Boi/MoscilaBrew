@@ -300,9 +300,10 @@
                     },
                     success: function(response) {
                         
+                        var total = response['subtotal']
                         $("p.blend_price").html("Rp " + response['blend_price']);
                         $("p.total-harga").html("Rp " + response['subtotal']);
-                        $('#buyBtn').attr(`href`, "<?php echo e(route('showWaitingPayment2', ['total_harga' => "+response['subtotal'] + "])); ?>")
+                        $('#buyBtn').attr(`href`, "/waiting-payment/2?total_harga="+total)
                     }
                 });
             });
