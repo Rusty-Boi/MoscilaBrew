@@ -257,7 +257,7 @@
                         <p class="fw-bold">Payment Summary</p>
                         <div class="d-flex justify-content-between">
                             <p>Coffee Blend</p>
-                            <p>Rp <?php echo e(number_format(session('priceDetail')['blend_price'], 0, ',', '.')); ?></p>
+                            <p class="blend_price">Rp <?php echo e(number_format((session('priceDetail')['blend_price'] ?? '0'), 0, ',', '.')); ?></p>
                         </div>
                         <div class="d-flex justify-content-between">
                             <p>Delivery-fee</p>
@@ -266,11 +266,11 @@
                         <hr>
                         <div class="d-flex justify-content-between fw-bold">
                             <p>Total Harga</p>
-                            <p>Rp <?php echo e(number_format(session('priceDetail')['subtotal'], 0, ',', '.')); ?></p>
+                            <p class="total-harga">Rp <?php echo e(number_format((session('priceDetail')['subtotal'] ?? '0'), 0, ',', '.')); ?></p>
                         </div>
                     </div>
-                    <div class="row m-3 justify-content-center ">
-                        <a id="buyBtn" href="<?php echo e(route('showWaitingPayment', ['transaction' => session('transaction')])); ?>" class="btn w-50 btn-primary"
+                    <div class="row m-3 justify-content-center">
+                        <a id="buyBtn" href="<?php echo e(route('showWaitingPayment2', ['total_harga' => (session('priceDetail')['subtotal'] ?? '0')])); ?>" class="btn w-50 btn-primary"
                             style="border: none; background-color: #EFC3A4; color: black;">Buy</a>
                     </div>
                 </div>
@@ -302,6 +302,7 @@
                         
                         $("p.blend_price").html("Rp " + response['blend_price']);
                         $("p.total-harga").html("Rp " + response['subtotal']);
+                        $('#buyBtn').attr(`href`, "<?php echo e(route('showWaitingPayment2', ['total_harga' => "+response['subtotal'] + "])); ?>")
                     }
                 });
             });

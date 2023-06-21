@@ -130,3 +130,5 @@ Route::post('/seller/storeProduct/{process_num}', [ProductController::class, 'ad
 Route::post('/seller/storeProduct', [ProductController::class, 'store'])->name('seller.storeProduct');
 
 Route::get('/waiting-payment{transaction}', [CartController::class, 'showWaitingPayment'])->name('showWaitingPayment');
+
+Route::get('/waiting-payment2{total_harga}', [CartController::class, 'showWaitingPayment2'])->name('showWaitingPayment2');

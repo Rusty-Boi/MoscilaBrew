@@ -60,9 +60,9 @@
                                 Nomor Rekening
                             </h3>
                             <div class="container" style="font-size: 1.2rem; font-weight: 700; padding-left: 0.4rem;">
-                                Rp {{ number_format((session('priceDetail')['subtotal'] ?? $transaction->subtotal), 0, ',', '.') }}
+                                Rp {{ number_format(($total_harga ?? $transaction->subtotal), 0, ',', '.') }}
                                 <button class="fa-regular fa-copy border-0"
-                                    style="background-color: rgba(239, 195, 164, 0.4);"></button>
+                                    style="background-color: rgba(239, 195, 16  4, 0.4);"></button>
                             </div>
                         </div>
                     </div>

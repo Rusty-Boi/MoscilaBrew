@@ -210,7 +210,7 @@ class CartController extends Controller
         dd('ok');
     }
 
-    public function showWaitingPayment($total_harga){
+    public function showWaitingPayment($transaction){
         $transaction = History::find(request('transaction'));
 
         // Auth::user()->orders->truncate();
@@ -224,6 +224,13 @@ class CartController extends Controller
 
         return view('waiting-payment-page', [
             'transaction' => $transaction
+        ]);
+    }
+
+    public function showWaitingPayment2($total_harga){
+
+        return view('waiting-payment-page', [
+            'total_harga' => $total_harga
         ]);
     }
 }
