@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', '...'); ?>
+<?php $__env->startSection('title', 'Your-profile'); ?>
 
 <?php $__env->startSection('navbar'); ?>
     <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -153,7 +153,7 @@ unset($__errorArgs, $__bag); ?>
                                 <div class="bar-name" style="font-weight: 700; font-size: 1.2rem;">Jenis Kelamin</div>
                                 <div class="bar-name" style="font-size: 1.2rem;--bs-border-opacity: 0.45;">
                                     <hr class="my-1" style="width: auto;">
-                                    <small><?php echo e(Auth::user()->gender); ?></small>
+                                    <small><?php echo e(Auth::user()->gender ??"Belum didefinisikan"); ?></small>
                                 </div>
                             </div>
                         </div>
@@ -200,7 +200,7 @@ unset($__errorArgs, $__bag); ?>
                                 <div class="bar-date" style="font-weight: 700; font-size: 1.2rem;">Tanggal Lahir</div>
                                 <div class="bar-date" style="font-size: 1.2rem;--bs-border-opacity: 0.45;">
                                     <hr class="my-1" style="width: auto;">
-                                    <small><?php echo e(Auth::user()->birth_date); ?></small>
+                                    <small><?php echo e(Auth::user()->birth_date ?? "Belum terisi"); ?></small>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +217,7 @@ unset($__errorArgs, $__bag); ?>
 
                                 <hr class="my-1" style="width: auto;">
                                 <div class="bar-email" style="--bs-border-opacity: 0.45;">
-                                    <small><?php echo e(Auth::user()->password); ?></small>
+                                    <small>***********</small>
                                 </div>
                             </div>
                             <div class="col-6 ">

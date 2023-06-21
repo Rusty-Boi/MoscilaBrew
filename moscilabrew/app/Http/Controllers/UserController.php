@@ -18,7 +18,7 @@ class UserController extends Controller
         
         return view('daftar-transaksi', [
             // 'transactions' => User::allTransaction()
-            'transactions' => Auth::user()->histories,
+            'transactions' => Auth::user()->histories->sortByDesc('tgl_transaksi'),
             'coffees' => Coffee::all(),
             'vendors' => Vendor::all()
         ]);
