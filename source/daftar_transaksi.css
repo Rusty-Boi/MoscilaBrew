@@ -1,0 +1,48 @@
+/* .Ttitle {
+    text-align: left;
+    margin-left: 20vw;
+    margin-top: 70px;
+    width: 30vw;
+  } */
+
+.container-search{
+    text-align: left;
+    margin-left: 20vw;
+    margin-top: 70px;
+    width: 20px;
+
+}
+
+.input-group-append {
+    cursor: pointer;
+  }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 30,
+  'wght' 40,
+  'GRAD' 40,
+  'opsz' 40
+}
+
+/* .card {
+  text-align: left;
+  margin-left: 20vw;
+  margin-top: 20px;
+  width: 30vw;
+} */
+
+.date {
+  font-size: 15px;
+}
+
+.vendor-name{
+  font-size: 25px;
+}
+
+.container-total{
+  font-size: 15px;
+}
+.product-title{
+  font-size: 20px;
+}
